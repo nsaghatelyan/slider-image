@@ -1036,8 +1036,6 @@ $GLOBALS['changespeed']=$slider[0]->param;
     'suppress_filters' => true );
 
     $recent_posts = wp_get_recent_posts( $args, ARRAY_A );
-	//print_r($recent_posts);
-	//echo get_the_post_thumbnail(1, 'thumbnail');
     $image = wp_get_attachment_image_src( get_post_thumbnail_id( 1 ), 'thumbnail' );
 	?>
 
@@ -1170,7 +1168,6 @@ $GLOBALS['changespeed']=$slider[0]->param;
             <ul class="huge_it_slider_<?php echo $sliderID; ?>">
 			  <?php
 			  $i=0;
-//                          var_dump($images);exit;
 			  foreach ($images as $key => $image_row) {
 			  	$imagerowstype=$image_row->sl_type;
 				if($image_row->sl_type == ''){
@@ -1510,9 +1507,7 @@ jQuery(document).ready(function($) {
 
 
 			}
-
-		//print_r($count);
-			?>
+				?>
 					
 			  </ul>
 
