@@ -1,5 +1,5 @@
 /**
- * bxSlider v4.2.5
+ * This is a fork of bxSlider v4.2.5
  * Copyright 2013-2015 Steven Wanderski
  * Written while drinking Belgian ales and listening to jazz
 
