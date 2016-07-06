@@ -10,7 +10,7 @@ Author URI: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
 */
 
-
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 add_action('media_buttons_context', 'add_my_custom_button');
 
 function add_my_custom_button($context) {

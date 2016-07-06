@@ -1,5 +1,5 @@
 <?php
-
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 function front_end_slider($images, $paramssld, $slider)
 {
  ob_start();

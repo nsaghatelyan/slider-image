@@ -1,4 +1,5 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 function      html_showStyles($param_values, $op_type)
 {
     ?>
