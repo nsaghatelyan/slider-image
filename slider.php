@@ -4,7 +4,7 @@
 Plugin Name: Huge IT Slider
 Plugin URI: http://huge-it.com/slider
 Description: Huge IT slider is a convenient tool for organizing the images represented on your website into sliders. Each product on the slider is assigned with a relevant slider, which makes it easier for the customers to search and identify the needed images within the slider.
-Version: 3.1.89
+Version: 3.1.90
 Author: Huge-IT
 Author URI: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -153,8 +153,7 @@ function huge_it_slider_Licensing(){
 	?>
     <div style="width:95%">
     <p>
-	This plugin is the non-commercial version of the Huge IT slider. If you want to customize to the styles and colors of your website,than you need to buy a license.
-	Purchasing a license will add possibility to customize the general options of the Huge IT slider. 
+	    This plugin is the LITE version of the Slider. If you want to customize to the styles and colors of your website,than you need to buy Full License. Purchasing Full License will add possibility to customize the general options of the Slider.
  </p>
 <br /><br />
 <a href="http://huge-it.com/slider/" class="button-primary" target="_blank">Purchase a License</a>
@@ -362,6 +361,42 @@ function huge_it_slider_featured_plugins()
 		</div>			  				
 		<div class="button-block">
 			<a href="http://huge-it.com/forms/" target="_blank">View Plugin</a>
+		</div>
+	</div>
+</div>
+<div class="element hugeitmicro-item">
+	<div class="left-block">
+		<div class="main-image-block">
+			<a href="http://huge-it.com/product-catalog/" target="_blank">
+				<img src="<?php echo plugins_url( 'images/catalog.png' , __FILE__ ); ?>">
+			</a>
+		</div>
+	</div>
+	<div class="right-block">
+		<div class="title-block"><a href="http://huge-it.com/product-catalog/" target="_blank"><h3>WordPress Product Catalog</h3></a></div>
+		<div class="description-block">
+			<p>Product Catalog introduces incomparable Product Catalog demonstration. Just use it to better lean about all advantages of Product Catalog.</p>
+		</div>
+		<div class="button-block">
+			<a href="http://huge-it.com/product-catalog/" target="_blank">View Plugin</a>
+		</div>
+	</div>
+</div>
+<div class="element hugeitmicro-item">
+	<div class="left-block">
+		<div class="main-image-block">
+			<a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank">
+				<img src="<?php echo plugins_url( 'images/responsive-slider.png' , __FILE__ ); ?>">
+			</a>
+		</div>
+	</div>
+	<div class="right-block">
+		<div class="title-block"><a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank"><h3>WordPress Responsive Slider</h3></a></div>
+		<div class="description-block">
+			<p>Create responsive wordpress slider in minutes. Bring awesome image slider, showcase post sliders for your WordPress website, display images and photos in beautiful sliders.</p>
+		</div>
+		<div class="button-block">
+			<a href="http://huge-it.com/wordpress-responsive-slider/" target="_blank">View Plugin</a>
 		</div>
 	</div>
 </div>

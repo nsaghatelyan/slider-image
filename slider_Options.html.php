@@ -62,197 +62,9 @@ function      html_showStyles($param_values, $op_type)
 	<?php $path_site2 = plugins_url("./images", __FILE__); ?>
 				<style>
 		/* banner */
-.free_version_banner {
-	position:relative;
-	display:block;
-	background-image:url(<?php echo $path_site2; ?>/wp_banner_bg.jpg);
-	background-position:top left;
-	background-repeat:repeat;
-	overflow:hidden;
-}
 
-.free_version_banner .manual_icon {
-	position:absolute;
-	display:block;
-	top:15px;
-	left:15px;
-	width: 140px;
-}
-
-.free_version_banner .usermanual_text {
-	font-weight: bold !important;
-	display:block;
-	float:left;
-	width:270px;
-	margin-left:75px;
-	font-family:'Open Sans',sans-serif;
-	font-size:14px;
-	font-style:italic;
-	color:#ffffff;
-	line-height:10px;
-	margin-top: 0;
-	padding-top: 15px;
-}
-
-.free_version_banner .usermanual_text a,
-.free_version_banner .usermanual_text a:link,
-.free_version_banner .usermanual_text a:visited {
-	display:inline-block;
-	font-family:'Open Sans',sans-serif;
-	font-size:17px;
-	font-weight:600;
-	font-style:italic;
-	color:#ffffff;
-	line-height:30.5px;
-	text-decoration:underline;
-}
-
-.free_version_banner .usermanual_text a:hover,
-.free_version_banner .usermanual_text a:focus,
-.free_version_banner .usermanual_text a:active {
-	text-decoration:underline;
-}
-
-.free_version_banner .get_full_version,
-.free_version_banner .get_full_version:link,
-.free_version_banner .get_full_version:visited {
-	padding-left: 60px;
-	padding-right: 4px;
-	display: inline-block;
-	position: absolute;
-	top: 15px;
-	right: calc(50% - 167px);
-	height: 38px;
-	width: 268px;
-	border: 1px solid rgba(255,255,255,.6);
-	font-family: 'Open Sans',sans-serif;
-	font-size: 23px;
-	color: #ffffff;
-	line-height: 43px;
-	text-decoration: none;
-	border-radius: 2px;
-}
-
-.free_version_banner .get_full_version:hover {
-	background:#ffffff;
-	color:#bf1e2e;
-	text-decoration:none;
-	outline:none;
-}
-
-.free_version_banner .get_full_version:focus,
-.free_version_banner .get_full_version:active {
-	
-}
-
-.free_version_banner .get_full_version:before {
-	content:'';
-	display:block;
-	position:absolute;
-	width:33px;
-	height:23px;
-	left:25px;
-	top:9px;
-	background-image:url(<?php echo $path_site2; ?>/wp_shop.png);
-	background-position:0px 0px;
-	background-repeat;
-}
-
-.free_version_banner .get_full_version:hover:before {
-	background-position:0px -27px;
-}
-
-.free_version_banner .huge_it_logo {
-	float:right;
-	margin:15px 15px;
-}
-
-.free_version_banner .description_text {
-	padding:0 0 13px 0;
-	position:relative;
-	display:block;
-	text-align:center;
-	font-family:'Open Sans',sans-serif;
-	color:#fffefe;
-	line-height:inherit;
-	margin: 0 auto;
-	width: 52%;
-}
-.free_version_banner .description_text p{
-	margin:0;
-	padding:0;
-	font-size: 14px;
-}
-.free_version_banner .hg_free_banner_bottom a {
-	text-decoration: none;
-}
-.free_version_banner .hg_view_plugins_block {
-	float: left;
-	position: relative;
-}
-.free_version_banner .hg_social_link_buttons {
-	float: right;
-	width:170px;
-	height:36px;
-	background:#fff;
-	border-radius:30px;
-	text-align:center;
-	margin-bottom: 20px;
-	margin-right: 15px;
-}
-.free_version_banner .hg_social_link_buttons a {
-	display: inline-block;
-	margin: 3px 3px; 			
-}
-.free_version_banner .hg_social_link_buttons a img {
-	width: 30px;
-}
-.hg_view_plugins_block a {
-	color: #fffefe;
-	display: inline-block;
-	margin-right: 27px;
-	text-decoration: none;
-	font-size: 16px;
-	font-weight: 600;
-	box-shadow: none;
-}
-.hg_view_plugins_block a:nth-child(1) {
-	margin-left: 15px;			
-}
-.hg_view_plugins_block a:hover {
-	text-decoration: underline;
-}
-.close_free_banner {
-    float: right;
-    color: #fff;
-    position: absolute;
-    right: 11px;
-    font-size: 24px;
-    top: 3px;
-    cursor: pointer;
-    transform: rotate(45deg);
-}
-.close_free_banner:hover {
-	color: #e7e3e3;
-}
-
-@media screen and (max-width: 1300px){
-    .free_version_banner .usermanual_text {
-        width: calc(100% - 210px);
-    }
-
-    .free_version_banner .get_full_version,
-    .free_version_banner .get_full_version:link,
-    .free_version_banner .get_full_version:visited {
-        top: 60px;
-    }
-
-    .free_version_banner .description_text {
-        margin-top: 40px;
-    }
-}
 		</style>
-   <div class="free_version_banner">
+<div class="free_version_banner" <?php if( isset($_COOKIE['hgSliderFreeBannerShow']) && isset($_COOKIE['hgSliderFreeBannerShow']) == "no" ){ echo 'style="display:none"'; } ?> >
 	<a class="close_free_banner">+</a>
 	<img class="manual_icon" src="<?php echo $path_site2; ?>/icon-user-manual.png" alt="user manual" />
 	<p class="usermanual_text">If you have any difficulties in using the options, Follow the link to <a href="http://huge-it.com/wordpress-video-gallery-user-manual/" target="_blank">User Manual</a></p>
@@ -260,22 +72,22 @@ function      html_showStyles($param_values, $op_type)
 			<a href="http://huge-it.com" target="_blank"><img class="huge_it_logo" src="<?php echo $path_site2; ?>/Huge-It-logo.png"/></a>
 			<div style="clear: both;"></div>
 	<div class="hg_social_link_buttons">
-		<a target="_blank" href="https://www.facebook.com/hugeit/"><img src="<?php echo $path_site2; ?>/f.png"></a>
-		<a target="_blank"  href="https://twitter.com/HugeITcom"><img src="<?php echo $path_site2; ?>/t.png"></a>
-		<a target="_blank"  href="https://plus.google.com/111845940220835549549"><img src="<?php echo $path_site2; ?>/g.png"></a>
-		<a target="_blank"  href="https://www.youtube.com/channel/UCueCH_ulkgQZhSuc0L5rS5Q"><img src="<?php echo $path_site2; ?>/y.png"></a>
+		<a target="_blank" class="fb" href="https://www.facebook.com/hugeit/"></a>
+		<a target="_blank" class="twitter"  href="https://twitter.com/HugeITcom"></a>
+		<a target="_blank" class="gplus" href="https://plus.google.com/111845940220835549549"></a>
+		<a target="_blank" class="yt"  href="https://www.youtube.com/channel/UCueCH_ulkgQZhSuc0L5rS5Q"></a>
 	</div>
 	<div class="hg_view_plugins_block">
 		<a target="_blank"  href="https://wordpress.org/support/view/plugin-reviews/slider-image">Rate Us</a>
 		<a target="_blank"  href="http://huge-it.com/wordpress-slider-demo-1-mixed-slider/">Full Demo</a>
 		<a target="_blank"  href="http://huge-it.com/wordpress-slider-faq/">FAQ</a>
 		<a target="_blank"  href="http://huge-it.com/contact-us/">Contact Us</a>
-	</div>			
-	<div  class="description_text"><p>This is the free version of the plugin. In order to use options from this section, get the full version. We appreciate every customer.</p></div>
+	</div>
+	<div  class="description_text"><p>This is the LITE version of the plugin. Click "GET THE FULL VERSION" for more advanced options. We appreciate every customer.</p></div>
 	<div style="clear: both;"></div>
 </div>
-            
-	
+
+
 	<div style="clear: both;"></div>
 <div id="poststuff">
 
@@ -285,7 +97,7 @@ function      html_showStyles($param_values, $op_type)
 				<a class="save-slider-options button-primary">Save</a>
 				<script>
 						jQuery(document).ready(function ($) {
-								
+
 								jQuery("#slideup<?php echo isset($key)?$key:''; ?>").click(function () {
 									window.parent.uploadID = jQuery(this).prev('input');
 									formfield = jQuery('.upload').attr('name');
@@ -298,12 +110,12 @@ function      html_showStyles($param_values, $op_type)
 									tb_remove();
 								};
 							});
-							
-				</script>		
+
+				</script>
 			</div>
 			<div id="slider-options-list">
 			<form action="admin.php?page=Options_slider_styles" method="post" id="adminForm" name="adminForm">
-		
+
 			<div class="options-block" id="options-block-slider">
 				<h3>Slider Styles</h3>
 				<div class="has-background">
@@ -331,7 +143,7 @@ function      html_showStyles($param_values, $op_type)
                                         </label>
 						<input name="params[slider_slider_background_color]" type="text" class="color" id="slider_slider_background_color" value="#<?php echo $param_values['slider_slider_background_color']; ?>" size="10">
 				</div>
-			
+
 				<div class="has-background">
 					<label for="slider_slideshow_border_size">Slider Border Size
                                             <div class="help">?
@@ -463,7 +275,7 @@ function      html_showStyles($param_values, $op_type)
                                                 </div>
                                             </div>
                                         </label>
-					<input type="hidden" value="off" name="params[slider_title_has_margin]" />					
+					<input type="hidden" value="off" name="params[slider_title_has_margin]" />
 					<input type="checkbox" id="slider_title_has_margin"  <?php if($param_values['slider_title_has_margin']  == 'on'){ echo 'checked="checked"'; } ?>  name="params[slider_title_has_margin]"  value="on" />
 				</div>
 				<div class="has-background">
@@ -592,7 +404,7 @@ function      html_showStyles($param_values, $op_type)
 								<td><input type="radio" value="center-bottom" id="slideshow_title_bottom-center" name="params[slider_title_position]" <?php if($param_values['slider_title_position'] == 'center-bottom'){ echo 'checked="checked"'; } ?> /></td>
 								<td><input type="radio" value="right-bottom" id="slideshow_title_bottom-right" name="params[slider_title_position]" <?php if($param_values['slider_title_position'] == 'right-bottom'){ echo 'checked="checked"'; } ?> /></td>
 							  </tr>
-							</tbody>	
+							</tbody>
 						</table>
 						</div>
 				</div>
@@ -665,7 +477,7 @@ function      html_showStyles($param_values, $op_type)
                                                 </div>
                                             </div>
                                         </label>
-					<select id="slider_description_text_align" name="params[slider_description_text_align]">	
+					<select id="slider_description_text_align" name="params[slider_description_text_align]">
 					  <option <?php if($param_values['slider_description_text_align'] == 'justify'){ echo 'selected'; } ?> value="justify">Full width</option>
 					  <option <?php if($param_values['slider_description_text_align'] == 'center'){ echo 'selected'; } ?> value="center">Center</option>
 					  <option <?php if($param_values['slider_description_text_align'] == 'left'){ echo 'selected'; } ?> value="left">Left</option>
@@ -759,12 +571,12 @@ function      html_showStyles($param_values, $op_type)
 								<td><input type="radio" value="center-bottom" id="slideshow_description_bottom-center" name="params[slider_description_position]" <?php if($param_values['slider_description_position'] == 'center-bottom'){ echo 'checked="checked"'; } ?> /></td>
 								<td><input type="radio" value="right-bottom" id="slideshow_description_bottom-right" name="params[slider_description_position]" <?php if($param_values['slider_description_position'] == 'right-bottom'){ echo 'checked="checked"'; } ?> /></td>
 							  </tr>
-							</tbody>	
+							</tbody>
 						</table>
 						</div>
 				</div>
 			</div>
-			
+
 			<div class="options-block" id="options-block-thumbnail">
 				<h3>Navigation Thumbnails Styles</h3>
 				<div class="has-background">
@@ -777,7 +589,7 @@ function      html_showStyles($param_values, $op_type)
                                             </div>
                                         </label>
 					<input type="text" name="params[slider_thumb_count_slides]" id="slider_thumb_count_slides" value="<?php echo $param_values['slider_thumb_count_slides']; ?>" class="text" />
-				</div>				
+				</div>
 				<div >
 					<label for="slider_thumb_height">Slider Thumb Height
                                             <div class="help">?
@@ -826,13 +638,13 @@ function      html_showStyles($param_values, $op_type)
 						<span><?php echo $param_values['slider_thumb_passive_color_trans']; ?>%</span>
 					</div>
 				</div>
-				
-				
+
+
 
 			</div>
 				<div class="options-block" id="options-block-navigation">
 					<h3>Navigation Dots Styles</h3>
-				
+
 				<div class="has-background">
 					<label for="slider_dots_position_new">Navigation Dots Position
                                             <div class="help">?
@@ -869,11 +681,11 @@ function      html_showStyles($param_values, $op_type)
                                         </label>
 					<input type="text" class="color" name="params[slider_active_dot_color]" id="slider_active_dot_color" value="<?php echo $param_values['slider_active_dot_color']; ?>" class="text" />
 				</div>
-				
-				
+
+
 
 			</div>
-			
+
 			<!-- /////////// -->
 				<div class="options-block2" id="options-block-thumbnail"><!-- <div class="options-block" id="options-block-title"> -->
 					<div>
@@ -886,7 +698,7 @@ function      html_showStyles($param_values, $op_type)
 		                                                </div>
 		                                            </div>
 		                                        </label>
-							<input type="hidden" value="off" name="params[slider_show_arrows]" />		
+							<input type="hidden" value="off" name="params[slider_show_arrows]" />
 							<input type="checkbox" id="slider_show_arrows" <?php if($param_values['slider_show_arrows']  == 'on'){ echo 'checked="checked"'; } ?> name="params[slider_show_arrows]" value="on" />
 						</div>
 						<div class="has-height " style="padding-top:20px;">
@@ -919,7 +731,7 @@ function      html_showStyles($param_values, $op_type)
 							</div>
 							<input type="radio" name="params[slider_navigation_type]" value="3" <?php if($param_values['slider_navigation_type'] == 3){ echo 'checked="checked"'; } ?>>
 						</li>
-						
+
 						<li <?php if($param_values['slider_navigation_type'] == 4){ echo 'class="active"'; } ?>>
 							<div class="image-block">
 								<img src="<?php echo $path_site; ?>/arrows/arrows.cube.dark.png" alt="" />
@@ -955,7 +767,7 @@ function      html_showStyles($param_values, $op_type)
 								<img src="<?php echo $path_site; ?>/arrows/arrows.circle.blue.png" alt="" />
 							</div>
 							<input type="radio" name="params[slider_navigation_type]" value="9" <?php if($param_values['slider_navigation_type'] == 9){ echo 'checked="checked"'; } ?>>
-						</li>	
+						</li>
 						<li <?php if($param_values['slider_navigation_type'] == 10){ echo 'class="active"'; } ?>>
 							<div class="image-block">
 								<img src="<?php echo $path_site; ?>/arrows/arrows.circle.green.png" alt="" />
@@ -973,19 +785,19 @@ function      html_showStyles($param_values, $op_type)
 								<img src="<?php echo $path_site; ?>/arrows/arrows.green.retro.png" alt="" />
 							</div>
 							<input type="radio" name="params[slider_navigation_type]" value="12" <?php if($param_values['slider_navigation_type'] == 12){ echo 'checked="checked"'; } ?>>
-						</li>	
+						</li>
 						<li <?php if($param_values['slider_navigation_type'] == 13){ echo 'class="active"'; } ?>>
 								<div class="image-block">
 									<img src="<?php echo $path_site; ?>/arrows/arrows.red.circle.png" alt="" />
 								</div>
 								<input type="radio" name="params[slider_navigation_type]" value="13" <?php if($param_values['slider_navigation_type'] == 13){ echo 'checked="checked"'; } ?>>
-						</li>	
+						</li>
 						<li class="color" <?php if($param_values['slider_navigation_type'] == 14){ echo 'class="active"'; } ?>>
 								<div class="image-block">
 									<img src="<?php echo $path_site; ?>/arrows/arrows.triangle.white.png" alt="" />
 								</div>
 								<input type="radio" name="params[slider_navigation_type]" value="14" <?php if($param_values['slider_navigation_type'] == 14){ echo 'checked="checked"'; } ?>>
-						</li>	
+						</li>
 						<li <?php if($param_values['slider_navigation_type'] == 15){ echo 'class="active"'; } ?>>
 								<div class="image-block">
 									<img src="<?php echo $path_site; ?>/arrows/arrows.ancient.png" alt="" />
@@ -997,18 +809,18 @@ function      html_showStyles($param_values, $op_type)
 									<img src="<?php echo $path_site; ?>/arrows/arrows.black.out.png" alt="" />
 								</div>
 								<input type="radio" name="params[slider_navigation_type]" value="16" <?php if($param_values['slider_navigation_type'] == 16){ echo 'checked="checked"'; } ?>>
-						</li>							
+						</li>
 					</ul>
 					</div>
 				</div>
 
 			<div id="post-body-footer">
-				
+
 				<a onclick="document.getElementById('adminForm').submit()" class="save-slider-options button-primary">Save</a>
 				<div class="clear"></div>
 				<script>
 						jQuery(document).ready(function ($) {
-								
+
 								jQuery("#slideup<?php echo isset($key)?$key:''; ?>").click(function () {
 									window.parent.uploadID = jQuery(this).prev('input');
 									formfield = jQuery('.upload').attr('name');
@@ -1021,8 +833,8 @@ function      html_showStyles($param_values, $op_type)
 									tb_remove();
 								};
 							});
-							
-				</script>		
+
+				</script>
 			</div>
 			</form>
 		</div>

@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/slider/
 Tags: slider, slideshow, wordpress slider, image slider, Photo Slider, slider plugin, responsive slider, image slider, post slider, video slider, youtube slider, wordpress slideshow,
 Requires at least: 3.0.1
 Tested up to: 4.5.3
-Stable tag: 3.1.89
+Stable tag: 3.1.90
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,12 +12,14 @@ Slider Huge-IT is an awesome WordPress Slider Plugin with many nice features. Ju
 
 == Description ==
 
-### Wordpress Slider
+### Check out useful links and demo page, get support or contribute for Responsive Slider.
 
-* [Wordpress Slider](http://huge-it.com/slider/)
-* [Demo](http://huge-it.com/wordpress-slider-demo-1-mixed-slider/)
-* [FAQ](http://huge-it.com/wordpress-slider-faq/)
-* [User Manual](http://huge-it.com/wordpress-slider-user-manual/)
+* [Wordpress Responsive Slider](Wordpress Slider](http://huge-it.com/slider/)
+* [Responsive Slider Demo](http://huge-it.com/wordpress-slider-demo-1-mixed-slider/)
+* [Responsive Slider FAQ](http://huge-it.com/wordpress-slider-faq/)
+* [Responsive Slider User Manual](http://huge-it.com/wordpress-slider-user-manual/)
+* [Responsive Slider Support](http://huge-it.com/contact-us/)
+* [Responsive Slider GitHub Project](https://github.com/Huge-IT/slider-image)
 
 https://www.youtube.com/watch?v=oIcsrVHNDWo
 
@@ -321,6 +323,10 @@ After installation of pro version, in General Options all your changes will be s
 If you think, that you found a bug in our [WordPress Slider](http://huge-it.com/slider/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 3.1.90 =
+* 1) We have fixed the bug on mobile devices, which was stopping image slide navigation.
+* 2) We have also used this bug fix opportunity to update the main banner of the plugin page in order to update the banner info and mention new features of Slider.  
 
 = 3.1.89 =
 * Added credits and attribution in the source code refering the original authors.
