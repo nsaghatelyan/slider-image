@@ -14,7 +14,7 @@ Slider Huge-IT is an awesome WordPress Slider Plugin with many nice features. Ju
 
 ### Check out useful links and demo page, get support or contribute for Responsive Slider.
 
-* [Wordpress Responsive Slider](Wordpress Slider](http://huge-it.com/slider/)
+* [Wordpress Responsive Slider](http://huge-it.com/slider/)
 * [Responsive Slider Demo](http://huge-it.com/wordpress-slider-demo-1-mixed-slider/)
 * [Responsive Slider FAQ](http://huge-it.com/wordpress-slider-faq/)
 * [Responsive Slider User Manual](http://huge-it.com/wordpress-slider-user-manual/)
