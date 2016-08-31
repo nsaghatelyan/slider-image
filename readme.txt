@@ -3,8 +3,8 @@ Contributors: Huge-IT
 Donate link: http://huge-it.com/slider/
 Tags: slider, slideshow, wordpress slider, image slider, Photo Slider, slider plugin, responsive slider, image slider, post slider, video slider, youtube slider, wordpress slideshow,
 Requires at least: 3.0.1
-Tested up to: 4.5.3
-Stable tag: 3.1.90
+Tested up to: 4.6
+Stable tag: 3.1.91
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,14 +12,16 @@ Slider Huge-IT is an awesome WordPress Slider Plugin with many nice features. Ju
 
 == Description ==
 
-### Check out useful links and demo page, get support or contribute for Responsive Slider.
+**Slider**
 
-* [Wordpress Responsive Slider](http://huge-it.com/slider/)
-* [Responsive Slider Demo](http://huge-it.com/wordpress-slider-demo-1-mixed-slider/)
-* [Responsive Slider FAQ](http://huge-it.com/wordpress-slider-faq/)
-* [Responsive Slider User Manual](http://huge-it.com/wordpress-slider-user-manual/)
-* [Responsive Slider Support](http://huge-it.com/contact-us/)
-* [Responsive Slider GitHub Project](https://github.com/Huge-IT/slider-image)
+### Check out useful links and demo page, get support or contribute for Slider.
+
+* [Wordpress Slider](http://huge-it.com/slider/)
+* [Slider Demo](http://huge-it.com/wordpress-slider-demo-1-mixed-slider/)
+* [Slider FAQ](http://huge-it.com/wordpress-slider-faq/)
+* [Slider User Manual](http://huge-it.com/wordpress-slider-user-manual/)
+* [Slider Support](http://huge-it.com/contact-us/)
+* [Slider GitHub Project](https://github.com/Huge-IT/slider-image)
 
 https://www.youtube.com/watch?v=oIcsrVHNDWo
 
@@ -323,6 +325,12 @@ After installation of pro version, in General Options all your changes will be s
 If you think, that you found a bug in our [WordPress Slider](http://huge-it.com/slider/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 3.1.91 =
+1. Tested and made the plugin compatible with WordPress version 4.6
+2. Edited wrong links of banners, now leading to the correct products in the back end.
+3. Changed the expression "Free" to "Lite" as recommended in the WordPress forums
+4. Added a banner leading to social networks and video guides
 
 = 3.1.90 =
 * 1) We have fixed the bug on mobile devices, which was stopping image slide navigation.
