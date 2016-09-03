@@ -3,7 +3,7 @@ This is a fork of Vimeo's js library
  */
 if(typeof HUGEIT_VIMEOS== "undefined") {
     HUGEIT_VIMEOS = {};
-(function($, window) {
+(function(window) {
 
     var vimeoJqueryAPI = {
 
@@ -29,7 +29,7 @@ if(typeof HUGEIT_VIMEOS== "undefined") {
             }
 
             //store data as JSON object
-            data = $.type(d.originalEvent.data) === "string" ? $.parseJSON(d.originalEvent.data) : d.originalEvent.data;
+            data = jQuery.type(d.originalEvent.data) === "string" ? jQuery.parseJSON(d.originalEvent.data) : d.originalEvent.data;
 
             //make sure data is not blank
             if(!data){
@@ -58,7 +58,7 @@ if(typeof HUGEIT_VIMEOS== "undefined") {
 
         setPlayerID : function(d){
 
-            return $("iframe[src*=" + d.player_id + "]");
+            return jQuery("iframe[src*=" + d.player_id + "]");
 
         },
 
@@ -84,7 +84,7 @@ if(typeof HUGEIT_VIMEOS== "undefined") {
                 case 'ready':
 
                     //Go through all events attached to this element, and set an event listener
-                    for(var prop in $._data(vid[0], "events")){
+                    for(var prop in jQuery._data(vid[0], "events")){
                         if(prop.match(/loadProgress|playProgress|play|pause|finish|seek|cuechange/)){
                             vid[0].contentWindow.postMessage(JSON.stringify({method: 'addEventListener', value: prop}), api);
                         }
@@ -139,10 +139,10 @@ if(typeof HUGEIT_VIMEOS== "undefined") {
     jQuery(document).ready(function(){
 
         //go through every iframe with "vimeo.com" in src attribute, and verify it has "player_id" query string
-        $("iframe[src*='vimeo.com']").each(function(index){
+        jQuery("iframe[src*='vimeo.com']").each(function(index){
 
             //save the current src attribute
-            var url = $(this).attr('src');
+            var url = jQuery(this).attr('src');
 
             //if they haven't added "player_id" in their query string, let's add one.
             if(url.match(/player_id/g) === null){
@@ -151,10 +151,10 @@ if(typeof HUGEIT_VIMEOS== "undefined") {
                 var firstSeperator = (url.indexOf('?') === -1 ? '?' : '&');
 
                 //setup a serialized player_id with jQuery (use an unusual name in case someone manually sets the same name)
-                var param = $.param({"api": 1, "player_id": "vvvvimeoVideo-" + index});
+                var param = jQuery.param({"api": 1, "player_id": "vvvvimeoVideo-" + index});
                 
                 //reload the vimeo videos that don't have player_id
-                $(this).attr("src", url + firstSeperator + param);
+                jQuery(this).attr("src", url + firstSeperator + param);
 
             } 
 
@@ -163,7 +163,7 @@ if(typeof HUGEIT_VIMEOS== "undefined") {
     
 
     //this is what kicks things off. Whenever Vimeo sends window message to us, was check to see what it is.
-    $(window).on("message", function(e){ vimeoJqueryAPI.init(e); });
+    jQuery(window).on("message", function(e){ vimeoJqueryAPI.init(e); });
 
 
     /**
@@ -173,7 +173,7 @@ if(typeof HUGEIT_VIMEOS== "undefined") {
      * @param option1 {string} The method to send to vimeo.
      * @param option2 {string|function} If a string, it's the value (i.e. setVolume 2) otherwise, it's a callback function
      */
-    $.vimeo = function(element, option1, option2) {
+    jQuery.vimeo = function(element, option1, option2) {
 
         var message = {},
             catchMethodLength = vimeoJqueryAPI.catchMethods.methodreturn.length;
@@ -211,10 +211,10 @@ if(typeof HUGEIT_VIMEOS== "undefined") {
         return element;
     };
 
-    $.fn.vimeo = function(option1, option2) {
-            return $.vimeo(this, option1, option2);
+    jQuery.fn.vimeo = function(option1, option2) {
+            return jQuery.vimeo(this, option1, option2);
     };
 
 
-})(jQuery, window);
+})(window);
 }

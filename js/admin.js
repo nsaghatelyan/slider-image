@@ -9,6 +9,7 @@ jQuery(document).ready(function () {
 	});	
 	jQuery('.slider-options .save-slider-options').click(function(){
 		alert("General Settings are disabled in free version. If you need those functionalityes, you need to buy the commercial version.");
+		return false;
 	});	
 		
 	jQuery('input[data-slider="true"]').bind("slider:changed", function (event, data) {

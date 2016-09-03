@@ -1,5 +1,5 @@
 /**
- * jquery.slicebox.js v1.1.0
+ * This is a fork of jquery.slicebox.js v1.1.0
  * http://www.codrops.com
  *
  * Licensed under the MIT license.
@@ -9,7 +9,7 @@
  * http://www.codrops.com
  */
 
-;( function( $, window, undefined ) {
+( function( window, undefined ) {
 	
 	'use strict';
 
@@ -22,16 +22,16 @@
 	* Copyright 2011 @louis_remi
 	* Licensed under the MIT license.
 	*/
-	var $event = $.event,
+	var $event = jQuery.event,
 	$special,
 	resizeTimeout;
 
 	$special = $event.special.debouncedresize = {
 		setup: function() {
-			$( this ).on( "resize", $special.handler );
+			jQuery( this ).on( "resize", $special.handler );
 		},
 		teardown: function() {
-			$( this ).off( "resize", $special.handler );
+			jQuery( this ).off( "resize", $special.handler );
 		},
 		handler: function( event, execAsap ) {
 			// Save the context
@@ -57,7 +57,7 @@
 	// ======================= imagesLoaded Plugin ===============================
 	// https://github.com/desandro/imagesloaded
 
-	// $('#my-container').imagesLoaded(myFunction)
+	// jQuery('#my-container').imagesLoaded(myFunction)
 	// execute a callback when all images have loaded.
 	// needed because .load() doesn't work on cached images
 
@@ -70,18 +70,18 @@
 	// blank image data-uri bypasses webkit log warning (thx doug jones)
 	var BLANK = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
 
-	$.fn.imagesLoaded = function( callback ) {
+	jQuery.fn.imagesLoaded = function( callback ) {
 		var $this = this,
-			deferred = $.isFunction($.Deferred) ? $.Deferred() : 0,
-			hasNotify = $.isFunction(deferred.notify),
+			deferred = jQuery.isFunction(jQuery.Deferred) ? jQuery.Deferred() : 0,
+			hasNotify = jQuery.isFunction(deferred.notify),
 			$images = $this.find('img').add( $this.filter('img') ),
 			loaded = [],
 			proper = [],
 			broken = [];
 
 		// Register deferred callbacks
-		if ($.isPlainObject(callback)) {
-			$.each(callback, function (key, value) {
+		if (jQuery.isPlainObject(callback)) {
+			jQuery.each(callback, function (key, value) {
 				if (key === 'callback') {
 					callback = value;
 				} else if (deferred) {
@@ -91,8 +91,8 @@
 		}
 
 		function doneLoading() {
-			var $proper = $(proper),
-				$broken = $(broken);
+			var $proper = jQuery(proper),
+				$broken = jQuery(broken);
 
 			if ( deferred ) {
 				if ( broken.length ) {
@@ -102,14 +102,14 @@
 				}
 			}
 
-			if ( $.isFunction( callback ) ) {
+			if ( jQuery.isFunction( callback ) ) {
 				callback.call( $this, $images, $proper, $broken );
 			}
 		}
 
 		function imgLoaded( img, isBroken ) {
 			// don't proceed if BLANK image, or image is already loaded
-			if ( img.src === BLANK || $.inArray( img, loaded ) !== -1 ) {
+			if ( img.src === BLANK || jQuery.inArray( img, loaded ) !== -1 ) {
 				return;
 			}
 
@@ -124,11 +124,11 @@
 			}
 
 			// cache image and its state for future calls
-			$.data( img, 'imagesLoaded', { isBroken: isBroken, src: img.src } );
+			jQuery.data( img, 'imagesLoaded', { isBroken: isBroken, src: img.src } );
 
 			// trigger deferred progress method if present
 			if ( hasNotify ) {
-				deferred.notifyWith( $(img), [ isBroken, $images, $(proper), $(broken) ] );
+				deferred.notifyWith( jQuery(img), [ isBroken, $images, jQuery(proper), jQuery(broken) ] );
 			}
 
 			// call doneLoading and clean listeners if all images are loaded
@@ -150,7 +150,7 @@
 
 				// find out if this image has been already checked for status
 				// if it was, and src has not changed, call imgLoaded on it
-				var cached = $.data( el, 'imagesLoaded' );
+				var cached = jQuery.data( el, 'imagesLoaded' );
 				if ( cached && cached.src === src ) {
 					imgLoaded( el, cached.isBroken );
 					return;
@@ -177,17 +177,17 @@
 	};
 
 	// global
-	var $window = $( window ),
+	var $window = jQuery( window ),
 		Modernizr = window.Modernizr;
 
-	$.Slicebox = function( options, element ) {
+	jQuery.Slicebox = function( options, element ) {
 		
-		this.$el = $( element );
+		this.$el = jQuery( element );
 		this._init( options );
 		
 	};
 
-	$.Slicebox.defaults = {
+	jQuery.Slicebox.defaults = {
 		// (v)ertical, (h)orizontal or (r)andom
 		orientation : 'v',
 		// perspective value
@@ -225,12 +225,12 @@
 		onReady : function() { return false; }
 	};
 
-	$.Slicebox.prototype = {
+	jQuery.Slicebox.prototype = {
 
 		_init : function( options ) {
 			
 			// options
-			this.options = $.extend( true, {}, $.Slicebox.defaults, options );
+			this.options = jQuery.extend( true, {}, jQuery.Slicebox.defaults, options );
 
 			this._validate();
 
@@ -244,7 +244,7 @@
 
 				return false;
 
-			};
+			}
 
 			// suport for css 3d transforms and css transitions
 			this.support = Modernizr.csstransitions && Modernizr.csstransforms3d;
@@ -437,7 +437,6 @@
 				this._rotate();
 			
 			}
-
 		},
 		_fade : function( dir ) {
 
@@ -450,7 +449,7 @@
 			
 			this.$items.eq( this.current ).fadeIn( this.options.fallbackFadeSpeed, function() {
 
-				$( this ).css( 'display', 'block' ).addClass( 'sb-current' );
+				jQuery( this ).css( 'display', 'block' ).addClass( 'sb-current' );
 				self.$el.css( 'height', 'auto' );
 				self.$items.css( 'position', 'relative' );
 				self.isAnimating = false;
@@ -498,7 +497,7 @@
 					'height' : this.size.height,
 					'perspective' : this.options.perspective + 'px'
 				},
-				config = $.extend( this.options, {
+				config = jQuery.extend( this.options, {
 					size : this.size,
 					items : this.$items,
 					direction : dir,
@@ -508,7 +507,7 @@
 				} ),
 				self = this;
 
-			this.$box = $('<div>').addClass( 'sb-perspective' ).css( boxStyle ).appendTo( this.$el );
+			this.$box = jQuery('<div>').addClass( 'sb-perspective' ).css( boxStyle ).appendTo( this.$el );
 
 			this.cuboids = [];
 
@@ -516,7 +515,7 @@
 
 			for( var i = 0; i < this.options.cuboidsCount; ++i ) {
 
-				var cuboid = new $.Cuboid( config, i );
+				var cuboid = new jQuery.Cuboid( config, i );
 				
 				this.$box.append( cuboid.getEl() );
 
@@ -645,7 +644,7 @@
 
 	};
 
-	$.Cuboid = function( config, pos ) {
+	jQuery.Cuboid = function( config, pos ) {
 
 		this.config = config;
 		this.pos = pos;
@@ -655,7 +654,7 @@
 
 	};
 
-	$.Cuboid.prototype = {
+	jQuery.Cuboid.prototype = {
 
 		_setSize : function() {
 
@@ -685,7 +684,7 @@
 			// how much this cuboid is going to move (left or top values)
 			this.disperseFactor = this.config.disperseFactor * ( ( this.pos + 1 ) - middlepos );
 
-			this.style = $.extend( {
+			this.style = jQuery.extend( {
 				'-webkit-transition' : '-webkit-transform ' + this.config.speed + 'ms ' + this.config.easing,
 				'-moz-transition' : '-moz-transform ' + this.config.speed + 'ms ' + this.config.easing,
 				'-o-transition' : '-o-transform ' + this.config.speed + 'ms ' + this.config.easing,
@@ -748,14 +747,14 @@
 		},
 		getEl : function() {
 
-			this.$el = $('<div/>').css( this.style )
+			this.$el = jQuery('<div/>').css( this.style )
 					.css( this.animationStyles.side1 )
-					.append( $('<div/>').addClass('sb-side').css( this.sidesStyles.frontSideStyle ) )
-					.append( $('<div/>').addClass('sb-side').css( this.sidesStyles.backSideStyle ) )
-					.append( $('<div/>').addClass('sb-side').css( this.sidesStyles.rightSideStyle ) )
-					.append( $('<div/>').addClass('sb-side').css( this.sidesStyles.leftSideStyle ) )
-					.append( $('<div/>').addClass('sb-side').css( this.sidesStyles.topSideStyle ) )
-					.append( $('<div/>').addClass('sb-side').css( this.sidesStyles.bottomSideStyle ) );
+					.append( jQuery('<div/>').addClass('sb-side').css( this.sidesStyles.frontSideStyle ) )
+					.append( jQuery('<div/>').addClass('sb-side').css( this.sidesStyles.backSideStyle ) )
+					.append( jQuery('<div/>').addClass('sb-side').css( this.sidesStyles.rightSideStyle ) )
+					.append( jQuery('<div/>').addClass('sb-side').css( this.sidesStyles.leftSideStyle ) )
+					.append( jQuery('<div/>').addClass('sb-side').css( this.sidesStyles.topSideStyle ) )
+					.append( jQuery('<div/>').addClass('sb-side').css( this.sidesStyles.bottomSideStyle ) );
 			
 			this._showImage( this.config.prev );
 			
@@ -779,7 +778,7 @@
 				case 3 : sideIdx = 1; break;
 				case 4 : sideIdx = ( this.config.o === 'v' ) ? 5 : 3; break;
 
-			};
+			}
 
 			imgParam.backgroundPosition = ( this.config.o === 'v' ) ? - ( this.pos * this.size.width ) + 'px 0px' : '0px -' + ( this.pos * this.size.height ) + 'px';
 			this.$el.children().eq( sideIdx ).css( imgParam );
@@ -798,7 +797,7 @@
 						case 2 : animationStyle = self.animationStyles.side3; self.side = 3; break;
 						case 3 : animationStyle = self.animationStyles.side4; self.side = 4; break;
 						case 4 : animationStyle = self.animationStyles.side1; self.side = 1; break;
-					};
+					}
 				
 				}
 				else {
@@ -808,7 +807,7 @@
 						case 2 : animationStyle = self.animationStyles.side1; self.side = 1; break;
 						case 3 : animationStyle = self.animationStyles.side2; self.side = 2; break;
 						case 4 : animationStyle = self.animationStyles.side3; self.side = 3; break;
-					};
+					}
 
 				}
 				
@@ -855,9 +854,9 @@
 
 	};
 	
-	$.fn.slicebox = function( options ) {
+	jQuery.fn.slicebox = function( options ) {
 
-		var self = $.data( this, 'slicebox' );
+		var self = jQuery.data( this, 'slicebox' );
 		
 		if ( typeof options === 'string' ) {
 			
@@ -873,7 +872,7 @@
 				
 				}
 				
-				if ( !$.isFunction( self[options] ) || options.charAt(0) === "_" ) {
+				if ( !jQuery.isFunction( self[options] ) || options.charAt(0) === "_" ) {
 
 					logError( "no such method '" + options + "' for slicebox self" );
 					return;
@@ -896,7 +895,7 @@
 				}
 				else {
 
-					self = $.data( this, 'slicebox', new $.Slicebox( options, this ) );
+					self = jQuery.data( this, 'slicebox', new jQuery.Slicebox( options, this ) );
 				
 				}
 
@@ -908,4 +907,4 @@
 		
 	};
 	
-} )( jQuery, window );
+} )( window );
