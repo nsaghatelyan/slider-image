@@ -31,9 +31,9 @@ add_filter('media_view_strings', 'hugeit_slider_remove_media_tab' );
 function hugeit_slider_remove_media_tab($strings) {
 	return $strings;
 }
-//todo: hanel
-add_action('init', 'hugeit_sldier_do_output_buffer' );
-function hugeit_sldier_do_output_buffer() {
+
+add_action('init', 'hugeit_slider_do_output_buffer' );
+function hugeit_slider_do_output_buffer() {
 	if (isset($_GET['page']) && $_GET['page'] === 'sliders_huge_it_slider') {
 		ob_start();
 	}
@@ -2307,7 +2307,7 @@ function hugeit_slider_add_style_to_header( $id ) {
 <?php }
 /***</add>***/
 
-function huge_it_slider_activate() {
+function hugeit_slider_activate() {
 	global $wpdb;
 	$sql_huge_itslider_params = "
 CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itslider_params`(
@@ -2588,10 +2588,10 @@ query6;
 
 	/****</change image table url type>****/
 }
-register_activation_hook(plugins_url(plugin_basename( __FILE__ ),__FILE__), 'huge_it_slider_activate');
+register_activation_hook(plugins_url(plugin_basename( __FILE__ ),__FILE__), 'hugeit_slider_activate' );
 require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 $plugin_info = get_plugin_data( ABSPATH . 'wp-content/plugins/slider-image/slider.php' );
 if($plugin_info['Version'] > '2.9.2'){
-	huge_it_slider_activate();
+	hugeit_slider_activate();
 }
 

@@ -364,8 +364,7 @@ function hugeit_slider_popup_posts( $id ) {
 
 	if ( isset( $_POST["lastposts"] ) ) {
 		$_POST["lastposts"] = esc_html( $_POST["lastposts"] );
-		// todo: bug
-		$query              = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "posts WHERE post_type = 'post' AND post_status = 'publish' ORDER BY id DESC LIMIT 0, " . $_POST["lastposts"] );
+		$query              = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "posts WHERE post_type = 'post' AND post_status = 'publish' ORDER BY id DESC LIMIT 0, " . absint($_POST["lastposts"]) );
 		$rowspostslast      = $wpdb->get_results( $query );
 		foreach ( $rowspostslast as $rowspostslastfor ) {
 
