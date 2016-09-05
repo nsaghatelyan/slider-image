@@ -96,7 +96,7 @@ function hugeit_slider_add_style_to_header( $id ) {
 		.huge_it_slideshow_image_wrap_<?php echo $sliderID; ?> {
 			height:<?php echo $sliderheight - 2*$sliderBorderWidth+$thumbHeight; ?>px;
 			width:<?php  echo $sliderwidth - 2*$sliderBorderWidth; ?>px;
-			max-width: calc(100% -<?php echo 2*$sliderBorderWidth; ?>px);
+			max-width: calc(100% - <?php echo 2*$sliderBorderWidth; ?>px);
 			position:relative;
 			display: block;
 			text-align: center;
@@ -164,7 +164,7 @@ function hugeit_slider_add_style_to_header( $id ) {
 			position: absolute;
 			z-index: 13;
 		<?php if($sliderthumbslider == 'thumbnails'){?>
-			top:calc(50% -<?php echo $paramssld['slider_thumb_height']/2+$paramssld['slider_slideshow_border_size']; ?>px);
+			top:calc(50% - <?php echo $paramssld['slider_thumb_height']/2+$paramssld['slider_slideshow_border_size']; ?>px);
 		<?php }else{?>
 			margin-top: 0 !important;
 			top: 50%;

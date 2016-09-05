@@ -865,7 +865,7 @@ if ($hasyoutube){?>
 
 
 
-		if("<?php echo $paramssld['slider_crop_image']; ?>"=="crop"){
+		if ("<?php echo $paramssld['slider_crop_image']; ?>"=="crop"){
                         jQuery(".huge_it_slider_ul li img").each(function(){
                             if(jQuery(this).prop('naturalWidth')>jQuery(this).prop('naturalHeight'))
                                 jQuery(this).css({'width':'100%','height':'auto'/*,'top':'50%','left':'50%','transform':'translate( -50%, -50% )'*/});
@@ -1397,7 +1397,7 @@ if ($hasyoutube){?>
 						    class="huge_it_slideshow_thumbnails_<?php echo $sliderID; ?>"
 						    onclick="if(jQuery(this).hasClass('huge_it_slideshow_thumbnails_active_<?php echo $sliderID; ?>')) { return false; } huge_it_change_image_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_<?php echo $sliderID; ?>').val()), '<?php echo $stri; ?>', data_<?php echo $sliderID; ?>,false,true);return false;"
 						    data-image_id="<?php echo $image_row->id; ?>" data-image_key="<?php echo $stri; ?>">
-							<img class="sl_thumb_img" src="<?php echo $image_row->image_url; ?>"/>
+							<img class="sl_thumb_img" src="<?php echo $image_row->image_url; ?>" />
 							<div class="trans_back"></div>
 							<input type="hidden" id="time" name="time" value="<?php echo $slidepausetime; ?>">
 

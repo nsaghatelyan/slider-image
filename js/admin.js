@@ -30,6 +30,13 @@ jQuery(document).ready(function () {
 		hgSliderSetCookie( 'hgSliderFreeBannerShow', 'no', {expires:3600} );
 	});
 
+	jQuery('.hugeit_slider_delete_slide').on('click', function() {
+		var c = confirm('Are you sure you want to delete this slider ?');
+
+		if (!c) {
+			return false;
+		}
+	});
 });
 
   jQuery(function() {

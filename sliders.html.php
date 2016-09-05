@@ -177,7 +177,7 @@ function hugeit_slider_html_show_sliders( $rows,  $pageNav,$sort,$cat_row) {
 						<td><?php echo $rows[$i]->id; ?></td>
 						<td><a href="<?php echo esc_attr($edit_slide_safe_link); ?>"><?php echo esc_html(stripslashes($rows[$i]->name)); ?></a></td>
 						<td>(<?php if(!($pr_count)){echo '0';} else{ echo $rows[$i]->prod_count;} ?>)</td>
-						<td><a href="<?php echo esc_attr($delete_slide_safe_link); ?>">Delete</a></td>
+						<td><a href="<?php echo esc_attr($delete_slide_safe_link); ?>" class="hugeit_slider_delete_slide">Delete</a></td>
 					</tr> 
 				 <?php } ?>
 				</tbody>
