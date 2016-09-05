@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/slider/
 Tags: slider, slideshow, wordpress slider, image slider, Photo Slider, slider plugin, responsive slider, image slider, post slider, video slider, youtube slider, wordpress slideshow,
 Requires at least: 3.0.1
 Tested up to: 4.6
-Stable tag: 3.1.91
+Stable tag: 3.1.92
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Slider Huge-IT is an awesome WordPress Slider Plugin with many nice features. Ju
 
 == Description ==
 
-**Slider**
+**Slider - Image Slider**
 
 ### Check out useful links and demo page, get support or contribute for Slider.
 
@@ -322,15 +322,113 @@ After installation of pro version, in General Options all your changes will be s
 *  There are errors in site/theme, or some other external reason, our support team fix this very quickly, if you contact info@huge-it.com
 
 
+= How do I change the slide transition effect? =
+
+*  In the admin panel of Slider plugin, detect the option under the “Current Slider Options” , called “Effect”. In this section users can select one of the 16 transition effects to showcase the slider beautifully.  
+
+
+= How can I make Slider Plugin Responsive? =
+
+*  Huge-IT Slider plugin has a responsive design and layout. If slider does not appear 100% responsive on your device, then there might be some conflict with another plugin or the current theme you are running. Please, contact the support team via the following email address: info@huge-it.com and we will gladly solve the problem. 
+
+
+= How can I change the height and width of Slider plugin? =
+
+*  On the Slider page, under the “Current Slider Options” find Width and  Height options. This is the area where users may select the necessary size of slider images.  
+
+
+= How do I change the order of the slides in my slider? =
+
+*  Huge-It plugin allows to change the sequences of the images sliders using Drag and Drop options.
+
+
+= How to insert a slider into a post or a page? =
+
+*  What you need to do is copy the shortcode and paste it into the WordPress post or page. Or you can simply add the slider on the working area of any post/page where you can find a button named slider, by clicking on it you can add your desired slider right to the post/page, as well as footer and header of your website.
+
+
+= How many images can I add into the Slider plugin? =
+
+*  Slider plugin allows to add unlimited number of images in both free and paid versions. 
+
+
+= Can I add videos into the Slider Plugin? =
+
+*  Yes, the plugin allows to add unlimited amount of videos from two sources Youtube and Vimeo. This fature is available in paid version of the plugin, yet we are open for any help and suggestion in this regards. 
+
+
+= Why do I need the loading icon function? =
+
+*  In slider admin panel users can enable the Loading Icon,which will show a loading icon whenever the slider takes time to load images.This is a good solution when there are many big images to be loaded.
+
+
+= How to navigate the images in the Slider? =
+
+*  Enable Show Navigation Arrows from General Option, after which select one of the sixteen navigation arrows under the “Navigation Arrow Styles” for the slider.
+
+
+= How to change the slider position on my web page? =
+
+*  On the admin panel, under the Current Slider Options select the position among Right, Left or Center.  
+
+
+= Can I customize the title of the image slider? =
+
+*  In the General Options find "Title Styles", it allows to change the title width, title font size and text color, alter title background color, border size and border color.
+
+
+= Does the slider plugin allow to have additional navigation styles? =
+
+*  Go to the slider admin area and select Navigate By: Dots, Thumbnails, or None.   
+
+
+= Can I change the thumbnails navigation styles? =
+
+*  In order to change the thumbnails navigation styles - go the General Options, select the "Navigation Thumbnails Styles" and change the Slider thumbnail height, thumbnails background color, set the amount of the thumbnails images.  
+
+
+= How to change the dots/bullets position? =
+
+*  In general settings under the "Navigation Dots Styles" you can change the navigation dots/bullets position and color.
+
+
+= How can I add slider in the widgets? =
+
+*  Find the slider in available widgets’ list, add it to your desired widget section by using drag and drop function or the drop down menu. Now, in the chosen section select your slider from Huge IT Slider drop down menu and save. After which watch the beautiful slider on your frontend.
+
+
+= Can I add a description for my slider images? =
+*  Yes, slider plugin allows writing a unique description for your images.
+
+
+= How to do more styling in the description? =
+*  Go to General Options and find "Description Styles" , where you can change description width, text color, font size, background color, border size, color and radius. 
+
+
+= What to do if the Slider Plugin stop functioning? =
+
+*  If the plugin does not work correctly on your website, do not hesitate to contact Huge-IT support team via the following email address: info@huge-it.com. The support team will sort out the problem within 24 hours. 
+
+
 If you think, that you found a bug in our [WordPress Slider](http://huge-it.com/slider/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
 
+= 3.1.92 =
+**In the series of updates we continue to go through our plugins one by one and fix all technical issues with our code in order to meet the WordPress Coding Standards. These are the major updates that had been implemented to Slider plugin in this new version. We strongly recommend to update the plugin.**
+
+* 1) Changed function names, defines and classnames to have unique prefixes
+* 2) Fixed the issue where the plugin was calling files remotely
+* 3) Made further code optimization in order to meet required WordPress coding standards
+* 4) Added nonces for all _POST, _GET requests to prevent unauthorized access
+* 5) Removed PHP Sessions forcing PHP lines to run on all pages
+* 6) Sanitize the user data and validated post/get calls of the plugin
+
 = 3.1.91 =
-1. Tested and made the plugin compatible with WordPress version 4.6
-2. Edited wrong links of banners, now leading to the correct products in the back end.
-3. Changed the expression "Free" to "Lite" as recommended in the WordPress forums
-4. Added a banner leading to social networks and video guides
+* 1) Tested and made the plugin compatible with WordPress version 4.6
+* 2) Edited wrong links of banners, now leading to the correct products in the back end.
+* 3) Changed the expression "Free" to "Lite" as recommended in the WordPress forums
+* 4) Added a banner leading to social networks and video guides
 
 = 3.1.90 =
 * 1) We have fixed the bug on mobile devices, which was stopping image slide navigation.
