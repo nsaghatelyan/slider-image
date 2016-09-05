@@ -10,40 +10,35 @@ if(!function_exists('current_user_can')){
 	die('Access Denied');
 }
 
-function html_showsliders( $rows,  $pageNav,$sort,$cat_row){
+function hugeit_slider_html_show_sliders( $rows,  $pageNav,$sort,$cat_row) {
 	global $wpdb;
 	?>
     <script language="javascript">
-		function ordering(name,as_or_desc)
-		{
+		function ordering(name,as_or_desc) {
 			document.getElementById('asc_or_desc').value=as_or_desc;		
 			document.getElementById('order_by').value=name;
 			document.getElementById('admin_form').submit();
 		}
-		function saveorder()
-		{
+		function saveorder() {
 			document.getElementById('saveorder').value="save";
 			document.getElementById('admin_form').submit();
 			
 		}
-		function listItemTask(this_id,replace_id)
-		{
+		function listItemTask(this_id,replace_id) {
 			document.getElementById('oreder_move').value=this_id+","+replace_id;
 			document.getElementById('admin_form').submit();
 		}
 		function doNothing() {  
 			var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
 			if( keyCode == 13 ) {
-
-
-				if(!e) var e = window.event;
+				if (!e) var e = window.event;
 
 				e.cancelBubble = true;
 				e.returnValue = false;
 
 				if (e.stopPropagation) {
-						e.stopPropagation();
-						e.preventDefault();
+					e.stopPropagation();
+					e.preventDefault();
 				}
 			}
 		}
@@ -51,7 +46,10 @@ function html_showsliders( $rows,  $pageNav,$sort,$cat_row){
 
 <div class="wrap">
 	
-    <?php $path_site2 = plugins_url("./images", __FILE__); ?>
+    <?php
+    $path_site2 = plugins_url("./images", __FILE__);
+    $new_slider_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&task=add_cat', -1, 'hugeit_slider_new_slider_nonce');
+    ?>
 		
 	<div class="free_version_banner" <?php if( isset($_COOKIE['hgSliderFreeBannerShow']) && isset($_COOKIE['hgSliderFreeBannerShow']) == "no" ){ echo 'style="display:none"'; } ?> >
 		<a class="close_free_banner">+</a>
@@ -80,7 +78,7 @@ function html_showsliders( $rows,  $pageNav,$sort,$cat_row){
 		<div id="sliders-list-page">
 			<form method="post"  onkeypress="doNothing()" action="admin.php?page=sliders_huge_it_slider" id="admin_form" name="admin_form">
 			<h2>Huge IT Sliders
-				<a onclick="window.location.href='admin.php?page=sliders_huge_it_slider&task=add_cat'" class="add-new-h2" >Add New Slider</a>
+				<a onclick="<?php echo esc_attr("window.location.href='" . $new_slider_safe_link . "'"); ?>" class="add-new-h2" >Add New Slider</a>
 			</h2>
 			<?php
 			$serch_value='';
@@ -94,8 +92,7 @@ function html_showsliders( $rows,  $pageNav,$sort,$cat_row){
 				 document.getElementById(\'admin_form\').submit();" class="button-secondary action">
 				 <input type="button" value="Reset" onclick="window.location.href=\'admin.php?page=sliders_huge_it_slider\'" class="button-secondary action">
 			</div>';
-
-			 print_html_nav($pageNav['total'],$pageNav['limit'],$serch_fields);
+			 hugeit_slider_print_html_nav($pageNav['total'],$pageNav['limit'],$serch_fields);
 			?>
 			<table class="wp-list-table widefat fixed pages" style="width:95%">
 				<thead>
@@ -107,142 +104,127 @@ function html_showsliders( $rows,  $pageNav,$sort,$cat_row){
 				 </tr>
 				</thead>
 				<tbody>
-				 <?php 
-				 $trcount=1;
-				  for($i=0; $i<count($rows);$i++){
-					$trcount++;
-					$ka0=0;
-					$ka1=0;
-					if(isset($rows[$i-1]->id)){
-						  if($rows[$i]->sl_width==$rows[$i-1]->sl_width){
-						  $x1=$rows[$i]->id;
-						  $x2=$rows[$i-1]->id;
-						  $ka0=1;
-						  }
-						  else
-						  {
-							  $jj=2;
-							  while(isset($rows[$i-$jj]))
-							  {
-								  if($rows[$i]->sl_width==$rows[$i-$jj]->sl_width)
-								  {
-									  $ka0=1;
-									  $x1=$rows[$i]->id;
-									  $x2=$rows[$i-$jj]->id;
-									   break;
-								  }
-								$jj++;
-							  }
-						  }
-						  if($ka0){
-							$move_up='<span><a href="#reorder" onclick="return listItemTask(\''.$x1.'\',\''.$x2.'\')" title="Move Up">   <img src="'.plugins_url('images/uparrow.png',__FILE__).'" width="16" height="16" border="0" alt="Move Up"></a></span>';
-						  }
-						  else{
-							$move_up="";
-						  }
-					}else{$move_up="";}
-					
-					
-					if(isset($rows[$i+1]->id)){
-						
-						if($rows[$i]->sl_width==$rows[$i+1]->sl_width){
-						  $x1=$rows[$i]->id;
-						  $x2=$rows[$i+1]->id;
-						  $ka1=1;
+				<?php
+				$trcount = 1;
+				for ( $i = 0; $i < count( $rows ); $i ++ ) {
+					$trcount ++;
+					$ka0 = 0;
+					$ka1 = 0;
+					if ( isset( $rows[ $i - 1 ]->id ) ) {
+						if ( $rows[ $i ]->sl_width == $rows[ $i - 1 ]->sl_width ) {
+							$x1  = $rows[ $i ]->id;
+							$x2  = $rows[ $i - 1 ]->id;
+							$ka0 = 1;
+						} else {
+							$jj = 2;
+							while ( isset( $rows[ $i - $jj ] ) ) {
+								if ( $rows[ $i ]->sl_width == $rows[ $i - $jj ]->sl_width ) {
+									$ka0 = 1;
+									$x1  = $rows[ $i ]->id;
+									$x2  = $rows[ $i - $jj ]->id;
+									break;
+								}
+								$jj ++;
+							}
 						}
-						else
-						{
-							  $jj=2;
-							  while(isset($rows[$i+$jj]))
-							  {
-								  if($rows[$i]->sl_width==$rows[$i+$jj]->sl_width)
-								  {
-									  $ka1=1;
-									  $x1=$rows[$i]->id;
-									  $x2=$rows[$i+$jj]->id;
-									  break;
-								  }
-								$jj++;
-							  }
+						if ( $ka0 ) {
+							$move_up = '<span><a href="#reorder" onclick="return listItemTask(\'' . $x1 . '\',\'' . $x2 . '\')" title="Move Up">   <img src="' . plugins_url( 'images/uparrow.png', __FILE__ ) . '" width="16" height="16" border="0" alt="Move Up"></a></span>';
+						} else {
+							$move_up = "";
 						}
-						
-						if($ka1){
-							$move_down='<span><a href="#reorder" onclick="return listItemTask(\''.$x1.'\',\''. $x2.'\')" title="Move Down">  <img src="'.plugins_url('images/downarrow.png',__FILE__).'" width="16" height="16" border="0" alt="Move Down"></a></span>';
-						}else{
-							$move_down="";	
+					} else {
+						$move_up = "";
+					}
+
+
+					if ( isset( $rows[ $i + 1 ]->id ) ) {
+
+						if ( $rows[ $i ]->sl_width == $rows[ $i + 1 ]->sl_width ) {
+							$x1  = $rows[ $i ]->id;
+							$x2  = $rows[ $i + 1 ]->id;
+							$ka1 = 1;
+						} else {
+							$jj = 2;
+							while ( isset( $rows[ $i + $jj ] ) ) {
+								if ( $rows[ $i ]->sl_width == $rows[ $i + $jj ]->sl_width ) {
+									$ka1 = 1;
+									$x1  = $rows[ $i ]->id;
+									$x2  = $rows[ $i + $jj ]->id;
+									break;
+								}
+								$jj ++;
+							}
+						}
+
+						if ( $ka1 ) {
+							$move_down = '<span><a href="#reorder" onclick="return listItemTask(\'' . $x1 . '\',\'' . $x2 . '\')" title="Move Down">  <img src="' . plugins_url( 'images/downarrow.png', __FILE__ ) . '" width="16" height="16" border="0" alt="Move Down"></a></span>';
+						} else {
+							$move_down = "";
 						}
 					}
 
-					$uncat=$rows[$i]->par_name;
-					if(isset($rows[$i]->prod_count))
-						$pr_count=$rows[$i]->prod_count;
-					else
-						$pr_count=0;
+					$uncat = $rows[ $i ]->par_name;
+					if ( isset( $rows[ $i ]->prod_count ) ) {
+						$pr_count = $rows[ $i ]->prod_count;
+					} else {
+						$pr_count = 0;
+					}
 
-
+					$delete_slide_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&task=remove_cat&id=' . esc_html($rows[$i]->id), -1, 'hugeit_slider_remove_slide_nonce');
+					$edit_slide_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&task=edit_cat&id='. esc_html($rows[$i]->id), -1, 'hugeit_slider_edit_slide_nonce');
 					?>
 					<tr <?php if($trcount%2==0){ echo 'class="has-background"';}?>>
 						<td><?php echo $rows[$i]->id; ?></td>
-						<td><a  href="admin.php?page=sliders_huge_it_slider&task=edit_cat&id=<?php echo esc_html($rows[$i]->id) ?>"><?php echo esc_html(stripslashes($rows[$i]->name)); ?></a></td>
+						<td><a href="<?php echo esc_attr($edit_slide_safe_link); ?>"><?php echo esc_html(stripslashes($rows[$i]->name)); ?></a></td>
 						<td>(<?php if(!($pr_count)){echo '0';} else{ echo $rows[$i]->prod_count;} ?>)</td>
-						<td><a  href="admin.php?page=sliders_huge_it_slider&task=remove_cat&id=<?php echo esc_html($rows[$i]->id) ?>">Delete</a></td>
+						<td><a href="<?php echo esc_attr($delete_slide_safe_link); ?>" class="hugeit_slider_delete_slide">Delete</a></td>
 					</tr> 
 				 <?php } ?>
 				</tbody>
 			</table>
-			 <input type="hidden" name="oreder_move" id="oreder_move" value="" />
-			 <input type="hidden" name="asc_or_desc" id="asc_or_desc" value="<?php if(isset($_POST['asc_or_desc'])) echo esc_html($_POST['asc_or_desc']);?>"  />
-			 <input type="hidden" name="order_by" id="order_by" value="<?php if(isset($_POST['order_by'])) echo esc_html($_POST['order_by']);?>"  />
-			 <input type="hidden" name="saveorder" id="saveorder" value="" />
-			 <input type="hidden" name="csrf_token_hugeit_1752" value="csrf_token_hugeit_1752" />
+			<input type="hidden" name="oreder_move" id="oreder_move" value="" />
+			<input type="hidden" name="asc_or_desc" id="asc_or_desc" value="<?php if(isset($_POST['asc_or_desc'])) echo esc_html($_POST['asc_or_desc']);?>"  />
+			<input type="hidden" name="order_by" id="order_by" value="<?php if(isset($_POST['order_by'])) echo esc_html($_POST['order_by']);?>"  />
+			<input type="hidden" name="saveorder" id="saveorder" value="" />
+			<input type="hidden" name="csrf_token_hugeit_1752" value="csrf_token_hugeit_1752" />
 
-			 <?php
-			
-			 $_SESSION['csrf_token_hugeit_1752'] = 'csrf_token_hugeit_1752';
+			<?php
+				$_SESSION['csrf_token_hugeit_1752'] = 'csrf_token_hugeit_1752';
 			?>
-			
-			
-		   
 			</form>
 		</div>
 	</div>
 </div>
     <?php
-
 }
-function Html_editslider($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $rowsld, $paramssld, $rowsposts, $rowsposts8, $postsbycat)
+function hugeit_slider_html_edit_slider($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $rowsld, $paramssld, $rowsposts, $rowsposts8, $postsbycat) {
+	global $wpdb;
 
-{
- global $wpdb;
-	
-	if(isset($_GET["addslide"])){
-		$getaddslide = intval($_GET["addslide"]) ;
-		if($getaddslide == 1){
-		header('Location: admin.php?page=sliders_huge_it_slider&id='.$row->id.'&task=apply');
+	if ( isset( $_GET["addslide"] ) ) {
+		$getaddslide = intval( $_GET["addslide"] );
+		if ( $getaddslide == 1 ) {
+			header( 'Location: admin.php?page=sliders_huge_it_slider&id=' . $row->id . '&task=apply' );
 		}
 	}
-		
-	
-?>
-<script type="text/javascript">
-function submitbutton(pressbutton) 
-{
-	if(!document.getElementById('name').value){
-	alert("Name is required.");
-	return;
-	
-	}
-	
-	document.getElementById("adminForm").action=document.getElementById("adminForm").action+"&task="+pressbutton;
-	document.getElementById("adminForm").submit();
-	
-}
-function change_select()
-{
-		submitbutton('apply'); 
-	
-}
-</script>
+
+	ob_start();
+	wp_nonce_field(-1, 'hugeit_slider_apply_form');
+	$nonce_fields = ob_get_clean();
+	?>
+	<script type="text/javascript">
+		function submitbutton(pressbutton) {
+			if (!document.getElementById('name').value) {
+				alert("Name is required.");
+				return;
+			}
+			jQuery('#adminForm').append('<?php echo $nonce_fields ?: ''?>');
+			document.getElementById("adminForm").action = document.getElementById("adminForm").action + "&task=" + pressbutton;
+			document.getElementById("adminForm").submit();
+		}
+		function change_select() {
+			submitbutton('apply');
+		}
+	</script>
 
 <!-- GENERAL PAGE, ADD IMAGES PAGE -->
 
@@ -278,24 +260,25 @@ function change_select()
 		<ul id="sliders-list">
 			
 			<?php
-			foreach($rowsld as $rowsldires){
-				if($rowsldires->id != $row->id){
+			foreach($rowsld as $rowsldires) :
+				if($rowsldires->id != $row->id) :
+					$nonce_url = "window.location.href='" . wp_nonce_url("admin.php?page=sliders_huge_it_slider&task=edit_cat&id=" . $rowsldires->id, -1, 'hugeit_slider_edit_slide_nonce') . "'";
 				?>
 					<li>
-						<a href="#" onclick="window.location.href='admin.php?page=sliders_huge_it_slider&task=edit_cat&id=<?php echo $rowsldires->id; ?>'" ><?php echo $rowsldires->name; ?></a>
+						<a href="#" onclick="<?php echo esc_attr($nonce_url); ?>"><?php echo $rowsldires->name; ?></a>
 					</li>
-				<?php
-				}
-				else{ ?>
+				<?php else : ?>
 					<li class="active" onclick="this.firstElementChild.style.width = ((this.firstElementChild.value.length + 1) * 8) + 'px';" style="background-image:url(<?php echo plugins_url('images/edit.png', __FILE__) ;?>);cursor: pointer;">
 						<input class="text_area" onfocus="this.style.width = ((this.value.length + 1) * 8) + 'px'" type="text" name="name" id="name" maxlength="250" value="<?php echo esc_html(stripslashes($row->name));?>" />
 					</li>
 				<?php	
-				}
-			}
+				endif;
+			endforeach;
+
+			$new_slider_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&task=add_cat', -1, 'hugeit_slider_new_slider_nonce');
 		?>
 			<li class="add-new">
-				<a onclick="window.location.href='admin.php?page=sliders_huge_it_slider&amp;task=add_cat'">+</a>
+				<a onclick="<?php echo esc_attr("window.location.href='" . $new_slider_safe_link . "'"); ?>">+</a>
 			</li>
 		</ul>
 		</div>
@@ -310,48 +293,37 @@ function change_select()
 					<div id="post-body-heading">
 						<h3>Slides</h3>
 <script>
-jQuery(document).ready(function($){
-	/*jQuery(".wp-media-buttons-icon").click(function() {
-		jQuery(".attachment-filters").css("display","none");
-	});*/
-  var _custom_media = true,
-      _orig_send_attachment = wp.media.editor.send.attachment;
-	 
+	jQuery(document).ready(function($) {
+		var _custom_media = true,
+			_orig_send_attachment = wp.media.editor.send.attachment;
 
-  jQuery('.huge-it-newuploader .button').click(function(e) {
-    var send_attachment_bkp = wp.media.editor.send.attachment;
-	
-    var button = jQuery(this);
-    var id = button.attr('id').replace('_button', '');
-    _custom_media = true;
+		jQuery('.huge-it-newuploader .button').click(function(e) {
+			var send_attachment_bkp = wp.media.editor.send.attachment;
 
-	jQuery("#"+id).val('');
-	wp.media.editor.send.attachment = function(props, attachment){
-      if ( _custom_media ) {
-	     jQuery("#"+id).val(attachment.url+';;;'+jQuery("#"+id).val());
-		 jQuery("#save-buttom").click();
-      } else {
-        return _orig_send_attachment.apply( this, [props, attachment] );
-      };
-    }
-  
-    wp.media.editor.open(button);
-	 
-    return false;
-  });
+			var button = jQuery(this);
+			var id = button.attr('id').replace('_button', '');
+			_custom_media = true;
 
-  jQuery('.add_media').on('click', function(){
-    _custom_media = false;
-	
-  });
-	/*jQuery(".wp-media-buttons-icon").click(function() {
-		jQuery(".media-menu-item").css("display","none");
-		jQuery(".media-menu-item:first").css("display","block");
-		jQuery(".separator").next().css("display","block");
-		jQuery('.attachment-filters').val('image').trigger('change');
-		jQuery(".attachment-filters").css("display","none");
-	});*/
-});
+			jQuery("#" + id).val('');
+			wp.media.editor.send.attachment = function(props, attachment) {
+				if (_custom_media) {
+					jQuery("#" + id).val(attachment.url + ';;;' + jQuery("#" + id).val());
+					jQuery("#save-buttom").click();
+				} else {
+					return _orig_send_attachment.apply(this, [props, attachment]);
+				}
+			};
+
+			wp.media.editor.open(button);
+
+			return false;
+		});
+
+		jQuery('.add_media').on('click', function() {
+			_custom_media = false;
+
+		});
+	});
 </script>
 						<input type="hidden" name="imagess" id="_unique_name" />
 						<span class="wp-media-buttons-icon"></span>
@@ -366,47 +338,48 @@ jQuery(document).ready(function($){
 							<span class="wp-media-buttons-icon"></span>Add Video Slide
 						</a>
 						<script>
-								jQuery(document).ready(function ($) {
-										jQuery("#slideup").click(function () {
-											window.parent.uploadID = jQuery(this).prev('input');
-											formfield = jQuery('.upload').attr('name');
-											tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
-											return false;
-										});
-										window.send_to_editor = function (html) {
-											imgurl = jQuery('img', html).attr('src');
-											if(imgurl) {
-												window.parent.uploadID.val(imgurl);
-													tb_remove();
-													jQuery("#save-buttom").click();
-											}
-											else {
-												imgurl = jQuery('#embed-url-field').val();
-												if(imgurl) {
+							jQuery(document).ready(function() {
+								jQuery("#slideup").click(function() {
+									window.parent.uploadID = jQuery(this).prev('input');
+									formfield = jQuery('.upload').attr('name');
+									tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+									return false;
+								});
+								window.send_to_editor = function(html) {
+									imgurl = jQuery('img', html).attr('src');
+									if (imgurl) {
+										window.parent.uploadID.val(imgurl);
+										tb_remove();
+										jQuery("#save-buttom").click();
+									}
+									else {
+										imgurl = jQuery('#embed-url-field').val();
+										if (imgurl) {
+											window.parent.jQuery("#_unique_name").val(imgurl + ';;;');
+											jQuery("#save-buttom").click();
 
-
-													window.parent.jQuery("#_unique_name").val(imgurl+';;;');				
-													jQuery("#save-buttom").click();												
-
-													tb_remove();
-												}
-											}
-										};
-									});
+											tb_remove();
+										}
+									}
+								};
+							});
 						</script>				
 					</div>
 					<ul id="images-list">
 					<?php
-					
-						function get_youtube_id_from_url($url){
+						function hugeit_slider_get_youtube_id_from_url($url){
 							if (preg_match('%(?:youtube(?:-nocookie)?\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^"&?/ ]{11})%i', $url, $match)) {
 								return $match[1];
 							}
 						}
 					
 					$i=2;
-					foreach ($rowim as $key=>$rowimages){ ?>
-					<?php if($rowimages->sl_type == ''){$rowimages->sl_type = 'image';}
+					foreach ($rowim as $key=>$rowimages) {
+						if ( $rowimages->sl_type == '' ) {
+							$rowimages->sl_type = 'image';
+						}
+						$apply_nonce = wp_nonce_url('admin.php?page=sliders_huge_it_slider&id=' . $row->id . '&task=apply&removeslide=' . $rowimages->id, -1, 'hugeit_slider_apply_form');
+
 					switch($rowimages->sl_type){
 					case 'image':	?>
 						<li <?php if($i%2==0){echo "class='has-background'";}$i++; ?>>
@@ -430,8 +403,8 @@ jQuery(document).ready(function($){
 											jQuery("#save-buttom").click();
 										  } else {
 											return _orig_send_attachment.apply( this, [props, attachment] );
-										  };
-										}
+										  }
+										};
 
 										wp.media.editor.open(button);
 										return false;
@@ -440,16 +413,6 @@ jQuery(document).ready(function($){
 									  jQuery('.add_media').on('click', function(){
 										_custom_media = false;
 									  });
-										/* jQuery(".huge-it-editnewuploader").click(function() {
-										});
-											jQuery(".wp-media-buttons-icon").click(function() {
-											jQuery(".media-menu-item").css("display","none");
-											jQuery(".media-menu-item:first").css("display","block");
-											jQuery(".separator").next().css("display","block");
-											jQuery('.attachment-filters').val('image').trigger('change');
-											jQuery(".attachment-filters").css("display","none");
-
-										});*/
 									});
 								</script>
 								<input type="hidden" name="imagess<?php echo $rowimages->id; ?>" id="_unique_name<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->image_url; ?>" />
@@ -462,7 +425,7 @@ jQuery(document).ready(function($){
 							<div class="image-options">
 								<div>
 									<label for="titleimage<?php echo $rowimages->id; ?>">Title:</label>
-									<input  class="text_area" type="text" id="titleimage<?php echo $rowimages->id; ?>" name="titleimage<?php echo $rowimages->id; ?>" id="titleimage<?php echo $rowimages->id; ?>"  value="<?php echo $rowimages->name; ?>">
+									<input  class="text_area" type="text" id="titleimage<?php echo $rowimages->id; ?>" name="titleimage<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->name; ?>">
 								</div>
 								<div class="description-block">
 									<label for="im_description<?php echo $rowimages->id; ?>">Description:</label>
@@ -474,11 +437,9 @@ jQuery(document).ready(function($){
 									<label class="long" for="sl_link_target<?php echo $rowimages->id; ?>">Open in new tab</label>
 									<input type="hidden" name="sl_link_target<?php echo $rowimages->id; ?>" value="" />
 									<input  <?php if($rowimages->link_target == 'on'){ echo 'checked="checked"'; } ?>  class="link_target" type="checkbox" id="sl_link_target<?php echo $rowimages->id; ?>" name="sl_link_target<?php echo $rowimages->id; ?>" />
-									
-									<!--<input type="checkbox" name="pause_on_hover" id="pause_on_hover"  <?php if($row->pause_on_hover == 'on'){ echo 'checked="checked"'; } ?>  class="link_target"/>-->
 								</div>
 								<div class="remove-image-container">
-									<a class="button remove-image" href="admin.php?page=sliders_huge_it_slider&id=<?php echo $row->id; ?>&task=apply&removeslide=<?php echo $rowimages->id; ?>">Remove Image</a>
+									<a class="button remove-image" href="<?php echo esc_attr($apply_nonce); ?>">Remove Image</a>
 								</div>
 							</div>
 							
@@ -540,7 +501,7 @@ jQuery(document).ready(function($){
 									</div>
 								</div>
 								<div class="remove-image-container">
-									<a class="button remove-image" href="admin.php?page=sliders_huge_it_slider&id=<?php echo $row->id; ?>&task=apply&removeslide=<?php echo $rowimages->id; ?>">Remove Last posts</a>
+									<a class="button remove-image" href="<?php echo esc_attr($apply_nonce); ?>">Remove Last posts</a>
 								</div>
 							</div>
 							
@@ -556,7 +517,7 @@ jQuery(document).ready(function($){
 							<input class="order_by" type="hidden" name="order_by_<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->ordering; ?>" />
 								<?php 	if(strpos($rowimages->image_url,'youtube') !== false || strpos($rowimages->image_url,'youtu') !== false) {
 											$liclass="youtube";
-											$video_thumb_url=get_youtube_id_from_url($rowimages->image_url);
+											$video_thumb_url=hugeit_slider_get_youtube_id_from_url($rowimages->image_url);
 											$thumburl='<img src="http://img.youtube.com/vi/'.$video_thumb_url.'/mqdefault.jpg" alt="" />';
 										}else if (strpos($rowimages->image_url,'vimeo') !== false) {	
 											$liclass="vimeo";
@@ -574,36 +535,34 @@ jQuery(document).ready(function($){
 										
 										<div>
 											<script>
-													jQuery(document).ready(function ($) {
-															
-															jQuery("#slideup<?php echo $key; ?>").click(function () {
-																window.parent.uploadID = jQuery(this).prev('input');
-																formfield = jQuery('.upload').attr('name');
-																tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
-																
-																return false;
-															});
-													window.send_to_editor = function (html) {
+												jQuery(document).ready(function($) {
+
+													jQuery("#slideup<?php echo $key; ?>").click(function() {
+														window.parent.uploadID = jQuery(this).prev('input');
+														formfield = jQuery('.upload').attr('name');
+														tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+
+														return false;
+													});
+													window.send_to_editor = function(html) {
 														imgurl = jQuery('img', html).attr('src');
-														if(imgurl) {
+														if (imgurl) {
 															window.parent.uploadID.val(imgurl);
-																tb_remove();
-																jQuery("#save-buttom").click();
+															tb_remove();
+															jQuery("#save-buttom").click();
 														}
 														else {
 															imgurl = jQuery('#embed-url-field').val();
-															if(imgurl) {
-
-
-																window.parent.jQuery("#_unique_name").val(imgurl+';;;');				
-																jQuery("#save-buttom").click();												
+															if (imgurl) {
+																window.parent.jQuery("#_unique_name").val(imgurl + ';;;');
+																jQuery("#save-buttom").click();
 
 																tb_remove();
 															}
 														}
 													};
-														});
-															
+												});
+
 											</script>
 											<input type="hidden" name="imagess<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->image_url; ?>" />
 										</div>
@@ -639,7 +598,7 @@ jQuery(document).ready(function($){
 											<input  <?php if($rowimages->link_target == 'on'){ echo 'checked="checked"'; } ?>  class="link_target" type="checkbox" id="sl_link_target<?php echo $rowimages->id; ?>" name="sl_link_target<?php echo $rowimages->id; ?>" />		
 										</div>
 										<div class="remove-image-container">
-											<a class="button remove-image" href="admin.php?page=sliders_huge_it_slider&id=<?php echo $row->id; ?>&task=apply&removeslide=<?php echo $rowimages->id; ?>">Remove Video</a>
+											<a class="button remove-image" href="<?php echo esc_attr($apply_nonce); ?>">Remove Video</a>
 										</div>
 										<?php } else {?>
 										
@@ -654,7 +613,7 @@ jQuery(document).ready(function($){
 											</div>
 										</div>
 										<div class="remove-image-container">
-											<a class="button remove-image" href="admin.php?page=sliders_huge_it_slider&id=<?php echo $row->id; ?>&task=apply&removeslide=<?php echo $rowimages->id; ?>">Remove Video</a>
+											<a class="button remove-image" href="<?php echo esc_attr($apply_nonce); ?>">Remove Video</a>
 										</div>
 										<?php } ?>
 									</div>	
@@ -662,8 +621,8 @@ jQuery(document).ready(function($){
 							</li>
 					<?php
 						break;
+					}
 					} ?>
-			<?php } ?>
 					</ul>
 				</div>
 
@@ -675,7 +634,6 @@ jQuery(document).ready(function($){
 					<div id="slider-unique-options" class="postbox">
 					<h3 class="hndle"><span>Current Slider Options</span></h3>
 					<ul id="slider-unique-options-list">
-						
 						<li>
 							<label for="sl_width">Width</label>
 							<input type="text" name="sl_width" id="sl_width" value="<?php echo $row->sl_width; ?>" class="text_area" />
@@ -684,26 +642,25 @@ jQuery(document).ready(function($){
 							<label for="sl_height">Height</label>
 							<input type="text" name="sl_height" id="sl_height" value="<?php echo $row->sl_height; ?>" class="text_area" />
 						</li>
-						
 						<li>
 							<label for="slider_effects_list">Effects</label>
 							<select name="slider_effects_list" id="slider_effects_list">
-									<option <?php if($row->slider_list_effects_s == 'none'){ echo 'selected'; } ?>  value="none">None</option>
-									<option <?php if($row->slider_list_effects_s == 'cubeH'){ echo 'selected'; } ?>   value="cubeH">Cube Horizontal</option>
-									<option <?php if($row->slider_list_effects_s == 'cubeV'){ echo 'selected'; } ?>  value="cubeV">Cube Vertical</option>
-									<option <?php if($row->slider_list_effects_s == 'fade'){ echo 'selected'; } ?>  value="fade">Fade</option>
-									<option <?php if($row->slider_list_effects_s == 'sliceH'){ echo 'selected'; } ?>  value="sliceH">Slice Horizontal</option>
-									<option <?php if($row->slider_list_effects_s == 'sliceV'){ echo 'selected'; } ?>  value="sliceV">Slice Vertical</option>
-									<option <?php if($row->slider_list_effects_s == 'slideH'){ echo 'selected'; } ?>  value="slideH">Slide Horizontal</option>
-									<option <?php if($row->slider_list_effects_s == 'slideV'){ echo 'selected'; } ?>  value="slideV">Slide Vertical</option>
-									<option <?php if($row->slider_list_effects_s == 'scaleOut'){ echo 'selected'; } ?>  value="scaleOut">Scale Out</option>
-									<option <?php if($row->slider_list_effects_s == 'scaleIn'){ echo 'selected'; } ?>  value="scaleIn">Scale In</option>
-									<option <?php if($row->slider_list_effects_s == 'blockScale'){ echo 'selected'; } ?>  value="blockScale">Block Scale</option>
-									<option <?php if($row->slider_list_effects_s == 'kaleidoscope'){ echo 'selected'; } ?>  value="kaleidoscope">Kaleidoscope</option>
-									<option <?php if($row->slider_list_effects_s == 'fan'){ echo 'selected'; } ?>  value="fan">Fan</option>
-									<option <?php if($row->slider_list_effects_s == 'blindH'){ echo 'selected'; } ?>  value="blindH">Blind Horizontal</option>
-									<option <?php if($row->slider_list_effects_s == 'blindV'){ echo 'selected'; } ?>  value="blindV">Blind Vertical</option>
-									<option <?php if($row->slider_list_effects_s == 'random'){ echo 'selected'; } ?>  value="random">Random</option>
+								<option <?php if($row->slider_list_effects_s == 'none'){ echo 'selected'; } ?>  value="none">None</option>
+								<option <?php if($row->slider_list_effects_s == 'cubeH'){ echo 'selected'; } ?>   value="cubeH">Cube Horizontal</option>
+								<option <?php if($row->slider_list_effects_s == 'cubeV'){ echo 'selected'; } ?>  value="cubeV">Cube Vertical</option>
+								<option <?php if($row->slider_list_effects_s == 'fade'){ echo 'selected'; } ?>  value="fade">Fade</option>
+								<option <?php if($row->slider_list_effects_s == 'sliceH'){ echo 'selected'; } ?>  value="sliceH">Slice Horizontal</option>
+								<option <?php if($row->slider_list_effects_s == 'sliceV'){ echo 'selected'; } ?>  value="sliceV">Slice Vertical</option>
+								<option <?php if($row->slider_list_effects_s == 'slideH'){ echo 'selected'; } ?>  value="slideH">Slide Horizontal</option>
+								<option <?php if($row->slider_list_effects_s == 'slideV'){ echo 'selected'; } ?>  value="slideV">Slide Vertical</option>
+								<option <?php if($row->slider_list_effects_s == 'scaleOut'){ echo 'selected'; } ?>  value="scaleOut">Scale Out</option>
+								<option <?php if($row->slider_list_effects_s == 'scaleIn'){ echo 'selected'; } ?>  value="scaleIn">Scale In</option>
+								<option <?php if($row->slider_list_effects_s == 'blockScale'){ echo 'selected'; } ?>  value="blockScale">Block Scale</option>
+								<option <?php if($row->slider_list_effects_s == 'kaleidoscope'){ echo 'selected'; } ?>  value="kaleidoscope">Kaleidoscope</option>
+								<option <?php if($row->slider_list_effects_s == 'fan'){ echo 'selected'; } ?>  value="fan">Fan</option>
+								<option <?php if($row->slider_list_effects_s == 'blindH'){ echo 'selected'; } ?>  value="blindH">Blind Horizontal</option>
+								<option <?php if($row->slider_list_effects_s == 'blindV'){ echo 'selected'; } ?>  value="blindV">Blind Vertical</option>
+								<option <?php if($row->slider_list_effects_s == 'random'){ echo 'selected'; } ?>  value="random">Random</option>
 							</select>
 						</li>
 
@@ -747,11 +704,11 @@ jQuery(document).ready(function($){
 						<li>
 							<label for="video_autoplay">Video Autoplay</label>
 							<input type="hidden" value="off" name="video_autoplay" />					
-                                                        <input type="checkbox" name="video_autoplay"  value="on" id="video_autoplay"  disabled="disabled" />
-                                                        <a class="probuttonlink" href="http://huge-it.com/slider/" target="_blank">( <span style="color: red;font-size: 14px;"> PRO </span> )</a>
-						</li>	
+                            <input type="checkbox" name="video_autoplay"  value="on" id="video_autoplay"  disabled="disabled" />
+                            <a class="probuttonlink" href="http://huge-it.com/slider/" target="_blank">( <span style="color: red;font-size: 14px;"> PRO </span> )</a>
+						</li>
                                                 <!--###########RANDOM UPDATE##############-->
-                                                <li>
+                        <li>
 							<label for="random_images">Random</label>
 							<input type="hidden" value="off" name="random_images" />					
 							<input type="checkbox" name="random_images"  value="on" id="random_images"  <?php if($row->random_images  == 'on'){ echo 'checked="checked"'; } ?> />
@@ -762,7 +719,6 @@ jQuery(document).ready(function($){
 								<input type="button" onclick="submitbutton('apply')" value="Save Slider" id="save-buttom" class="button button-primary button-large">
 							</div>
 							<div class="clear"></div>
-							<!--<input type="button" onclick="window.location.href='admin.php?page=sliders_huge_it_slider'" value="Cancel" class="button-secondary action">-->
 						</div>
 					</div>
 				</div>
@@ -786,11 +742,11 @@ jQuery(document).ready(function($){
 			</div>
 		</div>
 	</div>
-	<input type="hidden" name="task" value="" />
-	 <input type="hidden" name="csrf_token_hugeit_1752" value="csrf_token_hugeit_1752" />
+<!--	<input type="hidden" name="task" value="" />-->
+<!--	 <input type="hidden" name="csrf_token_hugeit_1752" value="csrf_token_hugeit_1752" />-->
 			 <?php
-			
-			$_SESSION['csrf_token_hugeit_1752'] = 'csrf_token_hugeit_1752';
+			wp_nonce_field(-1, 'hugeit_slider_apply_form');
+			//$_SESSION['csrf_token_hugeit_1752'] = 'csrf_token_hugeit_1752';
 			?>
 </form>
 </div>
@@ -800,13 +756,13 @@ jQuery(document).ready(function($){
 }
 
 
-function html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $rowsld, $paramssld, $rowsposts, $rowsposts8, $postsbycat){
+function hugeit_slider_html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $rowsld, $paramssld, $rowsposts, $rowsposts8, $postsbycat){
 	global $wpdb;
 
 ?>
 			<style>
 				html.wp-toolbar {
-					padding:0px !important;
+					padding:0 !important;
 				}
 				#wpadminbar,#adminmenuback,#screen-meta, .update-nag,#dolly {
 					display:none;
@@ -816,7 +772,7 @@ function html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $
 				}
 				#adminmenuwrap {display:none !important;}
 				.auto-fold #wpcontent, .auto-fold #wpfooter {
-					margin-left: 0px;
+					margin-left: 0;
 				}
 				#wpfooter {display:none;}
 			</style>
@@ -876,27 +832,24 @@ function html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $
 					});
 
 			jQuery('.updated').css({"display":"none"});
-		<?php	if(isset($_GET["closepop"]))
-				{
-					$getclosepopup = intval($_GET["closepop"]);
-					if($getclosepopup == 1) {
-						
-		?>					
-						jQuery("#closepopup").click();
-						self.parent.location.reload();
-		<?php	
+					<?php
+					if(isset( $_GET["closepop"] )) {
+						$getclosepopup = intval( $_GET["closepop"] );
+						if($getclosepopup == 1) { ?>
+							jQuery("#closepopup").click();
+							self.parent.location.reload();
+						<?php
+						}
 					}
-				}		
-		?>
+					?>
 				});
-				
 			</script>
 			<a id="closepopup"  onclick=" parent.eval('tb_remove()')" style="display:none;" > [X] </a>
 	
 	
 	<div id="huge_it_slider_add_posts">
 		<div id="huge_it_slider_add_posts_wrap">
-			<span class="buy-pro">This feature is disabled in free version. </br>If you need this functionality, you need to <a href="http://huge-it.com/slider/" target="_blank">buy the commercial version</a>.</span>
+			<span class="buy-pro">This feature is disabled in free version. <br />If you need this functionality, you need to <a href="http://huge-it.com/slider/" target="_blank">buy the commercial version</a>.</span>
 			<ul id="slider-posts-tabs">
 				<li  class="active"><a href="#slider-posts-tabs-content-0">Static posts</a></li>
 				<li><a href="#slider-posts-tabs-content-1">Last posts</a></li>
@@ -906,24 +859,22 @@ function html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $
 					<!-- STATIC POSTS -->
 					<div class="control-panel">
 	
-						<label for="huge-it-categories-list">Select Category <select id="huge-it-categories-list" name="iframecatid" onchange="this.form.submit()">
-						<?php $categories = get_categories(  ); ?>
-						<?php	 foreach ($categories as $strcategories){
-							if(isset($_POST["iframecatid"])){
-							?>
-								 <option value="<?php echo $strcategories->cat_ID; ?>" <?php if($strcategories->cat_ID == $_POST["iframecatid"]){echo 'selected="selected"';} ?>><?php echo $strcategories->cat_name; ?></option>';
-								
-							<?php }
-							else
-							{
-							?>
-								<option value="<?php echo $strcategories->cat_ID; ?>"><?php echo $strcategories->cat_name; ?></option>';
-							<?php
+						<label for="huge-it-categories-list">Select Category
+							<select id="huge-it-categories-list" name="iframecatid" onchange="this.form.submit()">
+							<?php $categories = get_categories(  ); ?>
+							<?php	 foreach ($categories as $strcategories){
+								if(isset($_POST["iframecatid"])){
+								?>
+									 <option value="<?php echo $strcategories->cat_ID; ?>" <?php if($strcategories->cat_ID == $_POST["iframecatid"]){echo 'selected="selected"';} ?>><?php echo $strcategories->cat_name; ?></option>';
+
+								<?php } else { ?>
+									<option value="<?php echo $strcategories->cat_ID; ?>"><?php echo $strcategories->cat_name; ?></option>';
+								<?php
+								}
 							}
-						}
-						?> 
-						</select></label>
-				
+							?>
+							</select>
+						</label>
 				
 						<button class='save-slider-options button-primary huge-it-insert-post-button' id='huge-it-insert-post-button-top'>Insert Posts</button>
 						<label for="huge-it-description-length">Description Length <input id="huge-it-description-length" type="text" name="posthuge-it-description-length" value="<?php echo $row->published; ?>" placeholder="Description length" /></label>
@@ -944,44 +895,49 @@ function html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $
 							<div class="huge-it-posts-list-category">Category</div>
 							<div class="help-message">Please make sure that category you selected has posts with inserted featured image. Only posts with featured images will be shown on slides.</div>
 						</li>
-						<?php 
+						<?php
 
-						$strx=1;
-						foreach($rowsposts8 as $rowspostspop1){
-							 $query=$wpdb->prepare("SELECT * FROM ".$wpdb->prefix."posts where post_type = 'post' and post_status = 'publish' and ID = %d  order by ID ASC", $rowspostspop1->object_id);
-						$rowspostspop=$wpdb->get_results($query);
-						//print_r($rowspostspop);
-						if(isset($rowspostspop[0]->ID)) {
-							$post_categories =  wp_get_post_categories( $rowspostspop[0]->ID, $rowspostspop[0]->ID ); 
-							$cats = array();
-							
-							foreach($post_categories as $c){
-								$cat = get_category( $c );
-								$cats[] = array( 'name' => $cat->name, 'slug' => $cat->slug, 'id' => $cat->term_id );
-								//echo	$cat->slug;
+						$strx = 1;
+						foreach ( $rowsposts8 as $rowspostspop1 ) {
+							$query        = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "posts WHERE post_type = 'post' AND post_status = 'publish' AND ID = %d  ORDER BY ID ASC", $rowspostspop1->object_id );
+							$rowspostspop = $wpdb->get_results( $query );
+							//print_r($rowspostspop);
+							if ( isset( $rowspostspop[0]->ID ) ) {
+								$post_categories = wp_get_post_categories( $rowspostspop[0]->ID, $rowspostspop[0]->ID );
+								$cats            = array();
+
+								foreach ( $post_categories as $c ) {
+									$cat    = get_category( $c );
+									$cats[] = array(
+										'name' => $cat->name,
+										'slug' => $cat->slug,
+										'id'   => $cat->term_id,
+									);
+									//echo	$cat->slug;
+								}
+								if ( get_the_post_thumbnail( $rowspostspop[0]->ID, 'thumbnail' ) != '' ) {
+									$strx ++;
+									$hascolor = "";
+									if ( $strx % 2 == 0 ) {
+										$hascolor = 'class="hascolor"';
+									}
+									?>
+
+									<li <?php echo $hascolor; ?>>
+										<input type="checkbox" class="huge-it-post-checked" value="<?php echo $rowspostspop[0]->ID; ?>">
+										<div class="huge-it-posts-list-image"><?php echo get_the_post_thumbnail( $rowspostspop[0]->ID, 'thumbnail' ); ?></div>
+										<div class="huge-it-posts-list-title"><?php echo $rowspostspop[0]->post_title; ?></div>
+										<div class="huge-it-posts-list-description"><?php echo $rowspostspop[0]->post_content; ?></div>
+										<div class="huge-it-posts-list-link"><?php echo $rowspostspop[0]->guid; ?></div>
+										<div class="huge-it-posts-list-category"><?php echo $cat->slug; ?></div>
+									</li>
+								<?php }
 							}
-							if(get_the_post_thumbnail($rowspostspop[0]->ID, 'thumbnail') != ''){
-								$strx++;
-								$hascolor="";
-								if($strx%2==0){$hascolor='class="hascolor"';}
-						?>
-							
-							<li <?php echo $hascolor; ?>>
-								<input type="checkbox" class="huge-it-post-checked"  value="<?php echo $rowspostspop[0]->ID; ?>">
-								<div class="huge-it-posts-list-image"><?php echo get_the_post_thumbnail($rowspostspop[0]->ID, 'thumbnail'); ?></div>
-								<div class="huge-it-posts-list-title"><?php echo $rowspostspop[0]->post_title;	?></div>
-								<div class="huge-it-posts-list-description"><?php echo	$rowspostspop[0]->post_content;	?></div>
-								<div class="huge-it-posts-list-link"><?php echo	$rowspostspop[0]->guid; ?></div>
-								<div class="huge-it-posts-list-category"><?php echo	$cat->slug;	?></div>
-							</li>
-						<?php }
-							}
-						}							?>
+						} ?>
 					</ul>
 					<input id="huge-it-add-posts-params" type="hidden" name="popupposts" value="" />
 					<div class="clear"></div>
 					<button class='save-slider-options button-primary huge-it-insert-post-button' id='huge-it-insert-post-button-bottom'>Insert Posts</button>
-			
 				</li>
 				<li id="slider-posts-tabs-content-1" class="recent-post-options">
 					<!-- RECENT POSTS -->
@@ -1029,14 +985,12 @@ function html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $
 										<label class="long" for="sl_link_target">Open Link In New Tab:</label>
 										<input type="hidden" name="sl_link_target" value="" />
 										<input checked="checked" class="link_target" type="checkbox" name="sl_link_target" />
-										<!--<input type="checkbox" name="pause_on_hover" id="pause_on_hover"  <?php if($row->pause_on_hover == 'on'){ echo 'checked="checked"'; } ?>  class="link_target"/>-->
 									</div>
 								</div>
 						<input id="huge-it-add-posts-params" type="hidden" name="popupposts" value="" />
 						<input id="huge-it-add-posts-params" type="hidden" name="addlastposts" value="addlastposts" />
 						<div class="clear"></div>
 						<button class='save-slider-options button-primary huge-it-insert-post-button' id='huge-it-insert-post-button-bottom'>Insert Posts</button>
-		
 				</li>
 			</ul>		
 		</div>
@@ -1046,13 +1000,13 @@ function html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $
 ?>
 
 <?php
-function html_popup_video(){
+function hugeit_slider_html_popup_video(){
 	global $wpdb;
 
 ?>
 	<style>
 		html.wp-toolbar {
-			padding:0px !important;
+			padding:0 !important;
 		}
 		#wpadminbar,#adminmenuback,#screen-meta, .update-nag,#dolly {
 			display:none;
@@ -1062,7 +1016,7 @@ function html_popup_video(){
 		}
 		#adminmenuwrap {display:none !important;}
 		.auto-fold #wpcontent, .auto-fold #wpfooter {
-			margin-left: 0px;
+			margin-left: 0;
 		}
 		#wpfooter {display:none;}
 		iframe {height:250px !important;}
@@ -1097,22 +1051,18 @@ function html_popup_video(){
 					jQuery('#add-video-popup-options > div').removeClass('active');
 					jQuery('#add-video-popup-options  .error-message').addClass('active');
 				}
-			})
+			});
 					
 			jQuery('.updated').css({"display":"none"});
-		<?php	if(isset($_GET["closepop"]))
-				{
-					$getclosepopup = intval($_GET["closepop"]);
-					if($getclosepopup == 1) {
-						
-		?>					
-						jQuery("#closepopup").click();
-						self.parent.location.reload();
+		<?php if(isset($_GET["closepop"])) {
+			$getclosepopup = intval($_GET["closepop"]);
+			if($getclosepopup == 1) { ?>
+				jQuery("#closepopup").click();
+				self.parent.location.reload();
 		<?php	
-					}
-				}		
+			}
+		}
 		?>
-		
 		});
 		
 	</script>
@@ -1177,9 +1127,5 @@ function html_popup_video(){
 		</div>	
 	</div>
 <?php
-
-	
-	
-	
 }
-?>
+
