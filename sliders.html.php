@@ -217,7 +217,7 @@ function hugeit_slider_html_edit_slider($ord_elem, $count_ord,$images,$row,$cat_
 				alert("Name is required.");
 				return;
 			}
-			jQuery('#adminForm').append('<?php echo $nonce_fields ?: ''?>');
+			jQuery('#adminForm').append('<?php if ( $nonce_fields ) {echo $nonce_fields; } else {echo '';} ?>');
 			document.getElementById("adminForm").action = document.getElementById("adminForm").action + "&task=" + pressbutton;
 			document.getElementById("adminForm").submit();
 		}
