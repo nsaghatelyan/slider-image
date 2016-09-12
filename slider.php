@@ -4,7 +4,7 @@
 Plugin Name: Slider
 Plugin URI: http://huge-it.com/slider
 Description: Slider Huge-IT is an awesome WordPress Slider Plugin with many nice features. Just need to install and build slider in a few minutes.
-Version: 3.1.91
+Version: 3.1.92
 Author: Huge-IT
 Author URI: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
