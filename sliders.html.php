@@ -65,7 +65,7 @@ function hugeit_slider_html_show_sliders( $rows,  $pageNav,$sort,$cat_row) {
 			<a target="_blank" class="yt"  href="https://www.youtube.com/channel/UCueCH_ulkgQZhSuc0L5rS5Q"></a>
 		</div>
 		<div class="hg_view_plugins_block">
-			<a target="_blank"  href="https://wordpress.org/support/view/plugin-reviews/slider-image">Rate Us</a>
+			<a target="_blank"  href="https://wordpress.org/support/plugin/slider-image/reviews/">Rate Us</a>
 			<a target="_blank"  href="http://huge-it.com/wordpress-slider-demo-1-mixed-slider/">Full Demo</a>
 			<a target="_blank"  href="http://huge-it.com/wordpress-slider-faq/">FAQ</a>
 			<a target="_blank"  href="http://huge-it.com/contact-us/">Contact Us</a>
@@ -245,7 +245,7 @@ function hugeit_slider_html_edit_slider($ord_elem, $count_ord,$images,$row,$cat_
 			<a target="_blank" class="yt"  href="https://www.youtube.com/channel/UCueCH_ulkgQZhSuc0L5rS5Q"></a>
 		</div>
 		<div class="hg_view_plugins_block">
-			<a target="_blank"  href="https://wordpress.org/support/view/plugin-reviews/slider-image">Rate Us</a>
+			<a target="_blank"  href="https://wordpress.org/support/plugin/slider-image/reviews/">Rate Us</a>
 			<a target="_blank"  href="http://huge-it.com/wordpress-slider-demo-1-mixed-slider/">Full Demo</a>
 			<a target="_blank"  href="http://huge-it.com/wordpress-slider-faq/">FAQ</a>
 			<a target="_blank"  href="http://huge-it.com/contact-us/">Contact Us</a>
