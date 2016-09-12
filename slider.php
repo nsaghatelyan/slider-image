@@ -2320,7 +2320,7 @@ CHARACTER SET utf8 NOT NULL,
   
  PRIMARY KEY (`id`)
  
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=89";
+) DEFAULT CHARSET=latin1 AUTO_INCREMENT=89";
 
 	$sql_huge_itslider_images = "
 CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itslider_images` (
@@ -2337,7 +2337,7 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itslider_images` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
 
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5";
+) DEFAULT CHARSET=utf8 AUTO_INCREMENT=5";
 
 	$sql_huge_itslider_sliders = "
 CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itslider_sliders` (
@@ -2355,7 +2355,7 @@ CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itslider_sliders` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
   
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2";
+) DEFAULT CHARSET=utf8 AUTO_INCREMENT=2";
 
 	$table_name = $wpdb->prefix . "huge_itslider_params";
 	$sql_1 = <<<query1
