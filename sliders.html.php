@@ -48,7 +48,7 @@ function hugeit_slider_html_show_sliders( $rows,  $pageNav,$sort,$cat_row) {
 	
     <?php
     $path_site2 = plugins_url("./images", __FILE__);
-    $new_slider_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&task=add_cat', -1, 'hugeit_slider_new_slider_nonce');
+    $new_slider_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&task=add_cat', 'new_slider', 'hugeit_slider_new_slider_nonce');
     ?>
 		
 	<div class="free_version_banner" <?php if( isset($_COOKIE['hgSliderFreeBannerShow']) && isset($_COOKIE['hgSliderFreeBannerShow']) == "no" ){ echo 'style="display:none"'; } ?> >
@@ -170,8 +170,8 @@ function hugeit_slider_html_show_sliders( $rows,  $pageNav,$sort,$cat_row) {
 						$pr_count = 0;
 					}
 
-					$delete_slide_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&task=remove_cat&id=' . esc_html($rows[$i]->id), -1, 'hugeit_slider_remove_slide_nonce');
-					$edit_slide_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&task=edit_cat&id='. esc_html($rows[$i]->id), -1, 'hugeit_slider_edit_slide_nonce');
+					$delete_slide_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&task=remove_cat&id=' . esc_html($rows[$i]->id), 'delete_slider_' . $rows[$i]->id, 'hugeit_slider_remove_slide_nonce');
+					$edit_slide_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&task=edit_cat&id='. esc_html($rows[$i]->id), 'edit_slider_' . $rows[$i]->id, 'hugeit_slider_edit_slide_nonce');
 					?>
 					<tr <?php if($trcount%2==0){ echo 'class="has-background"';}?>>
 						<td><?php echo $rows[$i]->id; ?></td>
@@ -200,10 +200,12 @@ function hugeit_slider_html_show_sliders( $rows,  $pageNav,$sort,$cat_row) {
 function hugeit_slider_html_edit_slider($ord_elem, $count_ord,$images,$row,$cat_row, $rowim, $rowsld, $paramssld, $rowsposts, $rowsposts8, $postsbycat) {
 	global $wpdb;
 
+
 	if ( isset( $_GET["addslide"] ) ) {
 		$getaddslide = intval( $_GET["addslide"] );
 		if ( $getaddslide == 1 ) {
-			header( 'Location: admin.php?page=sliders_huge_it_slider&id=' . $row->id . '&task=apply' );
+			$apply_slider_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&id=' . $row->id . '&task=apply', 'apply_slider_' . $row->id, 'hugeit_slider_apply_slider');
+			header( 'Location:' . $apply_slider_safe_link );
 		}
 	}
 
@@ -254,7 +256,10 @@ function hugeit_slider_html_edit_slider($ord_elem, $count_ord,$images,$row,$cat_
 		<div style="clear: both;"></div>
 	</div>
 	<div style="clear:both;"></div>
-<form action="admin.php?page=sliders_huge_it_slider&id=<?php echo $row->id; ?>" method="post" name="adminForm" id="adminForm">
+	<?php
+	$link_without_task = wp_nonce_url('admin.php?page=sliders_huge_it_slider&id=' . $row->id, 'apply_slider_' . $row->id, 'hugeit_slider_apply_slider');
+	?>
+<form action="<?php echo $link_without_task; ?>" method="post" name="adminForm" id="adminForm">
 	<div id="poststuff" >
 	<div id="slider-header">
 		<ul id="sliders-list">
@@ -262,7 +267,7 @@ function hugeit_slider_html_edit_slider($ord_elem, $count_ord,$images,$row,$cat_
 			<?php
 			foreach($rowsld as $rowsldires) :
 				if($rowsldires->id != $row->id) :
-					$nonce_url = "window.location.href='" . wp_nonce_url("admin.php?page=sliders_huge_it_slider&task=edit_cat&id=" . $rowsldires->id, -1, 'hugeit_slider_edit_slide_nonce') . "'";
+					$nonce_url = "window.location.href='" . wp_nonce_url("admin.php?page=sliders_huge_it_slider&task=edit_cat&id=" . $rowsldires->id, 'edit_slider_' . $rowsldires->id, 'hugeit_slider_edit_slide_nonce') . "'";
 				?>
 					<li>
 						<a href="#" onclick="<?php echo esc_attr($nonce_url); ?>"><?php echo $rowsldires->name; ?></a>
@@ -275,7 +280,7 @@ function hugeit_slider_html_edit_slider($ord_elem, $count_ord,$images,$row,$cat_
 				endif;
 			endforeach;
 
-			$new_slider_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&task=add_cat', -1, 'hugeit_slider_new_slider_nonce');
+			$new_slider_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&task=add_cat', 'new_slider', 'hugeit_slider_new_slider_nonce');
 		?>
 			<li class="add-new">
 				<a onclick="<?php echo esc_attr("window.location.href='" . $new_slider_safe_link . "'"); ?>">+</a>
@@ -378,10 +383,11 @@ function hugeit_slider_html_edit_slider($ord_elem, $count_ord,$images,$row,$cat_
 						if ( $rowimages->sl_type == '' ) {
 							$rowimages->sl_type = 'image';
 						}
-						$apply_nonce = wp_nonce_url('admin.php?page=sliders_huge_it_slider&id=' . $row->id . '&task=apply&removeslide=' . $rowimages->id, -1, 'hugeit_slider_apply_form');
+
+						$apply_nonce = wp_nonce_url('admin.php?page=sliders_huge_it_slider&id=' . $row->id . '&task=apply&removeslide=' . $rowimages->id, 'apply_slider_' . $row->id, 'hugeit_slider_apply_slider');
 
 					switch($rowimages->sl_type){
-					case 'image':	?>
+					case 'image': ?>
 						<li <?php if($i%2==0){echo "class='has-background'";}$i++; ?>>
 						<input class="order_by" type="hidden" name="order_by_<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->ordering; ?>" />
 							<div class="image-container">
@@ -904,7 +910,7 @@ function hugeit_slider_html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_
 							//print_r($rowspostspop);
 							if ( isset( $rowspostspop[0]->ID ) ) {
 								$post_categories = wp_get_post_categories( $rowspostspop[0]->ID, $rowspostspop[0]->ID );
-								$cats            = array();
+								$cats = array();
 
 								foreach ( $post_categories as $c ) {
 									$cat    = get_category( $c );

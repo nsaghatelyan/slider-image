@@ -231,19 +231,26 @@ function hugeit_slider_edit_slider( $id ) {
 function hugeit_slider_add_slider() {
 	global $wpdb;
 
-	$table_name = $wpdb->prefix . "huge_itslider_sliders";
-	$sql_2      = "
-INSERT INTO 
-`" . $table_name . "` ( `name`, `sl_height`, `sl_width`, `pause_on_hover`, `slider_list_effects_s`, `description`, `param`, `sl_position`, `ordering`, `published`,`sl_loading_icon`) VALUES
-( 'New slider', '375', '600', 'on', 'cubeH', '4000', '1000', 'center', '1', '300','off')";
+	$wpdb->insert(
+		$wpdb->prefix . "huge_itslider_sliders",
+		array(
+			'name' => 'New slider',
+			'sl_height' => '375',
+			'sl_width' => '600',
+			'pause_on_hover' => 'on',
+			'slider_list_effects_s' => 'cubeH',
+			'description' => '4000',
+			'param' => '1000',
+			'sl_position' => 'center',
+			'ordering' => '1',
+			'published' => '300',
+			'sl_loading_icon' => 'off',
+		)
+	);
 
+	// todo: nonces
 
-	$wpdb->query( $sql_2 );
-
-	$query    = "SELECT * FROM " . $wpdb->prefix . "huge_itslider_sliders ORDER BY id ASC";
-	$rowsldcc = $wpdb->get_results( $query );
-
-	$save_link = html_entity_decode(wp_nonce_url('admin.php?page=sliders_huge_it_slider&id=' . $rowsldcc[count($rowsldcc) - 1]->id . '&task=apply', -1, 'hugeit_slider_apply_form'));
+	$save_link = html_entity_decode(wp_nonce_url('admin.php?page=sliders_huge_it_slider&id=' . $wpdb->insert_id . '&task=apply', 'apply_slider_' . $wpdb->insert_id, 'hugeit_slider_apply_slider'));
 	header( 'Location: ' . $save_link );
 }
 
