@@ -231,19 +231,24 @@ function hugeit_slider_edit_slider( $id ) {
 function hugeit_slider_add_slider() {
 	global $wpdb;
 
-	$table_name = $wpdb->prefix . "huge_itslider_sliders";
-	$sql_2      = "
-INSERT INTO 
-`" . $table_name . "` ( `name`, `sl_height`, `sl_width`, `pause_on_hover`, `slider_list_effects_s`, `description`, `param`, `sl_position`, `ordering`, `published`,`sl_loading_icon`) VALUES
-( 'New slider', '375', '600', 'on', 'cubeH', '4000', '1000', 'center', '1', '300','off')";
+	$wpdb->insert(
+		$wpdb->prefix . "huge_itslider_sliders",
+		array(
+			'name' => 'New slider',
+			'sl_height' => '375',
+			'sl_width' => '600',
+			'pause_on_hover' => 'on',
+			'slider_list_effects_s' => 'cubeH',
+			'description' => '4000',
+			'param' => '1000',
+			'sl_position' => 'center',
+			'ordering' => '1',
+			'published' => '300',
+			'sl_loading_icon' => 'off',
+		)
+	);
 
-
-	$wpdb->query( $sql_2 );
-
-	$query    = "SELECT * FROM " . $wpdb->prefix . "huge_itslider_sliders ORDER BY id ASC";
-	$rowsldcc = $wpdb->get_results( $query );
-
-	$save_link = html_entity_decode(wp_nonce_url('admin.php?page=sliders_huge_it_slider&id=' . $rowsldcc[count($rowsldcc) - 1]->id . '&task=apply', -1, 'hugeit_slider_apply_form'));
+	$save_link = html_entity_decode(wp_nonce_url('admin.php?page=sliders_huge_it_slider&id=' . $wpdb->insert_id . '&task=apply', 'apply_slider_' . $wpdb->insert_id, 'hugeit_slider_apply_slider'));
 	header( 'Location: ' . $save_link );
 }
 
@@ -462,21 +467,26 @@ function hugeit_slider_apply_cat( $id ) {
 	$post_show_thumb = esc_html( $_POST["show_thumb"] );
 	$post_show_video_autoplay = esc_html( $_POST["video_autoplay"] );
 
-	$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  name = '%s'  WHERE ID = %d ", $post_slname, $id ) );
-	$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  sl_width = '%s'  WHERE ID = %d ", $post_sl_width, $id ) );
-	$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  sl_height = '%s'  WHERE ID = %d ", $post_sl_height, $id ) );
-	$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  pause_on_hover = '%s'  WHERE ID = %d ", $post_pause_on_hover, $id ) );
-	$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  slider_list_effects_s = '%s'  WHERE ID = %d ", $post_slider_effects_list, $id ) );
-	$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  description = '%s'  WHERE ID = %d ", $post_sl_pausetime, $id ) );
-	$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  param = '%s'  WHERE ID = %d ", $post_sl_changespeed, $id ) );
-	$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  ordering = '1'  WHERE ID = %d ", $id ) );
-	$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  sl_position = '%s'  WHERE ID = %d ", $post_sl_position, $id ) );
-	$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  sl_loading_icon = '%s'  WHERE ID = %d", $post_sl_loading_icon, $id ) );
-	$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  show_thumb = '%s'  WHERE ID = %d", $post_show_thumb, $id ) );
-	$wpdb->query( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  video_autoplay = 'off'" );
-	$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  video_autoplay = '%s'  WHERE ID = %d", $post_show_video_autoplay, $id ) );
-	$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_sliders SET  random_images = '%s'  WHERE ID = %d", $_POST["random_images"], $id ) );
-
+	$wpdb->update(
+		$wpdb->prefix . "huge_itslider_sliders",
+		array(
+			'name' => $post_slname,
+			'sl_width' => $post_sl_width,
+			'sl_height' => $post_sl_height,
+			'pause_on_hover' => $post_pause_on_hover,
+			'slider_list_effects_s' => $post_slider_effects_list,
+			'description' => $post_sl_pausetime,
+			'param' => $post_sl_changespeed,
+			'ordering' => 1,
+			'sl_position' => $post_sl_position,
+			'sl_loading_icon' => $post_sl_loading_icon,
+			'show_thumb' => $post_show_thumb,
+			'video_autoplay' => $post_show_video_autoplay,
+			'random_images' => $_POST["random_images"],
+		),
+		array('id' => absint($id)),
+		array('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%s', '%s', '%s', '%s', '%s')
+	);
 
 	$query = $wpdb->prepare( "SELECT * FROM " . $wpdb->prefix . "huge_itslider_sliders WHERE id = %d", $id );
 	$row   = $wpdb->get_row( $query );
@@ -485,14 +495,24 @@ function hugeit_slider_apply_cat( $id ) {
 	$rowim = $wpdb->get_results( $query );
 
 	foreach ( $rowim as $key => $rowimages ) {
-		$imgDescription = str_replace( "%", "%%", $_POST[ "im_description" . $rowimages->id . "" ] );
-		$imgTitle       = str_replace( "%", "%%", $_POST[ "titleimage" . $rowimages->id . "" ] );
+		$formattedDescription = wp_unslash(esc_html($_POST["im_description" . $rowimages->id]));
+		$formattedTitle = wp_unslash(esc_html($_POST["titleimage" . $rowimages->id]));
 
-		$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_images SET  ordering = '" . sanitize_text_field($_POST[ "order_by_" . $rowimages->id . "" ]) . "'  WHERE ID = %d ", $rowimages->id ) );
-		$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_images SET  link_target = '" . sanitize_text_field($_POST[ "sl_link_target" . $rowimages->id . "" ]) . "'  WHERE ID = %d ", $rowimages->id ) );
-		$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_images SET  sl_url = '" . esc_url($_POST[ "sl_url" . $rowimages->id . "" ]) . "' WHERE ID = %d ", $rowimages->id ) );
-		$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_images SET  name = '" . sanitize_text_field($imgTitle) . "'  WHERE ID = %d ", $rowimages->id ) );
-		$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_images SET  description = '" . sanitize_text_field($imgDescription) . "'  WHERE ID = %d ", $rowimages->id ) );
+		$description = substr($formattedDescription, -1) === '\\' ? $formattedDescription . ' ' : $formattedDescription;
+		$title = substr($formattedTitle, -1) === '\\' ? $formattedTitle . ' ' : $formattedTitle;
+
+		$wpdb->update(
+			$wpdb->prefix . "huge_itslider_images",
+			array(
+				'ordering' => sanitize_text_field($_POST[ "order_by_" . $rowimages->id ]),
+				'link_target' => sanitize_text_field($_POST[ "sl_link_target" . $rowimages->id ]),
+				'sl_url' => esc_url($_POST[ "sl_url" . $rowimages->id ]),
+				'name' => $title,
+				'description' => $description,
+			),
+			array('id' => absint($rowimages->id))
+		);
+
 		if ( isset( $_POST[ "imagess" . $rowimages->id . "" ] ) ) {
 			$wpdb->query( $wpdb->prepare( "UPDATE " . $wpdb->prefix . "huge_itslider_images SET  image_url = '" . esc_url($_POST[ "imagess" . $rowimages->id . "" ]) . "'  WHERE ID = %d ", $rowimages->id ) );
 		}

@@ -561,7 +561,7 @@ function hugeit_slider_page() {
 	switch ( $task ) {
 
 		case 'add_cat':
-			if ( ! isset( $_GET['hugeit_slider_new_slider_nonce'] ) || ! wp_verify_nonce( $_GET['hugeit_slider_new_slider_nonce'] ) ) {
+			if ( ! isset( $_GET['hugeit_slider_new_slider_nonce'] ) || ! wp_verify_nonce( $_GET['hugeit_slider_new_slider_nonce'], 'new_slider' ) ) {
 				die( 'Security check failure.' );
 			}
 			hugeit_slider_add_slider();
@@ -583,7 +583,7 @@ function hugeit_slider_page() {
 			}
 			break;
 		case 'edit_cat':
-			if ( ! isset( $_GET['hugeit_slider_edit_slide_nonce'] ) || ! wp_verify_nonce( $_GET['hugeit_slider_edit_slide_nonce'] ) ) {
+			if ( ! isset( $_GET['hugeit_slider_edit_slide_nonce'] ) || ! wp_verify_nonce( $_GET['hugeit_slider_edit_slide_nonce'], 'edit_slider_' . $id ) ) {
 				die( 'Security check failure.' );
 			}
 			if ( $id ) {
@@ -599,16 +599,20 @@ function hugeit_slider_page() {
 				hugeit_slider_apply_cat( $id );
 			}
 		case 'apply':
-			if ( ! isset( $_REQUEST['hugeit_slider_apply_form'] ) || ! wp_verify_nonce( $_REQUEST['hugeit_slider_apply_form'] ) ) {
-				die( 'Security check failure.' );
+			$a = isset($_REQUEST['hugeit_slider_apply_slider']);
+			$b = wp_verify_nonce($_REQUEST['hugeit_slider_apply_slider'], 'apply_slider_' . $id);
+
+			if (!$a || !$b) {
+				wp_die('Security check failure');
 			}
+
 			if ( $id ) {
 				hugeit_slider_apply_cat( $id );
 				hugeit_slider_edit_slider( $id );
 			}
 			break;
 		case 'remove_cat':
-			if ( ! isset( $_GET['hugeit_slider_remove_slide_nonce'] ) || ! wp_verify_nonce( $_GET['hugeit_slider_remove_slide_nonce'] ) ) {
+			if ( ! isset( $_GET['hugeit_slider_remove_slide_nonce'] ) || ! wp_verify_nonce( $_GET['hugeit_slider_remove_slide_nonce'], 'delete_slider_' . $id ) ) {
 				die( 'Security check failure.' );
 			}
 			hugeit_slider_remove_slider( $id );
@@ -2309,53 +2313,45 @@ function hugeit_slider_add_style_to_header( $id ) {
 
 function hugeit_slider_activate() {
 	global $wpdb;
+	$charset = $wpdb->get_charset_collate();
 	$sql_huge_itslider_params = "
 CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itslider_params`(
- `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
- `name` varchar(50) 
-CHARACTER SET utf8 NOT NULL,
-  `title` varchar(200) CHARACTER SET utf8 NOT NULL,
- `description` text CHARACTER SET utf8 NOT NULL,
-  `value` varchar(200) CHARACTER SET utf8 NOT NULL,
-  
+	`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	`name` varchar(50),
+	`title` varchar(200) NOT NULL,
+	`description` text NOT NULL,
+	`value` varchar(200) NOT NULL,
  PRIMARY KEY (`id`)
- 
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=89";
+) " . $charset . " AUTO_INCREMENT=89";
 
 	$sql_huge_itslider_images = "
 CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itslider_images` (
-`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) DEFAULT NULL,
- `slider_id` varchar(200) ,
- `description` text,
-  `image_url` text,
-  `sl_url` varchar(128) DEFAULT NULL,
-  `ordering` int(11) NOT NULL,
-  `published` tinyint(4) unsigned DEFAULT NULL,
-  `published_in_sl_width` tinyint(4) unsigned DEFAULT NULL,
-
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5";
+	`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	`name` varchar(100) DEFAULT NULL,
+	`slider_id` varchar(200) ,
+	`description` text,
+	`image_url` text,
+	`sl_url` varchar(128) DEFAULT NULL,
+	`ordering` int(11) NOT NULL,
+	`published` tinyint(4) unsigned DEFAULT NULL,
+	`published_in_sl_width` tinyint(4) unsigned DEFAULT NULL,
+PRIMARY KEY (`id`)
+) " . $charset . " AUTO_INCREMENT=5";
 
 	$sql_huge_itslider_sliders = "
 CREATE TABLE IF NOT EXISTS `" . $wpdb->prefix . "huge_itslider_sliders` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) NOT NULL,
-  `sl_height` int(11) unsigned DEFAULT NULL,
-  `sl_width` int(11) unsigned DEFAULT NULL,
-  `pause_on_hover` text,
-  `slider_list_effects_s` text,
-  `description` text,
-  `param` text,
-  `ordering` int(11) NOT NULL,
-  `published` text,
-  
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-  
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2";
+	`id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+	`name` varchar(200) NOT NULL,
+	`sl_height` int(11) unsigned DEFAULT NULL,
+	`sl_width` int(11) unsigned DEFAULT NULL,
+	`pause_on_hover` text,
+	`slider_list_effects_s` text,
+	`description` text,
+	`param` text,
+	`ordering` int(11) NOT NULL,
+	`published` text,
+PRIMARY KEY (`id`)
+) " . $charset . " AUTO_INCREMENT=2";
 
 	$table_name = $wpdb->prefix . "huge_itslider_params";
 	$sql_1 = <<<query1
