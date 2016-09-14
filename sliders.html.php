@@ -205,7 +205,7 @@ function hugeit_slider_html_edit_slider($ord_elem, $count_ord,$images,$row,$cat_
 		$getaddslide = intval( $_GET["addslide"] );
 		if ( $getaddslide == 1 ) {
 			$apply_slider_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&id=' . $row->id . '&task=apply', 'apply_slider_' . $row->id, 'hugeit_slider_apply_slider');
-			header( 'Location:' . $apply_slider_safe_link );
+			header( 'Location: ' . $apply_slider_safe_link );
 		}
 	}
 
