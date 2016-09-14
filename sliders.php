@@ -495,14 +495,20 @@ function hugeit_slider_apply_cat( $id ) {
 	$rowim = $wpdb->get_results( $query );
 
 	foreach ( $rowim as $key => $rowimages ) {
+		$formattedDescription = wp_unslash(esc_html($_POST["im_description" . $rowimages->id]));
+		$formattedTitle = wp_unslash(esc_html($_POST["titleimage" . $rowimages->id]));
+
+		$description = substr($formattedDescription, -1) === '\\' ? $formattedDescription . ' ' : $formattedDescription;
+		$title = substr($formattedTitle, -1) === '\\' ? $formattedTitle . ' ' : $formattedTitle;
+
 		$wpdb->update(
 			$wpdb->prefix . "huge_itslider_images",
 			array(
 				'ordering' => sanitize_text_field($_POST[ "order_by_" . $rowimages->id ]),
 				'link_target' => sanitize_text_field($_POST[ "sl_link_target" . $rowimages->id ]),
 				'sl_url' => esc_url($_POST[ "sl_url" . $rowimages->id ]),
-				'name' => wp_unslash(esc_html($_POST["titleimage" . $rowimages->id])),
-				'description' => wp_unslash(esc_html($_POST["im_description" . $rowimages->id])),
+				'name' => $title,
+				'description' => $description,
 			),
 			array('id' => absint($rowimages->id))
 		);
