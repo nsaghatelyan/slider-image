@@ -332,16 +332,18 @@ function hugeit_slider_html_edit_slider($ord_elem, $count_ord,$images,$row,$cat_
 </script>
 						<input type="hidden" name="imagess" id="_unique_name" />
 						<span class="wp-media-buttons-icon"></span>
-						<div class="huge-it-newuploader uploader button button-primary add-new-image">
-						<input type="button" class="button wp-media-buttons-icon" name="_unique_name_button" id="_unique_name_button" value="Add Image Slide" />
-						</div>
 						<a href="admin.php?page=sliders_huge_it_slider&task=popup_posts&id=<?php echo esc_html($_GET['id']); ?>&TB_iframe=1" class="button button-primary add-post-slide thickbox"  id="slideup2s" value="iframepop">
-						<input  title="Add Post" class="thickbox" type="button" value="Add Post" />
-						<span class="wp-media-buttons-icon"></span>Add Post Slide
+							<input  title="Add Post" class="thickbox" type="button" value="Add Post" />
+							<span class="wp-media-buttons-icon"></span>Add Post Slide
+							<img class="hugeit_slider_pro_logo" src="<?php echo plugins_url( 'images/pro-logo.png' , __FILE__ ) ?>">
 						</a>
 						<a href="admin.php?page=sliders_huge_it_slider&task=popup_video&id=<?php echo esc_html($_GET['id']); ?>&TB_iframe=1" class="button button-primary add-video-slide thickbox"  id="slideup3s" value="iframepop">
 							<span class="wp-media-buttons-icon"></span>Add Video Slide
+							<img class="hugeit_slider_pro_logo" src="<?php echo plugins_url( 'images/pro-logo.png' , __FILE__ ) ?>">
 						</a>
+						<div class="huge-it-newuploader uploader button button-primary add-new-image">
+							<input type="button" class="button wp-media-buttons-icon" name="_unique_name_button" id="_unique_name_button" value="Add Image Slide" />
+						</div>
 						<script>
 							jQuery(document).ready(function() {
 								jQuery("#slideup").click(function() {
@@ -729,16 +731,16 @@ function hugeit_slider_html_edit_slider($ord_elem, $count_ord,$images,$row,$cat_
 					</div>
 				</div>
 				<div id="slider-shortcode-box" class="postbox shortcode ms-toggle">
-					<h3 class="hndle"><span>Usage</span></h3>
+					<h3 class="hndle"><span>Shortcodes</span></h3>
 					<div class="inside">
 						<ul>
 							<li rel="tab-1" class="selected">
-								<h4>Shortcode</h4>
+								<h4>Shortcode for posts/pages/plugins</h4>
 								<p>Copy &amp; paste the shortcode directly into any WordPress post or page.</p>
 								<textarea class="full" readonly="readonly">[huge_it_slider id="<?php echo $row->id; ?>"]</textarea>
 							</li>
 							<li rel="tab-2">
-								<h4>Template Include</h4>
+								<h4>Shortcode for templates/themes</h4>
 								<p>Copy &amp; paste this code into a template file to include the slideshow within your theme.</p>
 								<textarea class="full" readonly="readonly">&lt;?php echo do_shortcode("[huge_it_slider id='<?php echo $row->id; ?>']"); ?&gt;</textarea>
 							</li>

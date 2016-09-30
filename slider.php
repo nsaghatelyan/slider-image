@@ -134,7 +134,7 @@ function huge_it_slider_options_panel()
 {
     $page_cat = add_menu_page('Theme page title', 'Huge IT Slider', 'delete_pages', 'sliders_huge_it_slider', 'hugeit_slider_page', plugins_url('images/sidebar.icon.png', __FILE__));
     add_submenu_page('sliders_huge_it_slider', 'Sliders', 'Sliders', 'delete_pages', 'sliders_huge_it_slider', 'hugeit_slider_page' );
-    $page_option = add_submenu_page('sliders_huge_it_slider', 'General Options', 'General Options', 'manage_options', 'Options_slider_styles', 'hugeit_slider_options_slider_styles' );
+    $page_option = add_submenu_page('sliders_huge_it_slider', 'Advanced Features PRO', 'Advanced Features PRO', 'manage_options', 'Options_slider_styles', 'hugeit_slider_options_slider_styles' );
 	add_submenu_page( 'sliders_huge_it_slider', 'Licensing', 'Licensing', 'manage_options', 'huge_it_slider_Licensing', 'huge_it_slider_Licensing');
 	add_submenu_page('sliders_huge_it_slider', 'Featured Plugins', 'Featured Plugins', 'manage_options', 'huge_it_slider_featured_plugins', 'huge_it_slider_featured_plugins');
 	
