@@ -4,7 +4,7 @@ Donate link: http://huge-it.com/slider/
 Tags: slider, slideshow, wordpress slider, image slider, Photo Slider, slider plugin, responsive slider, easy slider, post slider, video slider, youtube slider, wordpress slideshow,
 Requires at least: 3.0.1
 Tested up to: 4.6.1
-Stable tag: 3.1.93
+Stable tag: 3.1.94
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -414,6 +414,15 @@ If you think, that you found a bug in our [WordPress Slider](http://huge-it.com/
 
 == Changelog ==
 
+= 3.1.94 =
+**We have made some CSS , UX/UI changes in order to make the plugin more user-friendly.**
+
+* 1) Changed the back end "add image slider" button on front. Clarified that video and post slide buttons are from Pro users only with a logo.
+* 2) Made text layouts responsive, so that long text appear correctly on slides.
+* 3) Added additional information about the shortcodes, where and how to use them, including posts/pages, templates.
+* 4) Added the new Responsive Slider plugin link in the list of featured plugins.
+
+
 = 3.1.93 =
 **We make additional bug fixes, perfect the code structure of plugins and try to meet all WordPress standards fully. We avoid regular updates/commits, this is why we group all the points during the week and perform updates. Please, let us know if you catch a bug or any issue after the update at info@huge-it.com**
 
@@ -721,13 +730,24 @@ After activation you can see Huge-IT Slider on the left toolbar
 * Let's have a look at the individual features of the images.
 * Title. Here you can provide a Title which will lay on the slider image. 
 * Description. Provide the details for the slider image. This will be visible above the image, so it is advised to make it as short as possible
-* URL. This is an optional feature. You can provide a link on the slider to take to specific location on your website or another website. The URL should be provided in http:// form. Clicking on the image of the slider you will be straight directed to that URL link
+* URL. This is an optional feature. You can provide a link on the slider to take to specific location on your website or another website. The URL should be provided in http:// form. Clicking on the image of the slider you will be straight directed to that URL link.
+
+**2.2 Video Slider (pro)**
+
+* The slider in professional version allows to add videos from Youtube and Vimeo sources. 
+* Press on “Add Video Slide” and in the Popup paste the link of the video 
+* Add a few configurations, such as:
+* Quality. This is the default quality level of the video 
+* Volume. The default volume level of the video
+* Show Controls. Select if you want to see the controllers of the video in the slider
+* Show info. This can be the title and other layers on the video which comes from the vimeo or youtube straight on the slider
 
 ### Step 3. Current Options.
 
+**This is the free options of the slider which allow to configure most basic settings, which is important for having a nice slider in your site.**
+
 * Width. Specify the width of the slider in pixels.
 * Height. Specify the height of the slider in pixels.
-
 * Effects. Select the effect of the slider transition which will be applied. 
 * Pause time. Specify the pause time for the WordPress Slider in milliseconds.
 * Change speed. Specify the change speed of the slider effect in milliseconds.
@@ -744,6 +764,8 @@ After activation you can see Huge-IT Slider on the left toolbar
 
 **4.1 Slider Styles**
 
+**The general styles of the slider which can make it look as desired>**
+
 * Background Color. Select the background color for the image in the slider, when Image Behaviour is set on ”Natural” this shows some background in the slider. The color will be visible with during the slide change within specific effects.
 * Image Behavior. “Natural” and slider will show images in real proportions, otherwise will stretch them due to the slider size
 * Border size. Set the border around the slider. 
@@ -752,6 +774,8 @@ After activation you can see Huge-IT Slider on the left toolbar
 * Slider Loading Image. Pick up some loading icon for the slider loading
 
 **4.2 Description Styles**
+
+**The description of the slider lays on the slider in any position, and it has some styles options listed below:**
 
 * Description Color. Set the color for the slider image description. 
 * Description background color. Choose the color for the cell containing the slider image description.
@@ -763,6 +787,8 @@ After activation you can see Huge-IT Slider on the left toolbar
 
 **4.3 Title Styles**
 
+**Slider has a title which is accomplished with the number of style option available here:**
+
 * Title Color. Set the color for the title on the slider. 
 * Title background color. Choose the color for the cell containing the title.
 * Title font size. Specify the font size for the image title of the slider. 
@@ -773,6 +799,8 @@ After activation you can see Huge-IT Slider on the left toolbar
 
 **4.4 Navigation Thumbnails Styles**
 
+**Navigation thumbnails will help to show the other images of the slider, make them looks nice by configuring several options.**
+
 * Count of Thumbs Slides. The number of the thumbnail images that are shown on the slider
 * Slider Thumb Height. Set the height of the thumbnail image
 * Thumbnails Background Color. In case if the images are different there can be background
@@ -780,6 +808,8 @@ After activation you can see Huge-IT Slider on the left toolbar
 * Passive Thumbnail Overlay Transparency. The transparency of the non selected thumbnail
 
 **4.5 Navigation Dots Styles.**
+
+**Slider offers several navigation types, such as dots and arrows, which styles can be picked up here:**
 
 * Navigation Dots Position. Set the position for the navigation dots within the slider, it has two positions . 
 * Navigation Dots Color. Select the dot color for the navigation. 
@@ -789,13 +819,49 @@ After activation you can see Huge-IT Slider on the left toolbar
 
 ### Step 5. Inserting the Slider.
 
+**You should use the automatically generated codes. The shortcodes of the slider are in the Usage section, Slider has 2 types of shortcodes. One for the Slider in post or page, the other one, which is php shortcode is made for a Slider integration into the template area**
+
 **5.1 Inserting the Slider into the Post or Page.**
 
-* You should use the automatically generated code into the the Post or Page. The shortcodes takes the following form: [huge_it_slider id=N] , where N is the number ID of the created WordPress Slider.
+* In the Post or Page the shortcode takes the following form: [huge_it_slider id=N] , where N is the number ID of the created WordPress Slider. Copy and Paste the Shortcode into the Visual Editor of the post/page, if you forgot to copy the shortcode, the slider plugin provides a button in the post/page editor, clicking on the button will automatically add the shortcode of your Slider in the page.
 
 **5.2 Inserting the Slider into the template.**
 
-The shortcode can be easily inserted into a template/theme which corresponds to the WordPress standards. To do so you should insert the following shortcode:
-<?php echo do_shortcode([huge_it_slider id=N]); ?>
+* The shortcode can be easily inserted into a template/theme which corresponds to the WordPress standards. To do so go in Appearance > Editor > choose the appropriate file, where you want to have the slider and  insert the following shortcode:
 
-Where N is the number ID of the created Slider.
+**<?php echo do_shortcode([huge_it_slider id=N]); ?>**
+
+* Where N is the number ID of the created Slider.
+
+* Make sure the php shortcode of the slider is not inserted in another php code of the theme, in order the slider could function properly.
+
+**5.3 Use the Slider into the widget.**
+
+* Slider can be easily inserted into the widget area of your template and be see in the sidebar. By going into Appearance > Widgets find the Huge-IT Slider block, then drag and drop it into the right place, Save the results and watch the slider in your sidebar. 
+
+
+### Step 6. Some useful notes
+
+**6.1 Media Formats**
+
+* Slider plugin in Free version can accept the following media formats: jpeg, png, gif
+
+* Slider plugin in Pro version besides the formats listed above can also accept video links from YouTube and Vimeo.
+
+**6.2 Slider Background Transparency**
+
+* Slide has a background, which can be seen if you select Image Behaviour - Natural from general Options, this option will show every image with its natural dimensions, and as the images are different the slider can have a background, in case if you want to back the background of the slider transparent then use the following codes:
+
+**Slider.php file**
+
+* Line 1271
+
+        .huge_it_slideshow_image_wrap_<?php echo $sliderID; ?> {
+               background:<?php             
+                list($ri,$gi,$bi) = array_map('hexdec',str_split($paramssld['slider_slider_background_color'],2));
+                echo 'rgba('.$ri.','.$gi.','.$bi.',1)';?>;
+Write 0  instead of number 1 
+
+**6.3 Put two sliders side by side**
+
+* Please try to do the following: search **the .huge_it_slideshow_image_wrap_<?php echo $sliderID; ?> {** code in the **slider.php** file (it is approximately in the **997 line**). Press the enter and write the float: left; after the brace { and then write the width of the two sliders, which may fit your theme container on the frontend (you can change the width of the slider’s from the current options).
