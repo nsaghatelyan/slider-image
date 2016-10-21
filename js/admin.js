@@ -27,7 +27,7 @@ jQuery(document).ready(function () {
 
 	jQuery(".close_free_banner").on("click",function(){
 		jQuery(".free_version_banner").css("display","none");
-		hgSliderSetCookie( 'hgSliderFreeBannerShow', 'no', {expires:3600} );
+		hgSliderSetCookie( 'hgSliderFreeBannerShow', 'no', {expires:86400} );
 	});
 
 	jQuery('.hugeit_slider_delete_slide').on('click', function() {
