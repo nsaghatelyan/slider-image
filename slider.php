@@ -2590,8 +2590,6 @@ query6;
 		update_option('slider_image_imege_hover_preview','on');
 		update_option('slider_image_version',$plugin_new_version);
 	}
-
-
 }
 register_activation_hook(plugins_url(plugin_basename( __FILE__ ),__FILE__), 'hugeit_slider_activate' );
 require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -2665,4 +2663,3 @@ function slider_duplicate(){
 		}
 	}
 }
-

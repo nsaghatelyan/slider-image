@@ -100,12 +100,10 @@ function hugeit_slider_html_show_sliders( $rows,  $pageNav,$sort,$cat_row) {
 	</script>
 
 <div class="wrap">
-
     <?php
     $path_site2 = plugins_url("./images", __FILE__);
     $new_slider_safe_link = wp_nonce_url('admin.php?page=sliders_huge_it_slider&task=add_cat', 'new_slider', 'hugeit_slider_new_slider_nonce');
     ?>
-
 	<div class="free_version_banner" <?php if( isset($_COOKIE['hgSliderFreeBannerShow']) && isset($_COOKIE['hgSliderFreeBannerShow']) == "no" ){ echo 'style="display:none"'; } ?> >
 		<a class="close_free_banner">+</a>
 		<img class="manual_icon" src="<?php echo $path_site2; ?>/icon-user-manual.png" alt="user manual" />
@@ -234,7 +232,7 @@ function hugeit_slider_html_show_sliders( $rows,  $pageNav,$sort,$cat_row) {
 						<td><?php echo $rows[$i]->id; ?></td>
 						<td><a href="<?php echo esc_attr($edit_slide_safe_link); ?>"><?php echo esc_html(stripslashes($rows[$i]->name)); ?></a></td>
 						<td>(<?php if(!($pr_count)){echo '0';} else{ echo $rows[$i]->prod_count;} ?>)</td>
-						<td><a href="<?php echo esc_url($huge_it_slider_nonce_duplicate_gallery); ?>" class="duplicate-link"><span class="duplicate-icon"></span></a>
+						<td><a href="<?php echo esc_url($huge_it_slider_nonce_duplicate_gallery); ?>" class="duplicate-link"><span class="duplicate-icon"></span></a></td>
 						<td><a href="<?php echo esc_attr($delete_slide_safe_link); ?>" class="hugeit_slider_delete_slideclass delete-link" ><span class="delete-icon"></span></a></td>
 					</tr>
 				 <?php } ?>
@@ -932,7 +930,6 @@ function hugeit_slider_html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_
 				<li id="slider-posts-tabs-content-0"  class="active">
 					<!-- STATIC POSTS -->
 					<div class="control-panel">
-
 						<label for="huge-it-categories-list">Select Category
 							<select id="huge-it-categories-list" name="iframecatid" onchange="this.form.submit()">
 							<?php $categories = get_categories(  ); ?>
@@ -949,7 +946,6 @@ function hugeit_slider_html_popup_posts($ord_elem, $count_ord,$images,$row,$cat_
 							?>
 							</select>
 						</label>
-
 						<button class='save-slider-options button-primary huge-it-insert-post-button' id='huge-it-insert-post-button-top'>Insert Posts</button>
 						<label for="huge-it-description-length">Description Length <input id="huge-it-description-length" type="text" name="posthuge-it-description-length" value="<?php echo $row->published; ?>" placeholder="Description length" /></label>
 						<div class="view-type-block">
@@ -1126,7 +1122,6 @@ function hugeit_slider_html_popup_video(){
 					jQuery('#add-video-popup-options  .error-message').addClass('active');
 				}
 			});
-
 			jQuery('.updated').css({"display":"none"});
 		<?php if(isset($_GET["closepop"])) {
 			$getclosepopup = intval($_GET["closepop"]);
