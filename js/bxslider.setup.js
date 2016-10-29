@@ -3,8 +3,8 @@ if (typeof huge_it_bx == "undefined") {
 }
 
 function init_huge_it_bx_slider(sliderID, index) {
-    if (huge_it_obj == undefined) {
-        huge_it_obj = '';
+    if (hugeit_slider_obj == undefined) {
+        hugeit_slider_obj = '';
     }
     if (huge_video_playing == undefined) {
         huge_video_playing = '';
@@ -17,17 +17,17 @@ function init_huge_it_bx_slider(sliderID, index) {
 
 
     huge_it_bx[array_ind] = jQuery(".huge_it_slideshow_thumbs_" + sliderID + "").bxSlider({
-        slideWidth: huge_it_obj.width_thumbs,
-        minSlides: huge_it_obj.slideCount,
-        maxSlides: huge_it_obj.slideCount,
+        slideWidth: hugeit_slider_obj.width_thumbs,
+        minSlides: hugeit_slider_obj.slideCount,
+        maxSlides: hugeit_slider_obj.slideCount,
         moveSlides: 1,
         auto: true,
-        pause: +huge_it_obj.pauseTime,
+        pause: +hugeit_slider_obj.pauseTime,
         pager: false,
         controls: false,
         mode: 'horizontal',
         infiniteLoop: true,
-        speed: +huge_it_obj.speed
+        speed: +hugeit_slider_obj.speed
     });
     ///on hover on slider stop both slider and thumbnail slider
     if (!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && pausehover == 'on') {
@@ -95,7 +95,7 @@ function init_huge_it_bx_slider(sliderID, index) {
         huge_it_bx[array_ind].stopAuto();
         restart = setTimeout(function () {
             huge_it_bx[array_ind].startAuto();
-        }, 0/*,+huge_it_obj.speed*/)
+        }, 0/*,+hugeit_slider_obj.speed*/)
     });
     jQuery("#huge_it_slideshow_right_" + sliderID).on('click', function () {
 
@@ -103,7 +103,7 @@ function init_huge_it_bx_slider(sliderID, index) {
         huge_it_bx[array_ind].stopAuto();
         restart = setTimeout(function () {
             huge_it_bx[array_ind].startAuto();
-        }, 0/*,+huge_it_obj.speed*/)
+        }, 0/*,+hugeit_slider_obj.speed*/)
     });
 
     //////////////////////////
