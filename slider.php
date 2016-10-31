@@ -2598,12 +2598,12 @@ if($plugin_info['Version'] > '2.9.2'){
 	hugeit_slider_activate();
 }
 
-add_action('wp_loaded','slider_duplicate');
+add_action('wp_loaded','hue_it_slider_duplicate');
 
 /**
- * Duplicate Video
+ * Duplicate Slider
  */
-function slider_duplicate(){
+function hue_it_slider_duplicate(){
 	{
 		if (isset($_GET["id"])) {
 			$id = absint($_GET["id"]);
