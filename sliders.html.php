@@ -17,7 +17,7 @@ if(!function_exists('current_user_can')){
  *
  * @return mixed
  */
-function slider_img_get_image_id($image_url)
+function hugeit_slider_img_get_image_id($image_url)
 {
 	global $wpdb;
 	$attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM " . $wpdb->prefix . "posts WHERE guid='%s';", $image_url));
@@ -35,9 +35,9 @@ function slider_img_get_image_id($image_url)
  *
  * @return false|string
  */
-function slider_img_get_image_by_sizes_and_src($image_src, $image_sizes, $is_thumbnail)
+function hugeit_slider_img_get_image_by_sizes_and_src($image_src, $image_sizes, $is_thumbnail)
 {
-	$is_attachment = slider_img_get_image_id($image_src);
+	$is_attachment = hugeit_slider_img_get_image_id($image_src);
 	$img_sizes = getimagesize($image_src);
 	$img_height = $img_sizes[1];
 
@@ -52,7 +52,7 @@ function slider_img_get_image_by_sizes_and_src($image_src, $image_sizes, $is_thu
 	if (!$is_attachment) {
 		$image_url = $image_src;
 	} else {
-		$attachment_id = slider_img_get_image_id($image_src);
+		$attachment_id = hugeit_slider_img_get_image_id($image_src);
 		$natural_img_width = explode(',', wp_get_attachment_image_sizes($attachment_id, 'full'));
 		$natural_img_width = $natural_img_width[1];
 		$natural_img_width = str_replace(' ', '', $natural_img_width);
@@ -458,7 +458,7 @@ function hugeit_slider_html_edit_slider($ord_elem, $count_ord,$images,$row,$cat_
 						<li <?php if($i%2==0){echo "class='has-background'";}$i++; ?>>
 						<input class="order_by" type="hidden" name="order_by_<?php echo $rowimages->id; ?>" value="<?php echo $rowimages->ordering; ?>" />
 							<div class="image-container">
-								<img src="<?php echo esc_url(slider_img_get_image_by_sizes_and_src($rowimages->image_url,array(),true)); ?>" data-img-src="<?php echo esc_url($rowimages->image_url);?>"/>
+								<img src="<?php echo esc_url(hugeit_slider_img_get_image_by_sizes_and_src($rowimages->image_url,array(),true)); ?>" data-img-src="<?php echo esc_url($rowimages->image_url);?>"/>
 								<div>
 								<script>
 									jQuery(document).ready(function($){
