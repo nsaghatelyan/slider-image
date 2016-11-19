@@ -4,7 +4,7 @@
 Plugin Name: Slider
 Plugin URI: http://huge-it.com/slider
 Description: Slider Huge-IT is an awesome WordPress Slider Plugin with many nice features. Just need to install and build slider in a few minutes.
-Version: 3.1.95
+Version: 3.1.97
 Author: Huge-IT
 Author URI: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -146,9 +146,7 @@ function huge_it_slider_Licensing() {
 	?>
 	<div style="width:95%">
 		<p>
-			This plugin is the LITE version of the Slider. If you want to customize to the styles and colors of your
-			website,than you need to buy Full License. Purchasing Full License will add possibility to customize the
-			general options of the Slider.
+            You are using the Lite version of the Slider for WordPress. If you want to get more awesome options, advanced features, settings to customize every area of the plugin, then check out the Full License plugin. The full version of the plugin is available in 3 different packages of one-time payment.
 		</p>
 		<br/><br/>
 		<a href="http://huge-it.com/slider/" class="button-primary" target="_blank">Purchase a License</a>
@@ -309,7 +307,7 @@ function huge_it_slider_featured_plugins() {
 	<div class="left-block">
 		<div class="main-image-block">
             <a href="http://huge-it.com/wordpress-gallery/" target="_blank">
-			     <img src="<?php echo plugins_url( 'images/Gallery.png' , __FILE__ ); ?>">
+			     <img src="<?php echo plugins_url( 'images/gallery.png' , __FILE__ ); ?>">
             </a>
 		</div>
 	</div>
@@ -338,6 +336,23 @@ function huge_it_slider_featured_plugins() {
 		</div>			  				
 		<div class="button-block">
 			<a href="http://huge-it.com/portfolio-gallery/" target="_blank">View Plugin</a>
+		</div>
+	</div>
+</div>
+<div class="element hugeitmicro-item">
+	<div class="left-block">
+		<div class="main-image-block">
+			<a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank"><img
+					src="<?php echo plugins_url( 'images/pricing-table.png' , __FILE__ ); ?>"></a>
+		</div>
+	</div>
+	<div class="right-block">
+		<div class="title-block"><a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank"><h3><?php echo __("Pricing Table");?></h3></a></div>
+		<div class="description-block">
+			<p><?php echo __("Make awesome sales with beautiful and responsive Pricing Table plugin for WordPress. This plugin includes more than 120 default themes to choose from, has variety of options and is free to download.","pportfolio-gallery");?>.</p>
+		</div>
+		<div class="button-block">
+			<a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank">View Plugin</a>
 		</div>
 	</div>
 </div>
