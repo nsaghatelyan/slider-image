@@ -4,7 +4,7 @@
 Plugin Name: Slider
 Plugin URI: http://huge-it.com/slider
 Description: Slider Huge-IT is an awesome WordPress Slider Plugin with many nice features. Just need to install and build slider in a few minutes.
-Version: 3.1.94
+Version: 3.1.97
 Author: Huge-IT
 Author URI: http://huge-it.com/
 License: GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -144,23 +144,62 @@ function huge_it_slider_options_panel()
 }
 function huge_it_slider_Licensing() {
 	?>
-	<div style="width:95%">
-		<p>
-			This plugin is the LITE version of the Slider. If you want to customize to the styles and colors of your
-			website,than you need to buy Full License. Purchasing Full License will add possibility to customize the
-			general options of the Slider.
-		</p>
-		<br/><br/>
-		<a href="http://huge-it.com/slider/" class="button-primary" target="_blank">Purchase a License</a>
-		<br/><br/><br/>
-		<p>After the purchasing the commercial version follow this steps:</p>
-		<ol>
-			<li>Deactivate Huge IT slider Plugin</li>
-			<li>Delete Huge IT slider Plugin</li>
-			<li>Install the downloaded commercial version of the plugin</li>
-		</ol>
-	</div>
+    <div class="slider-licens">
+        <div class="slider-block">
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon post-slider"></span>
+                    <span class="text">Post Slider</span>
+                </a>
+            </div>
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon youtube"></span>
+                    <span class="text">YouTube Video Support</span>
+                </a>
+            </div>
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon vimeo"></span>
+                    <span class="text">Vimeo Video Support</span>
+                </a>
+            </div>
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon advanced"></span>
+                    <span class="text">Advanced Customization</span>
+                </a>
+            </div>
+
+
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon full-option"></span>
+                    <span class="text">Full Option Access</span>
+                </a>
+            </div>
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon description"></span>
+                    <span class="text">Title & Description Styles</span>
+                </a>
+            </div>
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon slider-arrow"></span>
+                    <span class="text">Arrow Styles</span>
+                </a>
+            </div>
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon design"></span>
+                    <span class="text">Design Customization</span>
+                </a>
+            </div>
+        </div>
+    </div>
 <?php
+    wp_enqueue_style('hugeit-slider-licensing-css',plugins_url('style/licensing.css',__FILE__));
 }
 
 function huge_it_slider_featured_plugins() {
@@ -309,7 +348,7 @@ function huge_it_slider_featured_plugins() {
 	<div class="left-block">
 		<div class="main-image-block">
             <a href="http://huge-it.com/wordpress-gallery/" target="_blank">
-			     <img src="<?php echo plugins_url( 'images/Gallery.png' , __FILE__ ); ?>">
+			     <img src="<?php echo plugins_url( 'images/gallery.png' , __FILE__ ); ?>">
             </a>
 		</div>
 	</div>
@@ -338,6 +377,23 @@ function huge_it_slider_featured_plugins() {
 		</div>			  				
 		<div class="button-block">
 			<a href="http://huge-it.com/portfolio-gallery/" target="_blank">View Plugin</a>
+		</div>
+	</div>
+</div>
+<div class="element hugeitmicro-item">
+	<div class="left-block">
+		<div class="main-image-block">
+			<a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank"><img
+					src="<?php echo plugins_url( 'images/pricing-table.png' , __FILE__ ); ?>"></a>
+		</div>
+	</div>
+	<div class="right-block">
+		<div class="title-block"><a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank"><h3><?php echo __("Pricing Table");?></h3></a></div>
+		<div class="description-block">
+			<p><?php echo __("Make awesome sales with beautiful and responsive Pricing Table plugin for WordPress. This plugin includes more than 120 default themes to choose from, has variety of options and is free to download.","pportfolio-gallery");?>.</p>
+		</div>
+		<div class="button-block">
+			<a href="http://huge-it.com/wordpress-pricing-table-builder/" target="_blank">View Plugin</a>
 		</div>
 	</div>
 </div>
@@ -673,7 +729,7 @@ h3 {
 	if ( isset( $_POST["hugeit_slider_id"] ) ) {
 		$id = absint( $_POST["hugeit_slider_id"] );
 	} else {
-		$id = ( $firstrow->id );
+		$id = $firstrow->id;
 	}
 	if ( isset( $_GET["htslider_id"] ) && absint( $_GET["htslider_id"] ) == absint( $_POST["hugeit_slider_id"] ) ) {
 		if ( isset( $_GET["hugeit_save"] ) ) {
@@ -1007,12 +1063,12 @@ function hugeit_slider_add_style_to_header( $id ) {
 		<?php
 		if ($sliderposition!="left") {
 			if($sliderposition=="right") {
-				$position='float:right;';
+				$position='float:right;margin: 20px';
 			} else {
 				$position='float:none; margin:0px auto;';
 			}
 		} else {
-			$position='float:left;';
+			$position='float:left;margin: 20px';
 		}
 		echo $position; ?>
 			border-style: solid;
@@ -1849,8 +1905,6 @@ function hugeit_slider_add_style_to_header( $id ) {
 		<?php
 		break;
 }
-?>
-		<?php
 		/***<For Responsive slider>***/
 		if((int)$sliderwidth != 0){
 			$titleValue = (int)$paramssld['slider_title_font_size']/(int)$sliderwidth;
@@ -2300,15 +2354,9 @@ function hugeit_slider_add_style_to_header( $id ) {
 		'pauseTime'    => $time_huge,
 		'width_thumbs' => $res_width_of_thumbs,
 		'speed'        => $speed_huge,
-
-
 	);
 	wp_localize_script( 'bxSlider', 'hugeit_slider_obj', $translation_array );
-
-	?>
-
-
-<?php }
+}
 /***</add>***/
 
 function hugeit_slider_activate() {
@@ -2435,12 +2483,9 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
 	$product2 = $wpdb->get_results("DESCRIBE " . $wpdb->prefix . "huge_itslider_images", ARRAY_A);
 	foreach ($product2 as $prod2) {
 
-		if($product2[6]['Field'] == 'sl_type')
-		{
+		if($product2[6]['Field'] == 'sl_type') {
 			echo '';
-		}
-		else
-		{
+		} else {
 			$query="SELECT * FROM ".$wpdb->prefix."huge_itslider_images order by id ASC";
 			$rowim=$wpdb->get_results($query);
 			foreach ($rowim as $key=>$rowimages){
@@ -2449,12 +2494,9 @@ INSERT INTO `$table_name` (`id`, `name`, `sl_height`, `sl_width`, `pause_on_hove
 		}
 	}
 
-	if($product2[6]['Field'] == 'sl_type')
-	{
+	if($product2[6]['Field'] == 'sl_type') {
 		echo '';
-	}
-	else
-	{
+	} else {
 		$wpdb->query("ALTER TABLE  ".$wpdb->prefix."huge_itslider_images ADD  `sl_type` TEXT NOT NULL AFTER  `sl_url`");
 		$wpdb->query("UPDATE ".$wpdb->prefix."huge_itslider_images SET sl_type = 'image' ");
 		$wpdb->query("ALTER TABLE  ".$wpdb->prefix."huge_itslider_images ADD  `link_target` TEXT NOT NULL AFTER  `sl_type`");
@@ -2603,62 +2645,62 @@ add_action('wp_loaded','hugeit_slider_duplicate');
 /**
  * Duplicate Slider
  */
-function hugeit_slider_duplicate()
-{
+function hugeit_slider_duplicate() {
 	if (isset($_GET["id"])) {
 		$id = absint($_GET["id"]);
+	} else {
+		return false;
 	}
-	if (isset($_REQUEST['hugeit_slider_duplicate_slide_nonce'])) {
-		$gallery_edit_nonce = $_REQUEST['hugeit_slider_duplicate_slide_nonce'];
-		if (!wp_verify_nonce($gallery_edit_nonce, 'duplicate_slider' . $id)) {
-			wp_die('Security check fail');
-		}
-	}
-	if (isset($_GET['page']) && $_GET['page'] == 'sliders_huge_it_slider') {
-		if (isset($_GET["task"])) {
-			if ($_GET["task"] == 'duplicate_slider_image') {
-				global $wpdb;
-				$table_name = $wpdb->prefix . "huge_itslider_sliders";
-				$query = $wpdb->prepare("SELECT * FROM " . $table_name . " WHERE id=%d", $id);
-				$slider_img = $wpdb->get_results($query);
-				$wpdb->insert(
-					$table_name,
-					array(
-						'name' => $slider_img[0]->name . ' Copy',
-						'sl_height' => $slider_img[0]->sl_height,
-						'sl_width' => $slider_img[0]->sl_width,
-						'pause_on_hover' => $slider_img[0]->pause_on_hover,
-						'slider_list_effects_s' => $slider_img[0]->slider_list_effects_s,
-						'description' => $slider_img[0]->description,
-						'param' => $slider_img[0]->param,
-						'sl_position' => $slider_img[0]->sl_position,
-						'ordering' => $slider_img[0]->ordering,
-						'published' => $slider_img[0]->published,
-						'sl_loading_icon' => $slider_img[0]->sl_loading_icon,
-						'show_thumb' => $slider_img[0]->show_thumb,
-						'video_autoplay' => $slider_img[0]->video_autoplay,
-						'random_images' => $slider_img[0]->random_images,
-					)
-				);
-				$last_key = $wpdb->insert_id;
-				$table_name = $wpdb->prefix . "huge_itslider_images";
-				$query = $wpdb->prepare("SELECT * FROM " . $table_name . " WHERE slider_id=%d", $id);
-				$sliders = $wpdb->get_results($query);
-				$sliders_list = "";
-				foreach ($sliders as $key => $slider) {
-					$new_gallery = "('";
-					$new_gallery .= $slider->name . "','" . $last_key . "','" . $slider->description . "','" . $slider->image_url . "','" .
-						$slider->sl_url . "','" . $slider->sl_type . "','" . $slider->link_target . "','" . $slider->sl_stitle . "','" .
-						$slider->sl_sdesc . "','" . $slider->sl_postlink . "','" . $slider->ordering . "','" .
-						$slider->published . "','" . $slider->published_in_sl_width . "')";
-					$sliders_list .= $new_gallery . ",";
-				}
-				$galleries_list = substr($sliders_list, 0, strlen($sliders_list) - 1);
-				$query = "INSERT into " . $table_name . " (`name`,`slider_id`,`description`,`image_url`,`sl_url`,`sl_type`,`link_target`,`sl_stitle`,`sl_sdesc`,`sl_postlink`,`ordering`,`published`,`published_in_sl_width`)
-					VALUES " . $galleries_list;
-				$wpdb->query($query);
-				wp_redirect('admin.php?page=sliders_huge_it_slider');
+
+
+	if (isset($_GET['page']) && $_GET['page'] === 'sliders_huge_it_slider') {
+		if (isset($_GET["task"]) && $_GET["task"] === 'duplicate_slider_image') {
+			if ( ! isset( $_REQUEST['hugeit_slider_duplicate_slide_nonce'] ) || ! wp_verify_nonce( $_REQUEST['hugeit_slider_duplicate_slide_nonce'], 'duplicate_slider' . $id ) ) {
+				wp_die( 'Security check fail' );
 			}
+			global $wpdb;
+			$table_name = $wpdb->prefix . "huge_itslider_sliders";
+			$query = $wpdb->prepare("SELECT * FROM " . $table_name . " WHERE id=%d", $id);
+			$slider_img = $wpdb->get_results($query);
+			$wpdb->insert(
+				$table_name,
+				array(
+					'name' => $slider_img[0]->name . ' Copy',
+					'sl_height' => $slider_img[0]->sl_height,
+					'sl_width' => $slider_img[0]->sl_width,
+					'pause_on_hover' => $slider_img[0]->pause_on_hover,
+					'slider_list_effects_s' => $slider_img[0]->slider_list_effects_s,
+					'description' => $slider_img[0]->description,
+					'param' => $slider_img[0]->param,
+					'sl_position' => $slider_img[0]->sl_position,
+					'ordering' => $slider_img[0]->ordering,
+					'published' => $slider_img[0]->published,
+					'sl_loading_icon' => $slider_img[0]->sl_loading_icon,
+					'show_thumb' => $slider_img[0]->show_thumb,
+					'video_autoplay' => $slider_img[0]->video_autoplay,
+					'random_images' => $slider_img[0]->random_images,
+				)
+			);
+			$last_key = $wpdb->insert_id;
+			$table_name = $wpdb->prefix . "huge_itslider_images";
+			$query = $wpdb->prepare("SELECT * FROM " . $table_name . " WHERE slider_id=%d", $id);
+			$sliders = $wpdb->get_results($query);
+			$sliders_list = "";
+			foreach ($sliders as $key => $slider) {
+				$new_slider = "('";
+				$new_slider .= $slider->name . "','" . $last_key . "','" . $slider->description . "','" . $slider->image_url . "','" .
+					$slider->sl_url . "','" . $slider->sl_type . "','" . $slider->link_target . "','" . $slider->sl_stitle . "','" .
+					$slider->sl_sdesc . "','" . $slider->sl_postlink . "','" . $slider->ordering . "','" .
+					$slider->published . "','" . $slider->published_in_sl_width . "')";
+				$sliders_list .= $new_slider . ",";
+			}
+			$sliders_list = substr($sliders_list, 0, strlen($sliders_list) - 1);
+			$query = "INSERT into " . $table_name . " (`name`,`slider_id`,`description`,`image_url`,`sl_url`,`sl_type`,`link_target`,`sl_stitle`,`sl_sdesc`,`sl_postlink`,`ordering`,`published`,`published_in_sl_width`)
+				VALUES " . $sliders_list;
+			$wpdb->query($query);
+			wp_redirect('admin.php?page=sliders_huge_it_slider');
 		}
 	}
+
+	return false;
 }
