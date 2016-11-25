@@ -144,21 +144,62 @@ function huge_it_slider_options_panel()
 }
 function huge_it_slider_Licensing() {
 	?>
-	<div style="width:95%">
-		<p>
-            You are using the Lite version of the Slider for WordPress. If you want to get more awesome options, advanced features, settings to customize every area of the plugin, then check out the Full License plugin. The full version of the plugin is available in 3 different packages of one-time payment.
-		</p>
-		<br/><br/>
-		<a href="http://huge-it.com/slider/" class="button-primary" target="_blank">Purchase a License</a>
-		<br/><br/><br/>
-		<p>After the purchasing the commercial version follow this steps:</p>
-		<ol>
-			<li>Deactivate Huge IT slider Plugin</li>
-			<li>Delete Huge IT slider Plugin</li>
-			<li>Install the downloaded commercial version of the plugin</li>
-		</ol>
-	</div>
+    <div class="slider-licens">
+        <div class="slider-block">
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon post-slider"></span>
+                    <span class="text">Post Slider</span>
+                </a>
+            </div>
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon youtube"></span>
+                    <span class="text">YouTube Video Support</span>
+                </a>
+            </div>
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon vimeo"></span>
+                    <span class="text">Vimeo Video Support</span>
+                </a>
+            </div>
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon advanced"></span>
+                    <span class="text">Advanced Customization</span>
+                </a>
+            </div>
+
+
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon full-option"></span>
+                    <span class="text">Full Option Access</span>
+                </a>
+            </div>
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon description"></span>
+                    <span class="text">Title & Description Styles</span>
+                </a>
+            </div>
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon slider-arrow"></span>
+                    <span class="text">Arrow Styles</span>
+                </a>
+            </div>
+            <div class="licens">
+                <a href="http://huge-it.com/slider/">
+                    <span class="icon design"></span>
+                    <span class="text">Design Customization</span>
+                </a>
+            </div>
+        </div>
+    </div>
 <?php
+    wp_enqueue_style('hugeit-slider-licensing-css',plugins_url('style/licensing.css',__FILE__));
 }
 
 function huge_it_slider_featured_plugins() {
@@ -1022,12 +1063,12 @@ function hugeit_slider_add_style_to_header( $id ) {
 		<?php
 		if ($sliderposition!="left") {
 			if($sliderposition=="right") {
-				$position='float:right;';
+				$position='float:right;margin: 20px';
 			} else {
 				$position='float:none; margin:0px auto;';
 			}
 		} else {
-			$position='float:left;';
+			$position='float:left;margin: 20px';
 		}
 		echo $position; ?>
 			border-style: solid;
