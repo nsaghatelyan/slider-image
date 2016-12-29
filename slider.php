@@ -209,11 +209,11 @@ function huge_it_slider_featured_plugins() {
     <div class="huge-plugins">
         <div class="plaings-block">
             <div class="plugin">
-                <div class="image-block photo-gallery"><a href="http://huge-it.com/portfolio-gallery/" target="_blank"></a></div>
+                <div class="image-block photo-gallery"><a href="http://huge-it.com/wordpress-photo-gallery/" target="_blank"></a></div>
                 <div class="info-block">
-                    <h2><a href="http://huge-it.com/portfolio-gallery/" target="_blank">Photo Gallery </a></h2>
+                    <h2><a href="http://huge-it.com/wordpress-photo-gallery/" target="_blank">Photo Gallery </a></h2>
                     <p>Access advanced options and customization tools of this ultimate gallery, use the best ever functionality and unique features.</p>
-                    <a href="http://huge-it.com/portfolio-gallery/" class="view" target="_blank">View Plugin</a>
+                    <a href="http://huge-it.com/wordpress-photo-gallery/" class="view" target="_blank">View Plugin</a>
                 </div>
             </div>
             <div class="plugin">
@@ -2417,7 +2417,7 @@ query6;
 }
 register_activation_hook(plugins_url(plugin_basename( __FILE__ ),__FILE__), 'hugeit_slider_activate' );
 require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-$plugin_info = get_plugin_data( ABSPATH . 'wp-content/plugins/slider-image/slider.php' );
+$plugin_info = get_plugin_data( ABSPATH . 'wp-content/plugins/slider-image-free/slider.php' );
 if($plugin_info['Version'] > '2.9.2'){
 	hugeit_slider_activate();
 }
