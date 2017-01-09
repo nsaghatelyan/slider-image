@@ -2417,7 +2417,7 @@ query6;
 }
 register_activation_hook(plugins_url(plugin_basename( __FILE__ ),__FILE__), 'hugeit_slider_activate' );
 require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-$plugin_info = get_plugin_data( ABSPATH . 'wp-content/plugins/slider-image-free/slider.php' );
+$plugin_info = get_plugin_data( ABSPATH . 'wp-content/plugins/slider-image/slider.php' );
 if($plugin_info['Version'] > '2.9.2'){
 	hugeit_slider_activate();
 }
