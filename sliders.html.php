@@ -110,25 +110,6 @@ function hugeit_slider_html_show_sliders( $rows, $pageNav, $sort, $cat_row ) {
 		<div  class="description_text"><p>This is the LITE version of the plugin. Click "GET THE FULL VERSION" for more advanced options. We appreciate every customer.</p></div>
 		<div style="clear: both;"></div>
 	</div>
-	<div class="backend-banner" <?php if( isset($_COOKIE['hgSliderBlackFridayShow']) && $_COOKIE['hgSliderBlackFridayShow'] == "no" ){ echo 'style="display:none"'; } ?>>
-		<a class="close-black-friday">+</a>
-		<div class="banner-block">
-			<div class="image-block"></div>
-			<div class="text-block">
-				<p>Upgrade your plugin and get Developer's License for 13 WordPress plugins worth <span>$760 for <strong>$149 only.</strong> </span>
-					Plus, we add 12 months of FREE support and updates. The deal is available for a limited time only.</p>
-			</div>
-			<div class="share-block">
-				<span>Follow us</span>
-				<ul>
-					<li><a href="https://www.facebook.com/hugeit/" class="facebook"></a></li>
-					<li><a href="https://twitter.com/HugeITcom" class="twitter"></a></li>
-					<li><a href="https://plus.google.com/111845940220835549549" class="google"></a></li>
-					<li><a href="https://www.youtube.com/channel/UCueCH_ulkgQZhSuc0L5rS5Q" class="instagram"></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
 	<div style="clear:both;"></div>
 	<div id="poststuff">
 		<div id="sliders-list-page">
@@ -310,25 +291,6 @@ function hugeit_slider_html_edit_slider($ord_elem, $count_ord,$images,$row,$cat_
 		</div>
 		<div  class="description_text"><p>This is the LITE version of the plugin. Click "GET THE FULL VERSION" for more advanced options. We appreciate every customer.</p></div>
 		<div style="clear: both;"></div>
-	</div>
-	<div class="backend-banner" <?php if( isset($_COOKIE['hgSliderBlackFridayShow']) && $_COOKIE['hgSliderBlackFridayShow'] == "no" ){ echo 'style="display:none"'; } ?>>
-		<a class="close-black-friday">+</a>
-		<div class="banner-block">
-			<div class="image-block"></div>
-			<div class="text-block">
-				<p>Upgrade your plugin and get Developer's License for 13 WordPress plugins worth <span>$760 for <strong>$149 only.</strong> </span>
-					Plus, we add 12 months of FREE support and updates. The deal is available for a limited time only.</p>
-			</div>
-			<div class="share-block">
-				<span>Follow us</span>
-				<ul>
-					<li><a href="https://www.facebook.com/hugeit/" class="facebook"></a></li>
-					<li><a href="https://twitter.com/HugeITcom" class="twitter"></a></li>
-					<li><a href="https://plus.google.com/111845940220835549549" class="google"></a></li>
-					<li><a href="https://www.youtube.com/channel/UCueCH_ulkgQZhSuc0L5rS5Q" class="instagram"></a></li>
-				</ul>
-			</div>
-		</div>
 	</div>
 	<div style="clear:both;"></div>
 	<?php

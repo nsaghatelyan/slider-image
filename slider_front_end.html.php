@@ -931,14 +931,7 @@ if ($hasyoutube){?>
                   var iterator = 1;
                   huge_it_change_image_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_<?php echo $sliderID; ?>').val()), (parseInt(jQuery('#huge_it_current_image_key_<?php echo $sliderID; ?>').val()) + iterator) % data_<?php echo $sliderID; ?>.length, data_<?php echo $sliderID; ?>,false,false);
                 }, '<?php echo $slidepausetime; ?>');
-            }                              
-            if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-                    huge_interval['huge_it_playInterval_'+<?php echo $sliderID; ?>] = setInterval(function () {
-                        var iterator = 1;
-                        huge_it_change_image_<?php echo $sliderID; ?>(parseInt(jQuery('#huge_it_current_image_key_<?php echo $sliderID; ?>').val()), (parseInt(jQuery('#huge_it_current_image_key_<?php echo $sliderID; ?>').val()) + iterator) % data_<?php echo $sliderID; ?>.length, data_<?php echo $sliderID; ?>,false,false);
-                    }, '<?php echo $slidepausetime; ?>');
-            }
-      
+            }      
         }
       jQuery(window).focus(function() {
         var i_<?php echo $sliderID; ?> = 0;

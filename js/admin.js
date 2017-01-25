@@ -1,8 +1,4 @@
 jQuery(document).ready(function () {
-	jQuery('.close-black-friday').on('click',function () {
-		jQuery(".backend-banner").css("display","none");
-		hgSliderSetCookie( 'hgSliderBlackFridayShow', 'no', {expires:345600} );
-	});
 	jQuery('.banner-block').on('click',function () {
 		window.open('http://huge-it.com','_blank');
 	});
