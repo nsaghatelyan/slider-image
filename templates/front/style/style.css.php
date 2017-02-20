@@ -124,13 +124,25 @@ div[class*=slider-loader-] {
 	border-radius: <?php echo Hugeit_Slider_Options::get_title_border_radius() . 'px'; ?>;
 <?php switch(Hugeit_Slider_Options::get_title_position()){
 		case '11':
+		if($slider->get_navigate_by() === 'thumbnail' && Hugeit_Slider_Options::get_crop_image() === 'fit'){
+			echo 'left: 0 !important; bottom: '.(Hugeit_Slider_Options::get_thumb_height() + 10).'px;';
+		} else {
 			echo 'left: 0 !important; bottom: 0;';
+		}
 			break;
 		case '21':
+		if($slider->get_navigate_by() === 'thumbnail' && Hugeit_Slider_Options::get_crop_image() === 'fit'){
+			echo 'eft: 50% !important; transform: translateX(-50%); bottom: '.(Hugeit_Slider_Options::get_thumb_height() + 10).'px;';
+		} else {
 			echo 'left: 50% !important; transform: translateX(-50%); bottom: 0;';
+		}
 			break;
 		case '31':
+		if($slider->get_navigate_by() === 'thumbnail' && Hugeit_Slider_Options::get_crop_image() === 'fit'){
+			echo 'right: 0 !important; bottom: '.(Hugeit_Slider_Options::get_thumb_height() + 10).'px;';
+		} else {
 			echo 'right: 0 !important; bottom: 0;';
+		}
 			break;
 		case '12':
 			echo 'left: 0 !important; top: 50%; transform: translateY(-50%);';
@@ -176,13 +188,25 @@ div[class*=slider-loader-] {
 	border-radius: <?php echo Hugeit_Slider_Options::get_description_border_radius() . 'px'; ?>;
 <?php switch(Hugeit_Slider_Options::get_description_position()){
 		case '11':
+		if($slider->get_navigate_by() === 'thumbnail' && Hugeit_Slider_Options::get_crop_image() === 'fit'){
+			echo 'left: 0 !important; bottom: '.(Hugeit_Slider_Options::get_thumb_height() + 10).'px;';
+		} else {
 			echo 'left: 0 !important; bottom: 0;';
+		}
 			break;
 		case '21':
+		if($slider->get_navigate_by() === 'thumbnail' && Hugeit_Slider_Options::get_crop_image() === 'fit'){
+			echo 'left: 50% !important; transform: translateX(-50%); bottom: '.(Hugeit_Slider_Options::get_thumb_height() + 10).'px;';
+		} else {
 			echo 'left: 50% !important; transform: translateX(-50%); bottom: 0;';
+		}
 			break;
 		case '31':
+		if($slider->get_navigate_by() === 'thumbnail' && Hugeit_Slider_Options::get_crop_image() === 'fit'){
+			echo 'right: 0 !important; bottom: '.(Hugeit_Slider_Options::get_thumb_height() + 10).'px;';
+		} else {
 			echo 'right: 0 !important; bottom: 0;';
+		}
 			break;
 		case '12':
 			echo 'left: 0 !important; top: 50%; transform: translateY(-50%);';
@@ -355,14 +379,6 @@ div[class*=slider-loader-] {
 	width: 40px;
 	z-index: 2;
 	color: rgba(0, 0, 0, 0);
-    outline: none;
-    box-shadow: none !important;
-}
-
-.huge-it-arrows:hover, .huge-it-arrows:active, .huge-it-arrows:focus,
-.huge-it-dot-wrap a:hover, .huge-it-dot-wrap a:active, .huge-it-dot-wrap a:focus {
-    outline: none;
-    box-shadow: none !important;
 }
 
 .ts-arrow:hover {
@@ -717,7 +733,7 @@ case 15: ?>
 break;
 case 16: ?>
 .huge-it-prev {
-	left:-21px;
+	left:5px;
 	margin-top:-20px;
 	height:40px;
 	width:37px;
@@ -726,7 +742,7 @@ case 16: ?>
 }
 
 .huge-it-next {
-	right:-21px;
+	right:5px;
 	margin-top:-20px;
 	height:40px;
 	width:37px;
