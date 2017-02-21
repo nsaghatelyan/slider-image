@@ -344,6 +344,7 @@ div[class*=slider-loader-] {
 	width: 100%;
 	display: block;
 	-ms-interpolation-mode: bicubic;
+	box-shadow: none !important;
 }
 
 .huge-it-grid {

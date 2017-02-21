@@ -87,6 +87,12 @@
 
         jQuery(window).resize(function(){
             _this.cropImage();
+
+            jQuery('li.group').height(jQuery('.huge-it-slider').height());
+
+            var k = +_this.settings.maxHeight / +_this.settings.maxWidth * jQuery(window).width() + +hugeitSliderObj.thumb_height + 1;
+
+            $('.huge-it-wrap').height(k);
         });
     };
 
@@ -220,7 +226,7 @@
             jQuery('li.group').eq(this.currentPlace).find('.playButton').click();
         }
 
-        var width = this.settings.maxWidth / hugeitSliderObj.thumb_count_slides,
+        var width = (Math.min(jQuery('.huge-it-slide-bg').width(), +this.settings.maxWidth) - (2 * +hugeitSliderObj.thumb_count_slides * this.settings.thumbMargin)) / +hugeitSliderObj.thumb_count_slides + 1,
             position = parseInt($('.huge-it-thumb-wrap').css('marginLeft'));
 
         position = position - width;
@@ -230,10 +236,15 @@
                 'marginLeft': position + 'px'
             });
         }
+
         if (this.currentPlace == 0) {
             $('.huge-it-thumb-wrap').css({
                 'marginLeft': '0'
             });
+        }
+
+        if(this.settings.controls === 'thumbnail'){
+            jQuery('li.group').height(jQuery('.huge-it-slider').height());
         }
     };
 
@@ -252,8 +263,8 @@
             jQuery('li.group').eq(this.currentPlace).find('.playButton').click();
         }
 
-        var width = this.settings.maxWidth / hugeitSliderObj.thumb_count_slides,
-            position = parseInt($('.huge-it-thumb-wrap').css('marginLeft'));
+        var width = (Math.min(jQuery('.huge-it-slide-bg').width(), +this.settings.maxWidth) - (2 * +hugeitSliderObj.thumb_count_slides * this.settings.thumbMargin)) / +hugeitSliderObj.thumb_count_slides + 1,
+        position = parseInt($('.huge-it-thumb-wrap').css('marginLeft'));
 
         position = position + width;
 
@@ -268,6 +279,10 @@
             $('.huge-it-thumb-wrap').css({
                 'marginLeft': position + 'px'
             });
+        }
+
+        if(this.settings.controls === 'thumbnail'){
+            jQuery('li.group').height(jQuery('.huge-it-slider').height());
         }
     };
 
@@ -323,13 +338,18 @@
 
     Slider.prototype.setThumbs = function () {
         var _this = this,
-            width = (Math.min(jQuery('.huge-it-slide-bg').width(),this.settings.maxWidth) / hugeitSliderObj.thumb_count_slides) - (2 * this.settings.thumbMargin);
+            width = (Math.min(jQuery('.huge-it-slide-bg').width(), +this.settings.maxWidth) - (2 * +hugeitSliderObj.thumb_count_slides * this.settings.thumbMargin)) / +hugeitSliderObj.thumb_count_slides;
 
         this.$thumbWrap = $('<div class="huge-it-thumb-wrap" />').appendTo(this.$sliderWrap);
 
         $('.huge-it-thumb-wrap').css({
-            width: this.totalSlides * (width + 2) + 'px'
+            width: this.totalSlides * (width + 2) + 'px',
+            position: 'absolute'
         });
+
+        var k = +this.settings.maxHeight / +this.settings.maxWidth * jQuery(window).width() + +hugeitSliderObj.thumb_height + 1;
+
+        $('.huge-it-wrap').height(k);
 
         for (var i = 0; i < this.totalSlides; i++) {
             var $thumb = $('<a />')
@@ -484,13 +504,16 @@
         this.Slider.$slider.removeAttr('style');
         this.Slider.$currentSlide.removeAttr('style');
         this.Slider.$nextSlide.removeAttr('style');
+        var h = (this.Slider.settings.controls === 'thumbnail') ? jQuery('.huge-it-slider').height() + 'px' : '100%';
         this.Slider.$currentSlide.css({
             zIndex: 1,
-            opacity: 0
+            opacity: 0,
+            height: h
         });
         this.Slider.$nextSlide.css({
             zIndex: 2,
-            opacity: 1
+            opacity: 1,
+            height: h
         });
 
         if (typeof this.reset === 'function') {
