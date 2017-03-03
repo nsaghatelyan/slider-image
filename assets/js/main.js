@@ -9,7 +9,7 @@
         customTransitions: [],
         fallback3d: 'fade',
         perspective: 1000,
-        navigation: true,
+        navigation: hugeitSliderObj.show_arrows,
         thumbMargin: .5,
         autoPlay: true,
         controls: 'dot',
@@ -50,7 +50,8 @@
 
         (this.settings.transition === 'custom') && (this.nextAnimIndex = -1);
 
-        this.settings.navigation && this.setArrows();
+        +this.settings.navigation && this.setArrows();
+
 
         this.settings.keyNav && this.setKeys();
 
@@ -62,13 +63,15 @@
 
         if (+this.settings.pauseOnHover) {
             this.$slider.hover(function () {
-	            _this.$slider.addClass('slidePause');
+                _this.$slider.addClass('slidePause');
                 _this.setPause();
+
             }, function () {
-	            _this.$slider.addClass('slidePause');
+                _this.$slider.removeClass('slidePause');
                 if(!jQuery('.huge-it-wrap').hasClass('isPlayed')){
                     _this.setAutoPlay();
                 }
+
             });
         }
 
@@ -94,6 +97,8 @@
 
             $('.huge-it-wrap').height(k);
         });
+
+        jQuery('.huge-it-slider > li').height(jQuery('.huge-it-slider').height());
     };
 
     Slider.prototype.setup = function () {
@@ -227,9 +232,9 @@
         }
 
         var width = (Math.min(jQuery('.huge-it-slide-bg').width(), +this.settings.maxWidth) - (2 * +hugeitSliderObj.thumb_count_slides * this.settings.thumbMargin)) / +hugeitSliderObj.thumb_count_slides + 1,
-            position = parseInt($('.huge-it-thumb-wrap').css('marginLeft'));
+            position = parseFloat($('.huge-it-thumb-wrap').css('marginLeft'));
 
-        position = position - width;
+        position = position.toFixed(4) - width.toFixed(4);
 
         if (position >= (this.totalSlides - hugeitSliderObj.thumb_count_slides) * (-width)) {
             $('.huge-it-thumb-wrap').css({
@@ -264,9 +269,9 @@
         }
 
         var width = (Math.min(jQuery('.huge-it-slide-bg').width(), +this.settings.maxWidth) - (2 * +hugeitSliderObj.thumb_count_slides * this.settings.thumbMargin)) / +hugeitSliderObj.thumb_count_slides + 1,
-        position = parseInt($('.huge-it-thumb-wrap').css('marginLeft'));
+        position = parseFloat($('.huge-it-thumb-wrap').css('marginLeft'));
 
-        position = position + width;
+        position = position.toFixed(4) + width.toFixed(4);
 
         if (position <= 0) {
             $('.huge-it-thumb-wrap').css({
@@ -301,11 +306,11 @@
     Slider.prototype.setAutoPlay = function () {
         var _this = this;
 
-	    if(!this.$slider.hasClass('slidePause')){
-		    this.cycling = setTimeout(function () {
-			    _this.next();
-		    }, this.settings.delay);
-	    }
+        if(!this.$slider.hasClass('slidePause')){
+            this.cycling = setTimeout(function () {
+                _this.next();
+            }, this.settings.delay);
+        }
     };
 
     Slider.prototype.setPause = function () {
@@ -342,7 +347,7 @@
 
         this.$thumbWrap = $('<div class="huge-it-thumb-wrap" />').appendTo(this.$sliderWrap);
 
-        $('.huge-it-thumb-wrap').css({
+        this.$slider.parents('.huge-it-wrap').find('.huge-it-thumb-wrap').css({
             width: this.totalSlides * (width + 2) + 'px',
             position: 'absolute'
         });
@@ -504,7 +509,7 @@
         this.Slider.$slider.removeAttr('style');
         this.Slider.$currentSlide.removeAttr('style');
         this.Slider.$nextSlide.removeAttr('style');
-        var h = (this.Slider.settings.controls === 'thumbnail') ? jQuery('.huge-it-slider').height() + 'px' : '100%';
+        var h = jQuery('.huge-it-slider').height() + 'px';
         this.Slider.$currentSlide.css({
             zIndex: 1,
             opacity: 0,
@@ -520,7 +525,7 @@
             this.reset();
         }
 
-	    if (this.Slider.settings.autoPlay && !jQuery('.huge-it-wrap').hasClass('isPlayed')) {
+        if (this.Slider.settings.autoPlay && !jQuery('.huge-it-wrap').hasClass('isPlayed')) {
             clearTimeout(this.Slider.cycling);
             this.Slider.setAutoPlay();
         }
