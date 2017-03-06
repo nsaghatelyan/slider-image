@@ -133,7 +133,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_crop_image($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'crop_image', sanitize_text_field($title));
 		}
 
 		if ( $value === 'stretch' || $value === 'fill'  ) {
@@ -179,7 +179,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_title_color($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'title_color', sanitize_text_field($title));
 		}
 
 		if (ctype_xdigit($value) && strlen($value) === 6) {
@@ -225,7 +225,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_title_font_size($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'title_font_size', sanitize_text_field($title));
 		}
 
 		if (absint($value) > 0) {
@@ -271,7 +271,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_description_color($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'description_color', sanitize_text_field($title));
 		}
 
 		if (ctype_xdigit($value) && strlen($value) === 6) {
@@ -317,7 +317,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_description_font_size($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'description_font_size', sanitize_text_field($title));
 		}
 
 		if (absint($value) > 0) {
@@ -363,7 +363,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_title_position($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'title_position', sanitize_text_field($title));
 		}
 
 		$value = strval($value);
@@ -412,7 +412,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_description_position($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'description_position', sanitize_text_field($title));
 		}
 
 		$value = strval($value);
@@ -461,7 +461,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_title_border_size($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'title_border_size', sanitize_text_field($title));
 		}
 
 		$value = absint($value);
@@ -505,7 +505,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_title_border_color($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'title_border_color', sanitize_text_field($title));
 		}
 
 		if (ctype_xdigit($value) && strlen($value) === 6) {
@@ -551,7 +551,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_title_border_radius($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'title_border_radius', sanitize_text_field($title));
 		}
 
 		$success = update_option(self::$prefix . 'title_border_radius', absint($value));
@@ -593,7 +593,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_description_border_size($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'description_border_size', sanitize_text_field($title));
 		}
 
 		$success = update_option(self::$prefix . 'description_border_size', absint($value));
@@ -634,7 +634,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_description_border_color($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'description_border_color', sanitize_text_field($title));
 		}
 
 		if (ctype_xdigit($value) && strlen($value) === 6) {
@@ -680,7 +680,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_description_border_radius($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'description_border_radius', sanitize_text_field($title));
 		}
 
 		$success = update_option(self::$prefix . 'description_border_radius', absint($value));
@@ -722,7 +722,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_slideshow_border_size($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'slideshow_border_size', sanitize_text_field($title));
 		}
 
 		$success = update_option(self::$prefix . 'slideshow_border_size', absint($value));
@@ -764,7 +764,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_slideshow_border_color($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'slideshow_border_color', sanitize_text_field($title));
 		}
 
 		if (ctype_xdigit($value) && strlen($value) === 6) {
@@ -811,7 +811,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_slideshow_border_radius($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'slideshow_border_radius', sanitize_text_field($title));
 		}
 
 		$success = update_option(self::$prefix . 'slideshow_border_radius', absint($value));
@@ -854,7 +854,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_navigation_type($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'navigation_type', sanitize_text_field($title));
 		}
 
 		if ( absint( $value ) ) {
@@ -902,7 +902,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_navigation_position($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'navigation_position', sanitize_text_field($title));
 		}
 
 		if ($value !== 'top' && $value !== 'bottom') {
@@ -948,7 +948,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_title_background_color($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'title_background_color', sanitize_text_field($title));
 		}
 
 		if (ctype_xdigit($value) && strlen($value) === 6) {
@@ -994,7 +994,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_description_background_color($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'description_background_color', sanitize_text_field($title));
 		}
 
 		if (ctype_xdigit($value) && strlen($value) === 6) {
@@ -1040,7 +1040,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_slider_background_color($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'slider_background_color', sanitize_text_field($title));
 		}
 
 		if (ctype_xdigit($value) && strlen($value) === 6) {
@@ -1081,7 +1081,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_slider_background_color_transparency($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'slider_background_color_transparency', sanitize_text_field($title));
 		}
 
 		$value = round($value/100, 2);
@@ -1129,7 +1129,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_active_dot_color($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'active_dot_color', sanitize_text_field($title));
 		}
 
 		if (ctype_xdigit($value) && strlen($value) === 6) {
@@ -1175,7 +1175,7 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	 */
 	public static function set_dots_color($value, $title = NULL) {
 		if ($title !== NULL) {
-			update_option(self::$prefix_for_title . '', sanitize_text_field($title));
+			update_option(self::$prefix_for_title . 'dot_color', sanitize_text_field($title));
 		}
 
 		if ( ctype_xdigit( $value ) && strlen( $value ) === 6 ) {
