@@ -77,51 +77,6 @@ class Hugeit_Slider_Html_Loader {
 		));
 	}
 
-	/**
-	 * @param Hugeit_Slider_Slide_Video $slide
-	 *
-	 * @return string
-	 */
-	private static function get_video_slide_html( Hugeit_Slider_Slide_Video $slide ) {
-		return Hugeit_Slider_Template_Loader::render(HUGEIT_SLIDER_ADMIN_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'single-slides' . DIRECTORY_SEPARATOR . 'video.php', array(
-			'thumbnail_url' => $slide->get_thumbnail_url(),
-			'volume' => $slide->get_volume(),
-			'show_controls' => $slide->get_show_controls(),
-			'show_info' => $slide->get_show_info(),
-			'quality' => $slide->get_quality(),
-			'site' => $slide->get_site(),
-			'control_color' => $slide->get_control_color(),
-            'url' => $slide->get_url(),
-		));
-	}
-
-	/**
-	 * @param Hugeit_Slider_Slide_Post $slide
-	 *
-	 * @return string
-	 */
-	private static function get_post_slide_html( Hugeit_Slider_Slide_Post $slide ) {
-		ob_start();
-
-		$show_title = $slide->get_show_title();
-		$show_description = $slide->get_show_description();
-		$go_to_post = $slide->get_go_to_post();
-		$in_new_tab = $slide->get_in_new_tab();
-		$max_post_count = $slide->get_max_post_count();
-		$term_id = $slide->get_term_id();
-		$categories = get_categories(array('orderby' => 'id'));
-
-		return Hugeit_Slider_Template_Loader::render(HUGEIT_SLIDER_ADMIN_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'single-slides' . DIRECTORY_SEPARATOR . 'post.php', array(
-			'show_title' => $show_title,
-			'show_description' => $show_description,
-			'go_to_post' => $go_to_post,
-			'in_new_tab' => $in_new_tab,
-			'max_post_count' => $max_post_count,
-			'term_id' => $term_id,
-			'categories' => $categories,
-		));
-	}
-
 	public static function get_add_video_popup() {
 		return Hugeit_Slider_Template_Loader::render(HUGEIT_SLIDER_ADMIN_TEMPLATES_PATH . DIRECTORY_SEPARATOR . '_video-popup.php');
 	}

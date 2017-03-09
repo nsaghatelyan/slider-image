@@ -18,7 +18,6 @@ class Hugeit_Slider_Admin_Assets {
 			$this->enqueue_scripts();
 			$this->enqueue_styles($hook);
 			$this->localize_script();
-			$this->localize_front_end_script();
 		}
 		
 		if ('post.php' === $hook || 'post-new.php' === $hook) {
@@ -63,10 +62,6 @@ class Hugeit_Slider_Admin_Assets {
 		wp_localize_script('hugeit_slider_admin_scripts', 'hugeitSliderObject', $this->get_localize_array());
 	}
 
-	private function localize_front_end_script() {
-		wp_localize_script('hugeit_slider_frontend_main', 'hugeitSliderFrontObject', $this->get_front_end_localize_array());
-	}
-
 	private function get_localize_array() {
 		return array(
 			'addImageSliderPopupTitle' => __('Choose An Image To Add', 'hugeit-slider'),
@@ -76,12 +71,6 @@ class Hugeit_Slider_Admin_Assets {
 			'sliderSuccessfullySaved' => __('Slider Updated', 'hugeit-slider'),
 			'sliderSaveFail' => __('OOPS something went wrong.'),
 			'itemDeleted' => __('Item Deleted', 'hugeit-slider'),
-		);
-	}
-
-	private function get_front_end_localize_array() {
-		return array(
-
 		);
 	}
 }

@@ -121,167 +121,167 @@ class Hugeit_Slider_Install {
 
 	private static function set_default_options() {
 		if ( Hugeit_Slider_Options::get_crop_image() === false ) {
-			Hugeit_Slider_Options::set_crop_image( 'stretch', 'Slider crop image' );
+			Hugeit_Slider_Options::set_crop_image( 'stretch', __('Slider crop image', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_title_color() === false ) {
-			Hugeit_Slider_Options::set_title_color( '000000', 'Slider title color' );
+			Hugeit_Slider_Options::set_title_color( '000000', __('Slider title color', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_title_font_size() === false ) {
-			Hugeit_Slider_Options::set_title_font_size( 13, 'Slider title font size' );
+			Hugeit_Slider_Options::set_title_font_size( 13, __('Slider title font size', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_description_color() === false ) {
-			Hugeit_Slider_Options::set_description_color( 'ffffff', 'Slider description color' );
+			Hugeit_Slider_Options::set_description_color( 'ffffff', __('Slider description color', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_description_font_size() === false ) {
-			Hugeit_Slider_Options::set_description_font_size( 13, 'Slider description font size' );
+			Hugeit_Slider_Options::set_description_font_size( 13, __('Slider description font size', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_title_position() === false ) {
-			Hugeit_Slider_Options::set_title_position( 33, 'Slider title position' );
+			Hugeit_Slider_Options::set_title_position( 33, __('Slider title position', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_description_position() === false ) {
-			Hugeit_Slider_Options::set_description_position( 31, 'Slider description position' );
+			Hugeit_Slider_Options::set_description_position( 31, __('Slider description position', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_title_border_size() === false ) {
-			Hugeit_Slider_Options::set_title_border_size( 0, 'Slider Title border size' );
+			Hugeit_Slider_Options::set_title_border_size( 0, __('Slider Title border size', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_title_border_color() === false ) {
-			Hugeit_Slider_Options::set_title_border_color( 'ffffff', 'Slider title border color' );
+			Hugeit_Slider_Options::set_title_border_color( 'ffffff', __('Slider title border color', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_title_border_radius() === false ) {
-			Hugeit_Slider_Options::set_title_border_radius( 4, 'Slider title border radius' );
+			Hugeit_Slider_Options::set_title_border_radius( 4, __('Slider title border radius', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_description_border_size() === false ) {
-			Hugeit_Slider_Options::set_description_border_size( 0, 'Slider description border size' );
+			Hugeit_Slider_Options::set_description_border_size( 0, __('Slider description border size', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_description_border_color() === false ) {
-			Hugeit_Slider_Options::set_description_border_color( 'ffffff', 'Slider description border color' );
+			Hugeit_Slider_Options::set_description_border_color( 'ffffff', __('Slider description border color', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_description_border_radius() === false ) {
-			Hugeit_Slider_Options::set_description_border_radius( 0, 'Slider description border radius' );
+			Hugeit_Slider_Options::set_description_border_radius( 0, __('Slider description border radius', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_slideshow_border_size() === false ) {
-			Hugeit_Slider_Options::set_slideshow_border_size( 0, 'Slider border size' );
+			Hugeit_Slider_Options::set_slideshow_border_size( 0, __('Slider border size', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_slideshow_border_color() === false ) {
-			Hugeit_Slider_Options::set_slideshow_border_color( 'ffffff', 'Slider border color' );
+			Hugeit_Slider_Options::set_slideshow_border_color( 'ffffff', __('Slider border color', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_slideshow_border_radius() === false ) {
-			Hugeit_Slider_Options::set_slideshow_border_radius( 0, 'Slider border radius' );
+			Hugeit_Slider_Options::set_slideshow_border_radius( 0, __('Slider border radius', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_navigation_type() === false ) {
-			Hugeit_Slider_Options::set_navigation_type( 1, 'Slider navigation type' );
+			Hugeit_Slider_Options::set_navigation_type( 1, __('Slider navigation type', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_navigation_position() === false ) {
-			Hugeit_Slider_Options::set_navigation_position( 'top', 'Slider navigation position' );
+			Hugeit_Slider_Options::set_navigation_position( 'top', __('Slider navigation position', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_title_background_color() === false ) {
-			Hugeit_Slider_Options::set_title_background_color( 'ffffff', 'Slider title background color' );
+			Hugeit_Slider_Options::set_title_background_color( 'ffffff', __('Slider title background color', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_description_background_color() === false ) {
-			Hugeit_Slider_Options::set_description_background_color( '000000', 'Slider description background color' );
+			Hugeit_Slider_Options::set_description_background_color( '000000', __('Slider description background color', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_slider_background_color() === false ) {
-			Hugeit_Slider_Options::set_slider_background_color( 'ffffff', 'Slider slider background color' );
+			Hugeit_Slider_Options::set_slider_background_color( 'ffffff', __('Slider slider background color', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_slider_background_color_transparency() === false ) {
-			Hugeit_Slider_Options::set_slider_background_color_transparency( 100, 'Slider slider background color transparency' );
+			Hugeit_Slider_Options::set_slider_background_color_transparency( 100, __('Slider slider background color transparency', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_active_dot_color() === false ) {
-			Hugeit_Slider_Options::set_active_dot_color( 'ffffff', 'Slider active dot color' );
+			Hugeit_Slider_Options::set_active_dot_color( 'ffffff', __('Slider active dot color', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_dots_color() === false ) {
-			Hugeit_Slider_Options::set_dots_color( '000000', 'Slider dots color' );
+			Hugeit_Slider_Options::set_dots_color( '000000', __('Slider dots color', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_loading_icon_type() === false ) {
-			Hugeit_Slider_Options::set_loading_icon_type( 1, 'Slider Loading Image' );
+			Hugeit_Slider_Options::set_loading_icon_type( 1, __('Slider Loading Image', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_description_width() === false ) {
-			Hugeit_Slider_Options::set_description_width( 70, 'Slider description width' );
+			Hugeit_Slider_Options::set_description_width( 70, __('Slider description width', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_description_height() === false ) {
-			Hugeit_Slider_Options::set_description_height( 50, 'Slider description height' );
+			Hugeit_Slider_Options::set_description_height( 50, __('Slider description height', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_description_background_transparency() === false ) {
-			Hugeit_Slider_Options::set_description_background_transparency( 70, 'Slider description background transparency' );
+			Hugeit_Slider_Options::set_description_background_transparency( 70, __('Slider description background transparency', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_description_text_align() === false ) {
-			Hugeit_Slider_Options::set_description_text_align( 'justify', 'Description text-align' );
+			Hugeit_Slider_Options::set_description_text_align( 'justify', __('Description text-align', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_title_width() === false ) {
-			Hugeit_Slider_Options::set_title_width( 30, 'Slider title width' );
+			Hugeit_Slider_Options::set_title_width( 30, __('Slider title width', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_title_height() === false ) {
-			Hugeit_Slider_Options::set_title_height( 50, 'Slider title height' );
+			Hugeit_Slider_Options::set_title_height( 50, __('Slider title height', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_title_background_transparency() === false ) {
-			Hugeit_Slider_Options::set_title_background_transparency( 70, 'Slider title background transparency' );
+			Hugeit_Slider_Options::set_title_background_transparency( 70, __('Slider title background transparency', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_title_text_align() === false ) {
-			Hugeit_Slider_Options::set_title_text_align( 'right', 'Title text-align' );
+			Hugeit_Slider_Options::set_title_text_align( 'right', __('Title text-align', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_title_has_margin() === false ) {
-			Hugeit_Slider_Options::set_title_has_margin( 1, 'Title has margin' );
+			Hugeit_Slider_Options::set_title_has_margin( 1, __('Title has margin', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_description_has_margin() === false ) {
-			Hugeit_Slider_Options::set_description_has_margin( 1, 'Description has margin' );
+			Hugeit_Slider_Options::set_description_has_margin( 1, __('Description has margin', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_show_arrows() === false ) {
-			Hugeit_Slider_Options::set_show_arrows( 1, 'Slider show left right arrows' );
+			Hugeit_Slider_Options::set_show_arrows( 1, __('Slider show left right arrows', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_thumb_count_slides() === false ) {
-			Hugeit_Slider_Options::set_thumb_count_slides( 3, 'Count of Thumbs Slides' );
+			Hugeit_Slider_Options::set_thumb_count_slides( 3, __('Count of Thumbs Slides', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_thumb_background_color() === false ) {
-			Hugeit_Slider_Options::set_thumb_background_color( 'ffffff', 'Thumbnail Background Color' );
+			Hugeit_Slider_Options::set_thumb_background_color( 'ffffff', __('Thumbnail Background Color', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_thumb_passive_color() === false ) {
-			Hugeit_Slider_Options::set_thumb_passive_color( 'ffffff', 'Passive Thumbnail Color' );
+			Hugeit_Slider_Options::set_thumb_passive_color( 'ffffff', __('Passive Thumbnail Color', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_thumb_passive_color_transparency() === false ) {
-			Hugeit_Slider_Options::set_thumb_passive_color_transparency( 50, 'Passive Thumbnail Color Transparency' );
+			Hugeit_Slider_Options::set_thumb_passive_color_transparency( 50, __('Passive Thumbnail Color Transparency', 'hugeit-slider') );
 		}
 
 		if ( Hugeit_Slider_Options::get_thumb_height() === false ) {
-			Hugeit_Slider_Options::set_thumb_height( 100, 'Slider Thumb Height' );
+			Hugeit_Slider_Options::set_thumb_height( 100, __('Slider Thumb Height', 'hugeit-slider' ) );
 		}
 	}
 
@@ -300,38 +300,38 @@ class Hugeit_Slider_Install {
 		copy(HUGEIT_SLIDER_FRONT_IMAGES_PATH . DIRECTORY_SEPARATOR . 'slides' . DIRECTORY_SEPARATOR . 'slide2.jpg', wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider' . DIRECTORY_SEPARATOR . 'slide2.jpg');
 		copy(HUGEIT_SLIDER_FRONT_IMAGES_PATH . DIRECTORY_SEPARATOR . 'slides' . DIRECTORY_SEPARATOR . 'slide3.jpg', wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider' . DIRECTORY_SEPARATOR . 'slide3.jpg');
 
-		$attachment_id_1 = wp_insert_attachment(array('post_title' => 'Huge-IT First Slide.', 'post_content' => '', 'post_status' => 'publish', 'post_mime_type' => 'jpg'), wp_upload_dir()['basedir'] . '/hugeit-slider/slide1.jpg');
-		$attachment_id_2 = wp_insert_attachment(array('post_title' => 'Huge-IT First Slide.', 'post_content' => '', 'post_status' => 'publish', 'post_mime_type' => 'jpg'), wp_upload_dir()['basedir'] . '/hugeit-slider/slide2.jpg');
-		$attachment_id_3 = wp_insert_attachment(array('post_title' => 'Huge-IT First Slide.', 'post_content' => '', 'post_status' => 'publish', 'post_mime_type' => 'jpg'), wp_upload_dir()['basedir'] . '/hugeit-slider/slide3.jpg');
+		$attachment_id_1 = wp_insert_attachment(array('post_title' => __('Huge-IT First Slide.', 'hugeit-slider'), 'post_content' => '', 'post_status' => 'publish', 'post_mime_type' => 'jpg'), wp_upload_dir()['basedir'] . '/hugeit-slider/slide1.jpg');
+		$attachment_id_2 = wp_insert_attachment(array('post_title' => __('Huge-IT First Slide.', 'hugeit-slider'), 'post_content' => '', 'post_status' => 'publish', 'post_mime_type' => 'jpg'), wp_upload_dir()['basedir'] . '/hugeit-slider/slide2.jpg');
+		$attachment_id_3 = wp_insert_attachment(array('post_title' => __('Huge-IT First Slide.', 'hugeit-slider'), 'post_content' => '', 'post_status' => 'publish', 'post_mime_type' => 'jpg'), wp_upload_dir()['basedir'] . '/hugeit-slider/slide3.jpg');
 
 		$slide1 = Hugeit_Slider_Slide::get_slide('image');
 		$slide1
 			->set_title('')
 			->set_description('')
-			->set_url('http://huge-it.com')
+			->set_url('https://huge-it.com/')
 			->set_attachment_id($attachment_id_1)
 			->set_order(0);
 
 		$slide2 = Hugeit_Slider_Slide::get_slide('image');
 		$slide2
-			->set_title('Simple Usage')
+			->set_title(__('Simple Usage', 'hugeit-slider'))
 			->set_description('')
-			->set_url('http://huge-it.com')
+			->set_url('https://huge-it.com/')
 			->set_attachment_id($attachment_id_2)
 			->set_order(1);
 
 		$slide3 = Hugeit_Slider_Slide::get_slide('image');
 		$slide3
-			->set_title('Huge-IT Slider')
-			->set_description('The slider allows having unlimited amount of images with their titles and descriptions. The slider uses autogenerated shortcodes making it easier for the users to add it to the custom location.')
-			->set_url('http://huge-it.com')
+			->set_title(__('Huge-IT Slider', 'hugeit-slider'))
+			->set_description(__('The slider allows having unlimited amount of images with their titles and descriptions. The slider uses autogenerated shortcodes making it easier for the users to add it to the custom location.', 'hugeit-slider'))
+			->set_url('https://huge-it.com/')
 			->set_attachment_id($attachment_id_3)
 			->set_order(2);
 
 		$slider = new Hugeit_Slider_Slider();
 
 		$slider
-			->set_name('My First Slider')
+			->set_name(__('My First Slider', 'hugeit-slider'))
 			->set_width(600)
 			->set_height(375)
 			->set_effect('random')
@@ -348,7 +348,7 @@ class Hugeit_Slider_Install {
 		$slider->add_slide($slide3);
 
 		if ( ! $slider->save() ) {
-			throw new Exception( 'Problem occurred while installation. Please connect to our support team.' );
+			throw new Exception( __('Problem occurred while installation. Please connect to our support team.', 'hugeit-slider') );
 		}
 	}
 }

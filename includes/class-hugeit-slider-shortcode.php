@@ -26,7 +26,6 @@ class Hugeit_Slider_Shortcode {
 		}
 
 		do_action('hugeit_slider_before_shortcode', $id);
-		Hugeit_Slider_Frontend_Scripts::localize_single_slider_params($id);
 
 		return $this->init_frontend($id);
 	}
