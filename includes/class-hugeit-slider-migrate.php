@@ -317,7 +317,46 @@ class Hugeit_Slider_Migrate {
 		}
 
 		if ($slide['sl_type'] === 'image') {
-			$slide['image_url'] = self::get_attachment_id_by_url($slide['image_url']);
+			$attachment_id = self::get_attachment_id_by_url($slide['image_url']);
+
+			if (!$attachment_id) {
+				$is_standard_slide_1 = false !== strpos($slide['image_url'], '/Front_images/slides/slide1.jpg');
+				$is_standard_slide_2 = false !== strpos($slide['image_url'], '/Front_images/slides/slide2.jpg');
+				$is_standard_slide_3 = false !== strpos($slide['image_url'], '/Front_images/slides/slide3.jpg');
+
+				if ($is_standard_slide_1 || $is_standard_slide_2 || $is_standard_slide_3) {
+					foreach (array($is_standard_slide_1, $is_standard_slide_2, $is_standard_slide_3) as $key => $item) {
+						if ($item) {
+							$which = $key + 1;
+
+							break;
+						}
+					}
+
+					switch ($which) {
+						case 1 :
+							$whichInEnglish = 'First';
+							break;
+						case 2 :
+							$whichInEnglish = 'Second';
+							break;
+						case 3 :
+							$whichInEnglish = 'Third';
+							break;
+					}
+
+					$wp_upload_dir = wp_upload_dir();
+
+					if (!file_exists($wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider')) {
+						mkdir($wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider', 0777, true);
+					}
+
+					copy(HUGEIT_SLIDER_FRONT_IMAGES_PATH . DIRECTORY_SEPARATOR . 'slides' . DIRECTORY_SEPARATOR . 'slide' . $which . '.jpg', $wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider' . DIRECTORY_SEPARATOR . 'slide' . $which . '.jpg');
+					$attachment_id = wp_insert_attachment(array('post_title' => __('Huge-IT ' . $whichInEnglish . ' Slide.', 'hugeit-slider'), 'post_content' => '', 'post_status' => 'publish', 'post_mime_type' => 'jpg'), $wp_upload_dir['basedir'] . '/hugeit-slider/slide' . $which . '.jpg');
+				}
+			}
+
+			$slide['image_url'] = $attachment_id;
 		}
 
 		if ($slide['sl_type'] === 'video') {

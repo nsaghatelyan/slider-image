@@ -292,17 +292,19 @@ class Hugeit_Slider_Install {
 		 * @var Hugeit_Slider_Slide_Image $slide3
 		 */
 
-		if (!is_dir(wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider')) {
-			mkdir(wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider');
+		$wp_upload_dir = wp_upload_dir();
+
+		if (!is_dir($wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider')) {
+			mkdir($wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider');
 		}
 
-		copy(HUGEIT_SLIDER_FRONT_IMAGES_PATH . DIRECTORY_SEPARATOR . 'slides' . DIRECTORY_SEPARATOR . 'slide1.jpg', wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider' . DIRECTORY_SEPARATOR . 'slide1.jpg');
-		copy(HUGEIT_SLIDER_FRONT_IMAGES_PATH . DIRECTORY_SEPARATOR . 'slides' . DIRECTORY_SEPARATOR . 'slide2.jpg', wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider' . DIRECTORY_SEPARATOR . 'slide2.jpg');
-		copy(HUGEIT_SLIDER_FRONT_IMAGES_PATH . DIRECTORY_SEPARATOR . 'slides' . DIRECTORY_SEPARATOR . 'slide3.jpg', wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider' . DIRECTORY_SEPARATOR . 'slide3.jpg');
+		copy(HUGEIT_SLIDER_FRONT_IMAGES_PATH . DIRECTORY_SEPARATOR . 'slides' . DIRECTORY_SEPARATOR . 'slide1.jpg', $wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider' . DIRECTORY_SEPARATOR . 'slide1.jpg');
+		copy(HUGEIT_SLIDER_FRONT_IMAGES_PATH . DIRECTORY_SEPARATOR . 'slides' . DIRECTORY_SEPARATOR . 'slide2.jpg', $wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider' . DIRECTORY_SEPARATOR . 'slide2.jpg');
+		copy(HUGEIT_SLIDER_FRONT_IMAGES_PATH . DIRECTORY_SEPARATOR . 'slides' . DIRECTORY_SEPARATOR . 'slide3.jpg', $wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'hugeit-slider' . DIRECTORY_SEPARATOR . 'slide3.jpg');
 
-		$attachment_id_1 = wp_insert_attachment(array('post_title' => __('Huge-IT First Slide.', 'hugeit-slider'), 'post_content' => '', 'post_status' => 'publish', 'post_mime_type' => 'jpg'), wp_upload_dir()['basedir'] . '/hugeit-slider/slide1.jpg');
-		$attachment_id_2 = wp_insert_attachment(array('post_title' => __('Huge-IT First Slide.', 'hugeit-slider'), 'post_content' => '', 'post_status' => 'publish', 'post_mime_type' => 'jpg'), wp_upload_dir()['basedir'] . '/hugeit-slider/slide2.jpg');
-		$attachment_id_3 = wp_insert_attachment(array('post_title' => __('Huge-IT First Slide.', 'hugeit-slider'), 'post_content' => '', 'post_status' => 'publish', 'post_mime_type' => 'jpg'), wp_upload_dir()['basedir'] . '/hugeit-slider/slide3.jpg');
+		$attachment_id_1 = wp_insert_attachment(array('post_title' => __('Huge-IT First Slide.', 'hugeit-slider'), 'post_content' => '', 'post_status' => 'publish', 'post_mime_type' => 'jpg'), $wp_upload_dir['basedir'] . '/hugeit-slider/slide1.jpg');
+		$attachment_id_2 = wp_insert_attachment(array('post_title' => __('Huge-IT Second Slide.', 'hugeit-slider'), 'post_content' => '', 'post_status' => 'publish', 'post_mime_type' => 'jpg'), $wp_upload_dir['basedir'] . '/hugeit-slider/slide2.jpg');
+		$attachment_id_3 = wp_insert_attachment(array('post_title' => __('Huge-IT Third Slide.', 'hugeit-slider'), 'post_content' => '', 'post_status' => 'publish', 'post_mime_type' => 'jpg'), $wp_upload_dir['basedir'] . '/hugeit-slider/slide3.jpg');
 
 		$slide1 = Hugeit_Slider_Slide::get_slide('image');
 		$slide1
