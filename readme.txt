@@ -1,10 +1,10 @@
 === Slider ===
 Contributors: Huge-IT
-Donate link: http://huge-it.com/slider/
+Donate link: https://huge-it.com/slider/
 Tags: slider, wordpress slider, image slider, Photo Slider, slider plugin, responsive slider, easy slider, post slider, video slider, youtube slider, gallery slider, images slider
 Requires at least: 3.0.1
-Tested up to: 4.7.1
-Stable tag: 3.2.2
+Tested up to: 4.7.3
+Stable tag: 4.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,11 +16,12 @@ Slider - Image Slider
 
 ### Check out useful links and demo page, get support or contribute for Slider.
 
-* [Wordpress Slider](http://huge-it.com/slider/)
-* [Slider Demo](http://huge-it.com/wordpress-slider-demo-1-mixed-slider/)
-* [Slider FAQ](http://huge-it.com/wordpress-slider-faq/)
-* [Slider User Manual](http://huge-it.com/wordpress-slider-user-manual/)
-* [Slider Support](http://huge-it.com/contact-us/)
+* [Wordpress Slider](https://huge-it.com/slider/)
+* [Slider Demo](https://huge-it.com/wordpress-slider-demo-1-mixed-slider/)
+* [Slider FAQ](https://huge-it.com/wordpress-slider-faq/)
+* [Slider User Manual](https://huge-it.com/wordpress-slider-user-manual/)
+* [Slider Support](https://huge-it.com/contact-us/)
+* [Slider Forum](https://huge-it.com/forums/forum/wordpress/wordpress-slider/)
 * [Slider GitHub Project](https://github.com/Huge-IT/slider-image)
 
 https://www.youtube.com/watch?v=oIcsrVHNDWo
@@ -55,7 +56,7 @@ Add for your slider title and information, select how to demonstrate the slider 
 *	Ability to build quality, responsive WordPress slider in a seconds
 *	Slider looks great on various devices
 
-**Upgrade to [WordPress Slider Pro](http://huge-it.com/slider) to add some more features:**
+**Upgrade to [WordPress Slider Pro](https://huge-it.com/slider) to add some more features:**
 
 * Video Slider - YouTube & Vimeo sites
 * Posts Slider ( content slider )
@@ -151,45 +152,45 @@ Navigate images and videos in slider using thumbnail images, with this superb fe
 When you choose dots to slide the images within the slider in you are able make some color and position customization from the slider General Options.
 
 
-**[Demo 1 Mixed Slider](http://huge-it.com/wordpress-slider-demo-1-mixed-slider/#plugin_demo_wrapper)**
+**[Demo 1 Mixed Slider](https://huge-it.com/wordpress-slider-demo-1-mixed-slider/#plugin_demo_wrapper)**
 
 Mixed Slider is the way to show images and videos in one slider. Your rich content, consisting of videos and images will look amazing all together collected in one slider, using beautiful effects and other options make your website look unrepeatable.
 
-**[Demo 2 Youtube Slider](http://huge-it.com/wordpress-slider-demo-2-youtube-slider/#plugin_demo_wrapper)**
+**[Demo 2 Youtube Slider](https://huge-it.com/wordpress-slider-demo-2-youtube-slider/#plugin_demo_wrapper)**
 
 Slider for YouTube videos, presentation of unlimited number of YouTube videos in one Slider. Slightly make your preferable customization on slider and enjoy scrolling YouTube links in powerful slider plugin.
 
-**[Demo 3 Vimeo Slider](http://huge-it.com/wordpress-slider-demo-3-vimeo-slider/#plugin_demo_wrapper)**
+**[Demo 3 Vimeo Slider](https://huge-it.com/wordpress-slider-demo-3-vimeo-slider/#plugin_demo_wrapper)**
 
 Our well know Vimeo source can be integrated in slider. Using Vimeo links collect all of your favorite videos in one Slider and nicely scroll them. Make changes on slider to give your videos more specific view and enjoy.
 
-**[Demo 4 Post Sliders](http://huge-it.com/wordpress-slider-demo-4-post-sliders/#plugin_demo_wrapper)**
+**[Demo 4 Post Sliders](https://huge-it.com/wordpress-slider-demo-4-post-sliders/#plugin_demo_wrapper)**
 
 Post Slider will hep you to watch your best posts with our best slider. Use different effects and all slider tools for sliding a sertain category of the posts, or just last posts.
 
-**[Demo 5 Thumbnail Navigation](http://huge-it.com/wordpress-slider-demo-5-thumbnail-navigation/#plugin_demo_wrapper)**
+**[Demo 5 Thumbnail Navigation](https://huge-it.com/wordpress-slider-demo-5-thumbnail-navigation/#plugin_demo_wrapper)**
 
 Navigate by thumbnails is modern and convenient demonstration for your website slider. It allows to see the thumbnails of your other slides, and by sliding you may follow and learn which slide is coming next.
 
 > #### Demos.
 >
->[Mixed Slider](http://huge-it.com/wordpress-slider-demo-1-mixed-slider/#plugin_demo_wrapper)
+>[Mixed Slider](https://huge-it.com/wordpress-slider-demo-1-mixed-slider/#plugin_demo_wrapper)
 >
->[Youtube Slider](http://huge-it.com/wordpress-slider-demo-2-youtube-slider/#plugin_demo_wrapper)
+>[Youtube Slider](https://huge-it.com/wordpress-slider-demo-2-youtube-slider/#plugin_demo_wrapper)
 >
->[Vimeo Slider](http://huge-it.com/wordpress-slider-demo-3-vimeo-slider/#plugin_demo_wrapper)
+>[Vimeo Slider](https://huge-it.com/wordpress-slider-demo-3-vimeo-slider/#plugin_demo_wrapper)
 >
->[Post Sliders](http://huge-it.com/wordpress-slider-demo-4-post-sliders/#plugin_demo_wrapper)
+>[Post Sliders](https://huge-it.com/wordpress-slider-demo-4-post-sliders/#plugin_demo_wrapper)
 >
->[Thumbnail Slider](http://huge-it.com/wordpress-slider-demo-5-thumbnail-navigation/#plugin_demo_wrapper)
+>[Thumbnail Slider](https://huge-it.com/wordpress-slider-demo-5-thumbnail-navigation/#plugin_demo_wrapper)
 
 > #### FAQ & User Manual
 >
->[FAQ](http://huge-it.com/wordpress-slider-faq/)
+>[FAQ](https://huge-it.com/wordpress-slider-faq/)
 >
->[User Manual](http://huge-it.com/wordpress-slider-user-manual/)
+>[User Manual](https://huge-it.com/wordpress-slider-user-manual/)
 
-If you think, that you found a bug in our [WordPress Slider](http://huge-it.com/slider) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
+If you think, that you found a bug in our [WordPress Slider](https://huge-it.com/slider) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Installation ==
 
@@ -198,7 +199,7 @@ If you think, that you found a bug in our [WordPress Slider](http://huge-it.com/
 1. First download the ZIP file from Wordpress website
 2. Log in to your website administrator panel   
 3. Go to the 'Add New' in the plugins dashboard, click “Upload Plugin”
-4. Upload [WordPress Slider](http://wordpress.org/plugins/slider-image) ZIP file by choosing it from your computer
+4. Upload [WordPress Slider](https://wordpress.org/plugins/slider-image/) ZIP file by choosing it from your computer
 5. Click **Install Now** button
 6. Then click **Activate Plugin** button.
 7. You can see the slider plugin installed on Wordpress left menu.
@@ -221,20 +222,20 @@ If you think, that you found a bug in our [WordPress Slider](http://huge-it.com/
 
 Now you can set your slider options, images and use our slider.
 
-If you think, that you found a bug in our [WordPress Slider](http://huge-it.com/slider) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
+If you think, that you found a bug in our [WordPress Slider](https://huge-it.com/slider) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Screenshots ==
 
-1.  [WordPress slider](http://huge-it.com/wordpress-slider-demo-1-mixed-slider/#plugin_demo_wrapper) - Demo 1 mixed slider.
-12.  [WordPress slider](http://huge-it.com/wordpress-slider-demo-1-mixed-slider/#plugin_demo_wrapper) - Demo 1 mixed slider.
-13.  [WordPress slider](http://huge-it.com/wordpress-slider-demo-2-youtube-slider/#plugin_demo_wrapper) - Demo 2 Youtube slider.
-14.  [WordPress slider](http://huge-it.com/wordpress-slider-demo-3-vimeo-slider/#plugin_demo_wrapper) - Demo 3 Vimeo slider.
-2.  [WordPress slider](http://huge-it.com/wordpress-slider-demo-4-post-sliders/#plugin_demo_wrapper) - Demo 4 Post slider.
-3.  [WordPress slider](http://huge-it.com/wordpress-slider-demo-5-thumbnail-navigation/#plugin_demo_wrapper) - Demo 5 Thumbnail slider.
-4.  [WordPress Slider](http://wordpress.org/plugins/slider-image) - Slides admin page.  
-5.  [WordPress Slider](http://huge-it.com/slider) - Sliders admin page. 
-6.  [WordPress slider](http://huge-it.com/slider) - Post Slider.    
-7.  [WordPress slider](http://huge-it.com/slider) - Widget Slider.  
+1.  [WordPress slider](https://huge-it.com/wordpress-slider-demo-1-mixed-slider/#plugin_demo_wrapper) - Demo 1 mixed slider.
+12.  [WordPress slider](https://huge-it.com/wordpress-slider-demo-1-mixed-slider/#plugin_demo_wrapper) - Demo 1 mixed slider.
+13.  [WordPress slider](https://huge-it.com/wordpress-slider-demo-2-youtube-slider/#plugin_demo_wrapper) - Demo 2 Youtube slider.
+14.  [WordPress slider](https://huge-it.com/wordpress-slider-demo-3-vimeo-slider/#plugin_demo_wrapper) - Demo 3 Vimeo slider.
+2.  [WordPress slider](https://huge-it.com/wordpress-slider-demo-4-post-sliders/#plugin_demo_wrapper) - Demo 4 Post slider.
+3.  [WordPress slider](https://huge-it.com/wordpress-slider-demo-5-thumbnail-navigation/#plugin_demo_wrapper) - Demo 5 Thumbnail slider.
+4.  [WordPress Slider](https://wordpress.org/plugins/slider-image) - Slides admin page.  
+5.  [WordPress Slider](https://huge-it.com/slider) - Sliders admin page. 
+6.  [WordPress slider](https://huge-it.com/slider) - Post Slider.    
+7.  [WordPress slider](https://huge-it.com/slider) - Widget Slider.  
 
 == Frequently Asked Questions ==
 
@@ -410,9 +411,30 @@ After installation of pro version, in General Options all your changes will be s
 *  If the plugin does not work correctly on your website, do not hesitate to contact Huge-IT support team via the following email address: info@huge-it.com. The support team will sort out the problem within 24 hours. 
 
 
-If you think, that you found a bug in our [WordPress Slider](http://huge-it.com/slider/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
+If you think, that you found a bug in our [WordPress Slider](https://huge-it.com/slider/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 4.0.0 =
+* 1) Sanitize the user data and validated post/get calls of the plugin
+* 2) Refined folder and image names
+* 3) Fixed the issue with direct file access to plugin files
+* 4) Changed the code structure to be more Object Oriented, now all major functionality of plugin is stored in a single instance which is accessible via Hugeit_Slider() function, this allows other plugins/extensions to use the functionality of this plugin
+* 5) Removed Lazy codes both, from back and front end
+* 6) Removed unreadable codes, and replaced with documented codes
+* 7) Added additional credits where necessary
+* 8) Made further code optimization in order to meet required WordPress coding standards
+* 9) Code optimization loads the admin panel more quickly now as well
+* 10) Added nonces for all _POST, _GET requests
+* 11) Edited collation to meet WordPRess standards fully
+* 12) Took off additional/extra indexes from tables
+* 13) Fixed multiple issues of CSS bugs on front end
+* 14) The plugin is fully responsive now
+* 15) Added slider background color transparency feature 
+* 16) Added video Slide URLs to be visible in the admin pannel
+
+= 3.2.3 =
+* Fixed the issue on mobile phones where slider disappears on iphone and windows phones.
 
 = 3.2.2 =
 * 1) Fixed reported bug on mobile
