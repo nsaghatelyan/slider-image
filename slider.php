@@ -79,6 +79,7 @@ final class Hugeit_Slider {
 
 		add_action( 'init', array( $this, 'init' ), 1, 0 );
 		add_action( 'before_hugeit_slider_init', array( $this, 'before_init' ), 1, 0 );
+		add_action( 'widgets_init', array($this, 'register_widgets'));
 	}
 
 	public function before_init() {
@@ -102,6 +103,10 @@ final class Hugeit_Slider {
 
 		do_action('after_hugeit_slider_init');
 	}
+
+	public function register_widgets(){
+        register_widget('Hugeit_Slider_Widget');
+    }
 
 	/**
 	 * Defines plugin basic constants.
@@ -169,6 +174,7 @@ final class Hugeit_Slider {
 			require_once "includes/class-hugeit-slider-migrate.php";
 		}
 
+		require_once "includes/class-hugeit-slider-widget.php";
 		require_once "includes/class-hugeit-slider-shortcode.php";
 		require_once "includes/class-hugeit-slider-frontend-scripts.php";
 	}

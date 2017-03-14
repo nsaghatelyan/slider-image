@@ -11,7 +11,7 @@ interface Hugeit_Slider_Slider_Interface {
 	 *
 	 * @param int $id
 	 */
-	public function __construct( $id );
+	public function __construct( $id = NULL );
 
 	/**
 	 * @return int
