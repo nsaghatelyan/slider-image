@@ -154,10 +154,15 @@ final class Hugeit_Slider {
 		require_once "includes/class-hugeit-slider-slide.php";
 		require_once "includes/class-hugeit-slider-slide-image.php";
 
+
+
+        require_once "includes/class-hugeit-slider-migrate.php";
 		require_once "includes/class-hugeit-slider-install.php";
 		require_once "includes/class-hugeit-slider-template-loader.php";
 		require_once "includes/class-hugeit-slider-options.php";
 		require_once "includes/class-hugeit-slider-ajax.php";
+
+        require_once "includes/class-hugeit-slider-helpers.php";
 
 		if ($this->is_request('admin')) {
 			require_once( ABSPATH . '/wp-admin/includes/media.php' );
@@ -165,13 +170,13 @@ final class Hugeit_Slider {
 			require_once( ABSPATH . '/wp-admin/includes/image.php' );
 			require_once( ABSPATH . '/wp-includes/pluggable.php' );
 
-			require_once "includes/class-hugeit-slider-helpers.php";
+
 			require_once "includes/admin/class-hugeit-slider-general-options.php";
 			require_once "includes/admin/class-hugeit-slider-admin.php";
 			require_once "includes/admin/class-hugeit-slider-admin-assets.php";
 			require_once "includes/admin/class-hugeit-slider-sliders.php";
 
-			require_once "includes/class-hugeit-slider-migrate.php";
+
 		}
 
 		require_once "includes/class-hugeit-slider-widget.php";
