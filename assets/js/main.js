@@ -92,13 +92,12 @@
             _this.cropImage();
 
             jQuery('li.group').height(jQuery('.huge-it-slider').height());
+            jQuery('div[class*=slider_], .huge-it-wrap').height(jQuery('.huge-it-slider img').height());
 
-            var k = +_this.settings.maxHeight / +_this.settings.maxWidth * jQuery(window).width() + +hugeitSliderObj.thumb_height + 1;
-
-            $('.huge-it-wrap').height(k);
         });
 
         jQuery('.huge-it-slider > li').height(jQuery('.huge-it-slider').height());
+        jQuery('div[class*=slider_], .huge-it-wrap').height(jQuery('.huge-it-slider img').height());
     };
 
     Slider.prototype.setup = function () {
@@ -509,6 +508,7 @@
         this.Slider.$slider.removeAttr('style');
         this.Slider.$currentSlide.removeAttr('style');
         this.Slider.$nextSlide.removeAttr('style');
+        jQuery('div[class*=slider_], .huge-it-wrap').height(jQuery('.huge-it-slider img').height());
         var h = jQuery('.huge-it-slider').height() + 'px';
         this.Slider.$currentSlide.css({
             zIndex: 1,
