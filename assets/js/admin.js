@@ -142,7 +142,6 @@ jQuery(document).ready(function() {
 			var $li = jQuery(li),
 				order = li.dataset.order,
 				type = li.dataset.type;
-			debugger;
 
 			switch (type) {
 				case 'image' :
