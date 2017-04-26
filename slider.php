@@ -78,7 +78,6 @@ final class Hugeit_Slider {
 		register_activation_hook( __FILE__, array( 'Hugeit_Slider_Install', 'init' ) );
 
 		add_action( 'init', array( $this, 'init' ), 1, 0 );
-		add_action( 'init', array( 'Hugeit_Slider_Install', 'init' ) );
 		add_action( 'before_hugeit_slider_init', array( $this, 'before_init' ), 1, 0 );
 		add_action( 'widgets_init', array($this, 'register_widgets'));
 	}
