@@ -21,7 +21,7 @@ final class Hugeit_Slider {
 	 *
 	 * @var string
 	 */
-	private $version = '4.0.1';
+	private $version = '4.0.2';
 
 	/**
 	 * Hugeit_Slider slider's table name.

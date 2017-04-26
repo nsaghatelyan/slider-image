@@ -162,8 +162,8 @@ jQuery(document).ready(function() {
 
 		jQuery.each(jQuery('#slides-list > li'), function(i, li) {
 			var $li = jQuery(li),
-				order = $li.data('order'),
-				type = $li.data('type');
+				order = li.dataset.order,
+				type = li.dataset.type;
 
 			switch (type) {
 				case 'image' :
@@ -174,7 +174,6 @@ jQuery(document).ready(function() {
 						url: $li.find('input.url').val(),
 						in_new_tab: $li.find('input.in-new-tab').prop('checked') ? 1 : 0,
 						attachment_id: $li.find('input.attachment-id').val(),
-						order: $li.data('order'),
 					};
 
 					break;
