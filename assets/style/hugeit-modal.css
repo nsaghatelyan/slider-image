@@ -1,0 +1,43 @@
+.-hugeit-modal {
+    display: none;
+    position: fixed;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    justify-content: center;
+    align-items: center;
+    background-color:rgba(0,0,0,.3);
+    z-index: 99999;
+}
+
+.-hugeit-modal-content {
+    width: 500px;
+    min-width: 400px;
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+    -webkit-box-shadow: 0 3px 6px rgba( 0, 0, 0, 0.3 );
+    box-shadow: 0 3px 6px rgba( 0, 0, 0, 0.3 );
+    -webkit-animation-duration: .7s;
+    -moz-animation-duration: .7s;
+    animation-duration: .7s;
+}
+
+
+.-hugeit-modal-content-header,
+.-hugeit-modal-content-body,
+.-hugeit-modal-content-footer {
+    padding: 20px;
+}
+
+.-hugeit-modal-content-header {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #eee;
+}
+
+
+.-hugeit-modal-content-footer {
+    background-color: #f8f8f8;
+    border-top: 1px solid #eee;
+}

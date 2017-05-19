@@ -23,6 +23,10 @@ class Hugeit_Slider_Admin_Assets {
 		if ('post.php' === $hook || 'post-new.php' === $hook) {
 			$this->enqueue_add_slider_popup_scripts();
 		}
+
+		if('plugins.php' === $hook){
+		    $this->enqueue_deactivation_feedback();
+        }
 	}
 
 	private function enqueue_scripts() {
@@ -60,6 +64,16 @@ class Hugeit_Slider_Admin_Assets {
 
 	private function localize_script() {
 		wp_localize_script('hugeit_slider_admin_scripts', 'hugeitSliderObject', $this->get_localize_array());
+	}
+
+    private function enqueue_deactivation_feedback()
+    {
+        wp_enqueue_script('hugeit_modal', HUGEIT_SLIDER_SCRIPTS_URL . '/hugeit-modal.js', array('jquery'));
+        wp_enqueue_script('hugeit_deactivation_feedback', HUGEIT_SLIDER_SCRIPTS_URL . '/deactivation-feedback.js', array('jquery','hugeit_modal'));
+        wp_localize_script('hugeit_deactivation_feedback', 'hugeitSliderL10n',array(
+            'slug' => Hugeit_Slider()->get_slug()
+         ));
+        wp_enqueue_style('hugeit_modal', HUGEIT_SLIDER_STYLESHEETS_URL . '/hugeit-modal.css');
 	}
 
 	private function get_localize_array() {
