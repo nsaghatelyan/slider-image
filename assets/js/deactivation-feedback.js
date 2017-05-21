@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 jQuery(document).ready(function(){
    var deactivationLink = jQuery('#the-list').find('tr[data-slug='+hugeitSliderL10n.slug+'] .deactivate a'),
        confirmDeactivationLink = jQuery(".hugeit-deactivate-plugin"),
@@ -18,12 +18,18 @@ jQuery(document).ready(function(){
     confirmDeactivationLink.on('click',function(e){
        e.preventDefault();
 
-       var checkedOption = jQuery('input[name='+hugeitSliderL10n.slug+'-deactivation-reason]:checked');
+       var checkedOption = jQuery('input[name='+hugeitSliderL10n.slug+'-deactivation-reason]:checked'),
+           nonce = jQuery('#hugeit-slider-deactivation-nonce').val();
 
        if(checkedOption.length){
-           alert(checkedOption.val());
+           hugeitModal.hide(hugeitSliderL10n.slug+'-deactivation-feedback');
+           sendDeactivationFeedback(checkedOption.val(),nonce);
+           setTimeout(function(){
+               window.location.replace(deactivationURL);
+           },0);
        }else{
            hugeitModal.hide(hugeitSliderL10n.slug+'-deactivation-feedback');
+           window.location.replace(deactivationURL);
        }
 
        return false;
@@ -36,4 +42,12 @@ jQuery(document).ready(function(){
 
         return false;
     });
+
+    function sendDeactivationFeedback(v,n){
+        jQuery.ajax({
+            url: ajaxurl,
+            method: 'post',
+            data: { action: 'hugeit_slider_deactivation_feedback', value:v,nonce:n }
+        });
+    }
 });

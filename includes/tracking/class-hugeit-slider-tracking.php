@@ -21,6 +21,9 @@ class Hugeit_Slider_Tracking
         add_action('hugeit_slider_opt_in_cron',array($this,'track_data'));
     }
 
+    /**
+     *
+     */
     public function maybe_opt_in()
     {
         if (!$this->can_opt_in()) {
@@ -39,11 +42,19 @@ class Hugeit_Slider_Tracking
 
     }
 
+    /**
+     * Check if current user is capable for opting in/out to track user data
+     *
+     * @return bool
+     */
     public function can_opt_in()
     {
         return current_user_can('manage_options');
     }
 
+    /**
+     * Print out the admin notice for opting in/out to track user data
+     */
     public function admin_notice()
     {
         if (!$this->can_opt_in()) return;
@@ -61,41 +72,70 @@ class Hugeit_Slider_Tracking
         <?php
     }
 
+    /**
+     * Get url for opting out from tracking data
+     *
+     * @return string
+     */
     public function get_opt_in_url()
     {
         return add_query_arg( 'hugeit_slider_tracking_opt_in', 1, admin_url( 'admin.php?page=hugeit_slider' ) );
     }
 
+    /**
+     * Get url for opting out from tracking data
+     *
+     * @return string
+     */
     public function get_opt_out_url()
     {
         return add_query_arg( 'hugeit_slider_tracking_opt_in', 0, admin_url( 'admin.php?page=hugeit_slider' ) );
     }
 
+    /**
+     * Check if user has opted in to track data
+     *
+     * @return bool
+     */
     public function is_opted_in()
     {
         return (bool)get_option('hugeit_slider_allow_tracking', false);
     }
 
+    /**
+     * Check if the user has opted out from tracking data
+     *
+     * @return bool
+     */
     public function is_opted_out()
     {
         return (bool)get_option('hugeit_slider_disallow_tracking', false);
     }
 
+    /**
+     * Opt in to send data
+     */
     public function opt_in()
     {
         update_option('hugeit_slider_allow_tracking',true);
     }
 
+    /**
+     * Opt out from sending data
+     */
     public function opt_out()
     {
         update_option('hugeit_slider_disallow_tracking',true);
     }
 
-
+    /**
+     * If the user has opted id for data tracking
+     * than send the data to http://huge-it.com
+     *
+     * @return bool
+     */
     public function track_data()
     {
-
-
         if(!$this->is_opted_in() || $this->is_opted_out()){
             return false;
         }

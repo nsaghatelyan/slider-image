@@ -11,6 +11,4 @@ var hugeitModal = {
         var el = jQuery('#'+elementId);
         el.css('display','none');
     }
-
-
 };
