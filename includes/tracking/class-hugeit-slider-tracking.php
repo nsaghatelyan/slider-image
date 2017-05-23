@@ -62,12 +62,26 @@ class Hugeit_Slider_Tracking
         if ($this->is_opted_in() || $this->is_opted_out()) return;
 
         ?>
-        <div class="update-nag">
-            <p><?php _e('Help us improve Huge-IT Slider','hugeit-slider'); ?></p>
-            <p>
-                <a href="<?php echo $this->get_opt_in_url(); ?>" class="button-primary">Allow</a>
-                <a href="<?php echo $this->get_opt_out_url(); ?>" class="button">Do not allow</a>
-            </p>
+        <div class="hugeit-tracking-optin">
+            <div class="hugeit-tracking-optin-left">
+                <div class="hugeit-tracking-optin-icon"><img src="<?php echo HUGEIT_SLIDER_ADMIN_IMAGES_URL.'/tracking/plugin-icon.png'; ?>" alt="<?php echo Hugeit_Slider()->get_slug() ?>" /></div>
+                <div class="hugeit-tracking-optin-info">
+                    <div class="hugeit-tracking-optin-header"><?php _e('Let us know how you wish to better this plugin! ','hugeit-slider'); ?></div>
+                    <div class="hugeit-tracking-optin-description"><?php _e('Allow us to email you and ask how you like our plugin and what issues we may fix or add in the future. We collect basic data, in order to help the community to improve the quality of the plugin for you. Data will never be shared with any third party.','hugeit-slider'); ?></div>
+                    <div>
+                        <a href="<?php echo $this->get_opt_in_url(); ?>" class="hugeit-tracking-optin-button"><?php _e('Yes, sure','hugeit-slider'); ?></a><a href="<?php echo $this->get_opt_out_url(); ?>" class="hugeit-tracking-optout-button"><?php _e('No, thanks','hugeit-slider'); ?></a>
+                    </div>
+                </div>
+            </div>
+            <div class="hugeit-tracking-optin-right">
+                <div class="hugeit-tracking-optin-logo">
+                    <img src="<?php echo HUGEIT_SLIDER_ADMIN_IMAGES_URL.'/tracking/logo.png'; ?>" alt="Huge-IT" />
+                </div>
+                <div class="hugeit-tracking-optin-links">
+                    <a href="https://huge-it.com/privacy-policy"><?php _e('What data We Collect','hugeit-slider'); ?></a>
+                    <a href="https://huge-it.com/privacy-policy"><?php _e('Privacy Policy','hugeit-slider'); ?></a>
+                </div>
+            </div>
         </div>
         <?php
     }
