@@ -33,6 +33,7 @@
 }
 
 .-hugeit-modal-content-header {
+    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -44,14 +45,23 @@
 
 .-hugeit-modal-header-title {
     font-size: 24px;
+    margin-bottom: 10px;
 }
 
 .-hugeit-modal-header-subtitle {
     font-size: 14px;
+    margin-right:50px;
 }
 
 .-hugeit-modal-close {
-
+    display: block;
+    position: absolute;
+    width:17px;
+    height: 17px;
+    top: 17px;
+    right: 22px;
+    background-image: url(../images/admin/tracking/close.png);
+    cursor: pointer;
 }
 
 .-hugeit-modal-content-footer {

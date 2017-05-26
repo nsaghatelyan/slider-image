@@ -12,3 +12,9 @@ var hugeitModal = {
         el.css('display','none');
     }
 };
+
+jQuery(document).ready(function(){
+    jQuery('body').on('click','.-hugeit-modal-close',function(){
+        hugeitModal.hide(jQuery(this).closest('.-hugeit-modal').attr('id'));
+    });
+});
