@@ -109,7 +109,6 @@
 
 .hugeit-tracking-optin-links a:hover {
     color:#303030;
-
 }
 
 .hugeit-tracking-optin-links a:nth-child(1) {
@@ -130,4 +129,15 @@
 
 .hugeit-tracking-optin-links a:nth-child(2):hover {
     background-position: 0 -70px;
+}
+
+/** Deactivation Feedback */
+#slider-image-deactivation-feedback .-hugeit-modal-content-header {
+    background-color: #157dbe;
+    border-bottom: 3px solid #d7d7d7;
+    color:#fff;
+}
+
+#slider-image-deactivation-feedback .-hugeit-modal-header-title {
+    margin-bottom: 6px;
 }

@@ -27,6 +27,8 @@ class Hugeit_Slider_Admin_Assets {
 		if('plugins.php' === $hook){
 		    $this->enqueue_tracking();
         }
+
+        wp_enqueue_style('hugeit_slider_tracking', HUGEIT_SLIDER_STYLESHEETS_URL . '/admin.tracking.css');
 	}
 
 	private function enqueue_scripts() {

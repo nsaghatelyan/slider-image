@@ -34,7 +34,8 @@ class Hugeit_Slider_Deactivation_Feedback
         $data = array(
             'project_id' => Hugeit_Slider()->get_project_id(),
             'project_version' => Hugeit_Slider()->get_version(),
-            'deactivation_reason' => $_POST['value'],
+            'deactivation_reason' => sanitize_text_field($_POST['value']),
+            'comment' => sanitize_text_field($_POST['comment'])
         );
 
         Hugeit_Slider()->tracking->track_data();
