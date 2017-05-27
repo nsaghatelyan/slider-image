@@ -1,12 +1,11 @@
 "use strict";
 jQuery(document).ready(function(){
-   var deactivationLink = jQuery('#the-list').find('tr[data-slug='+hugeitSliderL10n.slug+'] .deactivate a'),
-       confirmDeactivationLink = jQuery(".hugeit-deactivate-plugin"),
+   var confirmDeactivationLink = jQuery(".hugeit-deactivate-plugin"),
        cancelDeactivationLink = jQuery(".hugeit-cancel-deactivation"),
        deactivationURL;
 
 
-   deactivationLink.on('click',function(e){
+   jQuery('body').on('click','#the-list tr[data-slug='+hugeitSliderL10n.slug+'] .deactivate a',function(e){
        e.preventDefault();
 
        hugeitModal.show(hugeitSliderL10n.slug+'-deactivation-feedback');
