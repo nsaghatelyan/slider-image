@@ -5,9 +5,10 @@ class Hugeit_Slider_Deactivation_Feedback
 
     public function __construct()
     {
-
-        add_action('current_screen', array($this, 'init'));
-        add_action('wp_ajax_hugeit_slider_deactivation_feedback', array($this, 'send'));
+        if(Hugeit_Slider()->tracking->is_opted_in()){
+            add_action('current_screen', array($this, 'init'));
+            add_action('wp_ajax_hugeit_slider_deactivation_feedback', array($this, 'send'));
+        }
     }
 
     public function init()
@@ -31,21 +32,22 @@ class Hugeit_Slider_Deactivation_Feedback
             die(0);
         }
 
+        Hugeit_Slider()->tracking->track_data();
+
+        if (!Hugeit_Slider()->tracking->is_opted_in() || Hugeit_Slider()->tracking->is_opted_out()) {
+            die(0);
+        }
+
         $data = array(
             'project_id' => Hugeit_Slider()->get_project_id(),
             'project_version' => Hugeit_Slider()->get_version(),
             'deactivation_reason' => sanitize_text_field($_POST['value']),
-            'comment' => sanitize_text_field($_POST['comment'])
+            'comment' => sanitize_text_field($_POST['comment']),
+            'site_url' => home_url(),
+            'email' => get_option('admin_email'),
         );
 
-        Hugeit_Slider()->tracking->track_data();
 
-        if(Hugeit_Slider()->tracking->is_opted_in() && !Hugeit_Slider()->tracking->is_opted_out()){
-
-            $data["site_url"] = home_url();
-            $data["email"] = get_option('admin_email');
-
-        }
 
         wp_remote_post('https://huge-it.com/track-user-data/deactivation-feedback.php', array(
             'method' => 'POST',
