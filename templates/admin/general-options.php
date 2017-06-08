@@ -40,6 +40,132 @@ if ( function_exists( 'current_user_can' ) ) {
 
 				</script>
 			</div>
+            <div id="slider-options-list-free">
+                <form action="admin.php?page=hugeit_slider_general_options&task=save" method="post" id="adminForm" name="adminForm">
+                    <div class="options-block" id="options-block-share">
+                    <h3>Social Sharing</h3>
+                    <div class="has-background">
+                        <label for="slider_share_buttons"><?php _e('Share buttons', 'hugeit-slider'); ?>
+                            <div class="help">?
+                                <div class="help-block">
+                                    <span class="pnt"></span>
+                                    <p><?php _e('Enable/disable share buttons.', 'hugeit-slider'); ?></p>
+                                </div>
+                            </div>
+                        </label>
+                        <input type="hidden" value="0" name="params[share_buttons]" />
+                        <input type="checkbox" id="slider_share_buttons"  <?php if (Hugeit_Slider_Options::get_share_buttons()) echo 'checked="checked"'; ?>  name="params[share_buttons]"  value="1" />
+                    </div>
+                    <div>
+                        <label for="slider_share_buttons_style"><?php _e('Share buttons style', 'hugeit-slider'); ?>
+                            <div class="help">?
+                                <div class="help-block">
+                                    <span class="pnt"></span>
+                                    <p><?php _e('Circle or square style.', 'hugeit-slider'); ?></p>
+                                </div>
+                            </div>
+                        </label>
+                        <select id="slider_share_buttons_style" name="params[share_buttons_style]">
+                            <option <?php if (Hugeit_Slider_Options::get_share_buttons_style() === 'circle') echo 'selected'; ?> value="circle"><?php _e('Circle', 'hugeit-slider'); ?></option>
+                            <option <?php if (Hugeit_Slider_Options::get_share_buttons_style() === 'square') echo 'selected'; ?> value="square"><?php _e('Square', 'hugeit-slider'); ?></option>
+                        </select>
+                    </div>
+                    <div class="has-background">
+                        <label for="slider_share_buttons_facebook"><?php _e('Facebook', 'hugeit-slider'); ?>
+                            <div class="help">?
+                                <div class="help-block">
+                                    <span class="pnt"></span>
+                                    <p><?php _e('Enable/disable Facebook share.', 'hugeit-slider'); ?></p>
+                                </div>
+                            </div>
+                        </label>
+                        <input type="hidden" value="0" name="params[share_buttons_facebook]" />
+                        <input type="checkbox" id="slider_share_buttons_facebook"  <?php if (Hugeit_Slider_Options::get_share_buttons_facebook()) echo 'checked="checked"'; ?>  name="params[share_buttons_facebook]"  value="1" />
+                    </div>
+                    <div>
+                        <label for="slider_share_buttons_twitter"><?php _e('Twitter', 'hugeit-slider'); ?>
+                            <div class="help">?
+                                <div class="help-block">
+                                    <span class="pnt"></span>
+                                    <p><?php _e('Enable/disable Twitter share.', 'hugeit-slider'); ?></p>
+                                </div>
+                            </div>
+                        </label>
+                        <input type="hidden" value="0" name="params[share_buttons_twitter]" />
+                        <input type="checkbox" id="slider_share_buttons_twitter"  <?php if (Hugeit_Slider_Options::get_share_buttons_twitter()) echo 'checked="checked"'; ?>  name="params[share_buttons_twitter]"  value="1" />
+                    </div>
+                    <div class="has-background">
+                        <label for="slider_share_buttons_gp"><?php _e('Google Plus', 'hugeit-slider'); ?>
+                            <div class="help">?
+                                <div class="help-block">
+                                    <span class="pnt"></span>
+                                    <p><?php _e('Enable/disable Google Plus share.', 'hugeit-slider'); ?></p>
+                                </div>
+                            </div>
+                        </label>
+                        <input type="hidden" value="0" name="params[share_buttons_gp]" />
+                        <input type="checkbox" id="slider_share_buttons_gp"  <?php if (Hugeit_Slider_Options::get_share_buttons_gp()) echo 'checked="checked"'; ?>  name="params[share_buttons_gp]"  value="1" />
+                    </div>
+                    <div class="hugeit_slider_black_overlay">
+                        <div>
+                            <label for="slider_share_buttons_pinterest"><?php _e('Pinterest', 'hugeit-slider'); ?>
+                                <div class="help">?
+                                    <div class="help-block">
+                                        <span class="pnt"></span>
+                                        <p><?php _e('Enable/disable Pinterest share.', 'hugeit-slider'); ?></p>
+                                    </div>
+                                </div>
+                            </label>
+                            <input type="hidden" value="0" name="" />
+                            <input type="checkbox" id="slider_share_buttons_pinterest"  <?php if (Hugeit_Slider_Options::get_share_buttons_pinterest()) echo 'checked="checked"'; ?>  name=""  value="1" />
+                        </div>
+                    </div>
+                    <div class="hugeit_slider_black_overlay">
+                        <div class="has-background">
+                            <label for="slider_share_buttons_linkedin"><?php _e('Linkedin', 'hugeit-slider'); ?>
+                                <div class="help">?
+                                    <div class="help-block">
+                                        <span class="pnt"></span>
+                                        <p><?php _e('Enable/disable Linkedin share.', 'hugeit-slider'); ?></p>
+                                    </div>
+                                </div>
+                            </label>
+                            <input type="hidden" value="0" name="" />
+                            <input type="checkbox" id="slider_share_buttons_linkedin"  <?php if (Hugeit_Slider_Options::get_share_buttons_linkedin()) echo 'checked="checked"'; ?>  name=""  value="1" />
+                        </div>
+                    </div>
+                    <div class="hugeit_slider_black_overlay">
+                        <div>
+                            <label for="slider_share_buttons_tumblr"><?php _e('Tumblr', 'hugeit-slider'); ?>
+                                <div class="help">?
+                                    <div class="help-block">
+                                        <span class="pnt"></span>
+                                        <p><?php _e('Enable/disable Tumblr share.', 'hugeit-slider'); ?></p>
+                                    </div>
+                                </div>
+                            </label>
+                            <input type="hidden" value="0" name="" />
+                            <input type="checkbox" id="slider_share_buttons_tumblr"  <?php if (Hugeit_Slider_Options::get_share_buttons_tumblr()) echo 'checked="checked"'; ?>  name=""  value="1" />
+                        </div>
+                    </div>
+                    <div class="hugeit_slider_black_overlay has-background">
+                        <div>
+                            <label for="slider_share_buttons_hover_style"><?php _e('Share buttons 15 hover styles', 'hugeit-slider'); ?>
+                                <div class="help">?
+                                    <div class="help-block">
+                                        <span class="pnt"></span>
+                                        <p><?php _e('Choose how to behave the hover effect in buttons.', 'hugeit-slider'); ?></p>
+                                    </div>
+                                </div>
+                            </label>
+                            <select id="slider_share_buttons_hover_style" name="">
+                                <option <?php if (Hugeit_Slider_Options::get_share_buttons_hover_style() === '0') echo 'selected'; ?> value="0"><?php _e('None', 'hugeit-slider'); ?></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
             <div class="hugeit_slider_black_overlay">
                 <div id="slider-options-list">
                     <form action="#" method="post" id="adminForm" name="adminForm">
@@ -143,7 +269,9 @@ if ( function_exists( 'current_user_can' ) ) {
                                 </ul>
                             </div>
                         </div>
-                        <div class="options-block" id="options-block-title">
+                        <div class="hugeit_slider_black_overlay"></div>
+                        <div class="options-block" id="options-block-title" style="margin-top: -450px;">
+                            <div class="hugeit_slider_black_overlay_title"></div>
                             <h3>Title Styles</h3>
                             <div class="has-background">
                                 <label for="title-container-width"><?php _e('Title Width', 'hugeit-slider'); ?>

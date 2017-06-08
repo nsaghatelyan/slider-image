@@ -175,6 +175,31 @@
 		}
 		?>
 	</ul>
+	<?php if(Hugeit_Slider_Options::get_share_buttons() == 1){
+		switch(Hugeit_Slider_Options::get_share_buttons_hover_style()){
+			case '0':
+				$class = 'icon-link_' . $slider_id . ' fill';
+				break;
+		}
+		?>
+		<div class="share_buttons_<?php echo $slider_id; ?>">
+			<?php if(Hugeit_Slider_Options::get_share_buttons_facebook() == 1){ ?>
+				<a class="<?php echo $class; ?> share_buttons_facebook_<?php echo $slider_id; ?>" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fcodepen.io%2Fsunnysingh%2Fpen%2FOPxbgq" title="Share on Facebook">
+					<i class="fa fa-facebook"></i>
+				</a>
+			<?php } ?>
+			<?php if(Hugeit_Slider_Options::get_share_buttons_twitter() == 1){ ?>
+				<a class="<?php echo $class; ?> share_buttons_twitter_<?php echo $slider_id; ?>" href="https://twitter.com/share?url=http%3A%2F%2Fcodepen.io%2Fsunnysingh%2Fpen%2FOPxbgq&text=Share Buttons Demo&via=sunnyismoi" title="Share on Twitter">
+					<i class="fa fa-twitter"></i>
+				</a>
+			<?php } ?>
+			<?php if(Hugeit_Slider_Options::get_share_buttons_gp() == 1){ ?>
+				<a class="<?php echo $class; ?> share_buttons_gp_<?php echo $slider_id; ?>" href="https://plus.google.com/share?url=http%3A%2F%2Fcodepen.io%2Fsunnysingh%2Fpen%2FOPxbgq" title="Share on Google+">
+					<i class="fa fa-google-plus"></i>
+				</a>
+			<?php } ?>
+		</div>
+	<?php } ?>
 </div>
 <script>
 	jQuery(function (){
