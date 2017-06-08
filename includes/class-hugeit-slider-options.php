@@ -101,7 +101,24 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 	private static $thumb_passive_color_transparency;
 
 	private static $thumb_height;
+	
+	private static $share_buttons;
 
+	private static $share_buttons_facebook;
+
+	private static $share_buttons_twitter;
+
+	private static $share_buttons_gp;
+
+	private static $share_buttons_pinterest;
+
+	private static $share_buttons_linkedin;
+
+	private static $share_buttons_tumblr;
+
+	private static $share_buttons_style;
+
+	private static $share_buttons_hover_style;
 
 	/**
 	 * @param bool $with_title
@@ -1645,6 +1662,417 @@ final class Hugeit_Slider_Options implements Hugeit_Slider_Options_Interface {
 			$success = update_option(self::$prefix . 'title_has_margin', (int)$value);
 			if ($success) {
 				self::$title_has_margin = (int)$value;
+			}
+
+			return $success;
+		}
+
+		return false;
+	}
+	
+	/**
+	 * @param bool $with_title
+	 *
+	 * @return array|mixed
+	 */
+	public static function get_share_buttons( $with_title = false ) {
+		if ( ! $with_title ) {
+			if (self::$share_buttons === NULL) {
+				self::$share_buttons = null === get_option(self::$prefix . 'share_buttons', null) ? false : (int)get_option(self::$prefix . 'share_buttons');
+
+				return self::$share_buttons;
+			}
+
+			return self::$share_buttons;
+		} else {
+			return array(
+				'value' => self::get_share_buttons(),
+				'title' => get_option( self::$prefix_for_title . 'share_buttons' )
+			);
+		}
+	}
+
+	/**
+	 * @param $value
+	 * @param null $title
+	 *
+	 * @return bool
+	 */
+	public static function set_share_buttons( $value, $title = NULL ) {
+		if ($title !== NULL) {
+			update_option(self::$prefix_for_title . 'share_buttons', sanitize_text_field($title));
+		}
+
+		if ($value == 1 || $value == 0) {
+			$success = update_option(self::$prefix . 'share_buttons', (int)$value);
+			if ($success) {
+				self::$share_buttons = (int)$value;
+			}
+
+			return $success;
+		}
+
+		return false;
+	}
+
+
+	/**
+	 * @param bool $with_title
+	 *
+	 * @return array|mixed
+	 */
+	public static function get_share_buttons_facebook( $with_title = false ) {
+		if ( ! $with_title ) {
+			if (self::$share_buttons_facebook === NULL) {
+				self::$share_buttons_facebook = null === get_option(self::$prefix . 'share_buttons_facebook', null) ? false : (int)get_option(self::$prefix . 'share_buttons_facebook');
+
+				return self::$share_buttons_facebook;
+			}
+
+			return self::$share_buttons_facebook;
+		} else {
+			return array(
+				'value' => self::get_share_buttons_facebook(),
+				'title' => get_option( self::$prefix_for_title . 'share_buttons_facebook' )
+			);
+		}
+	}
+
+	/**
+	 * @param $value
+	 * @param null $title
+	 *
+	 * @return bool
+	 */
+	public static function set_share_buttons_facebook( $value, $title = NULL ) {
+		if ($title !== NULL) {
+			update_option(self::$prefix_for_title . 'share_buttons_facebook', sanitize_text_field($title));
+		}
+
+		if ($value == 1 || $value == 0) {
+			$success = update_option(self::$prefix . 'share_buttons_facebook', (int)$value);
+			if ($success) {
+				self::$share_buttons_facebook = (int)$value;
+			}
+
+			return $success;
+		}
+
+		return false;
+	}
+
+
+	/**
+	 * @param bool $with_title
+	 *
+	 * @return array|mixed
+	 */
+	public static function get_share_buttons_twitter( $with_title = false ) {
+		if ( ! $with_title ) {
+			if (self::$share_buttons_twitter === NULL) {
+				self::$share_buttons_twitter = null === get_option(self::$prefix . 'share_buttons_twitter', null) ? false : (int)get_option(self::$prefix . 'share_buttons_twitter');
+
+				return self::$share_buttons_twitter;
+			}
+
+			return self::$share_buttons_twitter;
+		} else {
+			return array(
+				'value' => self::get_share_buttons_twitter(),
+				'title' => get_option( self::$prefix_for_title . 'share_buttons_twitter' )
+			);
+		}
+	}
+
+	/**
+	 * @param $value
+	 * @param null $title
+	 *
+	 * @return bool
+	 */
+	public static function set_share_buttons_twitter( $value, $title = NULL ) {
+		if ($title !== NULL) {
+			update_option(self::$prefix_for_title . 'share_buttons_twitter', sanitize_text_field($title));
+		}
+
+		if ($value == 1 || $value == 0) {
+			$success = update_option(self::$prefix . 'share_buttons_twitter', (int)$value);
+			if ($success) {
+				self::$share_buttons_twitter = (int)$value;
+			}
+
+			return $success;
+		}
+
+		return false;
+	}
+
+
+	/**
+	 * @param bool $with_title
+	 *
+	 * @return array|mixed
+	 */
+	public static function get_share_buttons_gp( $with_title = false ) {
+		if ( ! $with_title ) {
+			if (self::$share_buttons_gp === NULL) {
+				self::$share_buttons_gp = null === get_option(self::$prefix . 'share_buttons_gp', null) ? false : (int)get_option(self::$prefix . 'share_buttons_gp');
+
+				return self::$share_buttons_gp;
+			}
+
+			return self::$share_buttons_gp;
+		} else {
+			return array(
+				'value' => self::get_share_buttons_gp(),
+				'title' => get_option( self::$prefix_for_title . 'share_buttons_gp' )
+			);
+		}
+	}
+
+	/**
+	 * @param $value
+	 * @param null $title
+	 *
+	 * @return bool
+	 */
+	public static function set_share_buttons_gp( $value, $title = NULL ) {
+		if ($title !== NULL) {
+			update_option(self::$prefix_for_title . 'share_buttons_gp', sanitize_text_field($title));
+		}
+
+		if ($value == 1 || $value == 0) {
+			$success = update_option(self::$prefix . 'share_buttons_gp', (int)$value);
+			if ($success) {
+				self::$share_buttons_gp = (int)$value;
+			}
+
+			return $success;
+		}
+
+		return false;
+	}
+
+
+	/**
+	 * @param bool $with_title
+	 *
+	 * @return array|mixed
+	 */
+	public static function get_share_buttons_pinterest( $with_title = false ) {
+		if ( ! $with_title ) {
+			if (self::$share_buttons_pinterest === NULL) {
+				self::$share_buttons_pinterest = null === get_option(self::$prefix . 'share_buttons_pinterest', null) ? false : (int)get_option(self::$prefix . 'share_buttons_pinterest');
+
+				return self::$share_buttons_pinterest;
+			}
+
+			return self::$share_buttons_pinterest;
+		} else {
+			return array(
+				'value' => self::get_share_buttons_pinterest(),
+				'title' => get_option( self::$prefix_for_title . 'share_buttons_pinterest' )
+			);
+		}
+	}
+
+	/**
+	 * @param $value
+	 * @param null $title
+	 *
+	 * @return bool
+	 */
+	public static function set_share_buttons_pinterest( $value, $title = NULL ) {
+		if ($title !== NULL) {
+			update_option(self::$prefix_for_title . 'share_buttons_pinterest', sanitize_text_field($title));
+		}
+
+		if ($value == 1 || $value == 0) {
+			$success = update_option(self::$prefix . 'share_buttons_pinterest', (int)$value);
+			if ($success) {
+				self::$share_buttons_pinterest = (int)$value;
+			}
+
+			return $success;
+		}
+
+		return false;
+	}
+
+
+	/**
+	 * @param bool $with_title
+	 *
+	 * @return array|mixed
+	 */
+	public static function get_share_buttons_linkedin( $with_title = false ) {
+		if ( ! $with_title ) {
+			if (self::$share_buttons_linkedin === NULL) {
+				self::$share_buttons_linkedin = null === get_option(self::$prefix . 'share_buttons_linkedin', null) ? false : (int)get_option(self::$prefix . 'share_buttons_linkedin');
+
+				return self::$share_buttons_linkedin;
+			}
+
+			return self::$share_buttons_linkedin;
+		} else {
+			return array(
+				'value' => self::get_share_buttons_linkedin(),
+				'title' => get_option( self::$prefix_for_title . 'share_buttons_linkedin' )
+			);
+		}
+	}
+
+	/**
+	 * @param $value
+	 * @param null $title
+	 *
+	 * @return bool
+	 */
+	public static function set_share_buttons_linkedin( $value, $title = NULL ) {
+		if ($title !== NULL) {
+			update_option(self::$prefix_for_title . 'share_buttons_linkedin', sanitize_text_field($title));
+		}
+
+		if ($value == 1 || $value == 0) {
+			$success = update_option(self::$prefix . 'share_buttons_linkedin', (int)$value);
+			if ($success) {
+				self::$share_buttons_linkedin = (int)$value;
+			}
+
+			return $success;
+		}
+
+		return false;
+	}
+
+
+	/**
+	 * @param bool $with_title
+	 *
+	 * @return array|mixed
+	 */
+	public static function get_share_buttons_tumblr( $with_title = false ) {
+		if ( ! $with_title ) {
+			if (self::$share_buttons_tumblr === NULL) {
+				self::$share_buttons_tumblr = null === get_option(self::$prefix . 'share_buttons_tumblr', null) ? false : (int)get_option(self::$prefix . 'share_buttons_tumblr');
+
+				return self::$share_buttons_tumblr;
+			}
+
+			return self::$share_buttons_tumblr;
+		} else {
+			return array(
+				'value' => self::get_share_buttons_tumblr(),
+				'title' => get_option( self::$prefix_for_title . 'share_buttons_tumblr' )
+			);
+		}
+	}
+
+	/**
+	 * @param $value
+	 * @param null $title
+	 *
+	 * @return bool
+	 */
+	public static function set_share_buttons_tumblr( $value, $title = NULL ) {
+		if ($title !== NULL) {
+			update_option(self::$prefix_for_title . 'share_buttons_tumblr', sanitize_text_field($title));
+		}
+
+		if ($value == 1 || $value == 0) {
+			$success = update_option(self::$prefix . 'share_buttons_tumblr', (int)$value);
+			if ($success) {
+				self::$share_buttons_tumblr = (int)$value;
+			}
+
+			return $success;
+		}
+
+		return false;
+	}
+
+	/**
+	 * @param bool $with_title
+	 *
+	 * @return array|mixed
+	 */
+	public static function get_share_buttons_style($with_title = false) {
+		if ( ! $with_title ) {
+			if (self::$share_buttons_style === NULL) {
+				self::$share_buttons_style = get_option(self::$prefix . 'share_buttons_style');
+
+				return self::$share_buttons_style;
+			}
+
+			return self::$share_buttons_style;
+		} else {
+			return array(
+				'value' => self::get_share_buttons_style(),
+				'title' => get_option( self::$prefix_for_title . 'share_buttons_style' )
+			);
+		}
+	}
+
+	/**
+	 * @param $value
+	 * @param null $title
+	 *
+	 * @return bool
+	 */
+	public static function set_share_buttons_style($value, $title = NULL) {
+		if ($title !== NULL) {
+			update_option(self::$prefix_for_title . 'share_buttons_style', sanitize_text_field($title));
+		}
+
+		if ( in_array($value, array('circle', 'square')) ) {
+			$success = update_option(self::$prefix . 'share_buttons_style', $value);
+			if ($success) {
+				self::$share_buttons_style = $value;
+			}
+
+			return $success;
+		}
+
+		return false;
+	}
+
+	/**
+	 * @param bool $with_title
+	 *
+	 * @return array|mixed
+	 */
+	public static function get_share_buttons_hover_style($with_title = false) {
+		if ( ! $with_title ) {
+			if (self::$share_buttons_hover_style === NULL) {
+				self::$share_buttons_hover_style = get_option(self::$prefix . 'share_buttons_hover_style');
+
+				return self::$share_buttons_hover_style;
+			}
+
+			return self::$share_buttons_hover_style;
+		} else {
+			return array(
+				'value' => self::get_share_buttons_hover_style(),
+				'title' => get_option( self::$prefix_for_title . 'share_buttons_hover_style' )
+			);
+		}
+	}
+
+	/**
+	 * @param $value
+	 * @param null $title
+	 *
+	 * @return bool
+	 */
+	public static function set_share_buttons_hover_style($value, $title = NULL) {
+		if ($title !== NULL) {
+			update_option(self::$prefix_for_title . 'share_buttons_hover_style', sanitize_text_field($title));
+		}
+
+		if ( in_array($value, array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15')) ) {
+			$success = update_option(self::$prefix . 'share_buttons_hover_style', $value);
+			if ($success) {
+				self::$share_buttons_hover_style = $value;
 			}
 
 			return $success;

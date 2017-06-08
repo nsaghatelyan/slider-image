@@ -529,6 +529,61 @@ class Hugeit_Slider_Migrate {
 					'off' => 0,
 				),
 			),
+			'slider_share_buttons' => array(
+				'name' => 'share_buttons',
+				'replace' => array(
+					'on' => 1,
+					'off' => 0,
+				),
+			),
+			'slider_share_buttons_facebook' => array(
+				'name' => 'share_buttons_facebook',
+				'replace' => array(
+					'on' => 1,
+					'off' => 0,
+				),
+			),
+			'slider_share_buttons_twitter' => array(
+				'name' => 'share_buttons_twitter',
+				'replace' => array(
+					'on' => 1,
+					'off' => 0,
+				),
+			),
+			'slider_share_buttons_gp' => array(
+				'name' => 'share_buttons_gp',
+				'replace' => array(
+					'on' => 1,
+					'off' => 0,
+				),
+			),
+			'slider_share_buttons_pinterest' => array(
+				'name' => 'share_buttons_pinterest',
+				'replace' => array(
+					'on' => 1,
+					'off' => 0,
+				),
+			),
+			'slider_share_buttons_linkedin' => array(
+				'name' => 'share_buttons_linkedin',
+				'replace' => array(
+					'on' => 1,
+					'off' => 0,
+				),
+			),
+			'slider_share_buttons_tumblr' => array(
+				'name' => 'share_buttons_tumblr',
+				'replace' => array(
+					'on' => 1,
+					'off' => 0,
+				),
+			),
+			'slider_share_buttons_style' => array(
+				'name' => 'share_buttons_style',
+			),
+			'slider_share_buttons_hover_style' => array(
+				'name' => 'share_buttons_hover_style',
+			),
 			'slider_description_has_margin' => array(
 				'name' => 'description_has_margin',
 				'replace' => array(
