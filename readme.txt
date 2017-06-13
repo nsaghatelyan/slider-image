@@ -3,8 +3,8 @@ Contributors: Huge-IT
 Donate link: https://huge-it.com/slider/
 Tags: slider, wordpress slider, image slider, Photo Slider, slider plugin,
 Requires at least: 3.0.1
-Tested up to: 4.7.5
-Stable tag: 4.0.3
+Tested up to: 4.8
+Stable tag: 4.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ https://www.youtube.com/watch?v=oIcsrVHNDWo
 
 Slider - Image Slider
 
-### Check out useful links and demo page, get support or contribute for Slider.
+### Check out useful links and demo page, get support or contribute for Slider
 
 * [Wordpress Slider](https://huge-it.com/slider/)
 * [Slider Demo](https://huge-it.com/wordpress-slider-demo-1-mixed-slider/)
@@ -414,6 +414,10 @@ After installation of pro version, in General Options all your changes will be s
 If you think, that you found a bug in our [WordPress Slider](https://huge-it.com/slider/) plugin or have any question contact us at [info@huge-it.com](mailto:info@huge-it.com)
 
 == Changelog ==
+
+= 4.0.4 =
+* 1) Added 2 type social share options support including Facebook, Twitter, G+.
+* 2) Added 15 on hover effects for social sharing buttons.
 
 = 4.0.3 =
 * We have added functional lightbox to slider , allowing users to enable lightbox for sliders.
