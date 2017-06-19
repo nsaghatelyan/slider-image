@@ -34,7 +34,7 @@ class Hugeit_Slider_Deactivation_Feedback
 
         Hugeit_Slider()->tracking->track_data();
 
-        if (!Hugeit_Slider()->tracking->is_opted_in() || Hugeit_Slider()->tracking->is_opted_out()) {
+        if (!Hugeit_Slider()->tracking->is_opted_in()) {
             die(0);
         }
 

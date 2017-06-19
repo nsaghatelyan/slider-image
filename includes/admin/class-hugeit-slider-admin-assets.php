@@ -71,9 +71,11 @@ class Hugeit_Slider_Admin_Assets {
     private function enqueue_tracking()
     {
         wp_enqueue_style('hugeit_slider_tracking', HUGEIT_SLIDER_STYLESHEETS_URL . '/admin.tracking.css');
-        if (!Hugeit_Slider()->tracking->is_opted_in() || Hugeit_Slider()->tracking->is_opted_out()) {
+
+        if (!Hugeit_Slider()->tracking->is_opted_in()) {
             return false;
         }
+
         wp_enqueue_script('hugeit_modal', HUGEIT_SLIDER_SCRIPTS_URL . '/hugeit-modal.js', array('jquery'));
         wp_enqueue_script('hugeit_deactivation_feedback', HUGEIT_SLIDER_SCRIPTS_URL . '/deactivation-feedback.js', array('jquery','hugeit_modal'));
         wp_localize_script('hugeit_deactivation_feedback', 'hugeitSliderL10n',array(
