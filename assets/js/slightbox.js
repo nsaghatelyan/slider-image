@@ -111,22 +111,27 @@
         (($object.settings.preload > $object.$items.length) && ($object.settings.preload = $object.$items.length));
 
         $object.$items.on('click.rwdcustom', function (event) {
-            var $disabled = jQuery('.lSAction a').hasClass('disabled');
-            
-            if($disabled){
-                return false;
+            if(!$('.rwd-SlideWrapper').hasClass('lightboxOff')){
+                if(!$('.rwd-SlideWrapper').hasClass('rwd-fullscreen-on')){
+                    var $disabled = jQuery('.lSAction a').hasClass('disabled');
+
+                    if($disabled){
+                        return false;
+                    }
+
+                    event = event || window.event;
+                    event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+
+                    $object.index = $object.$items.index(this);
+
+                    if (!$object.$body.hasClass('rwd-on')) {
+                        $object.build($object.index);
+                        $object.$body.addClass('rwd-on');
+                    }
+                } else {
+                    event.preventDefault();
+                }
             }
-            
-            event = event || window.event;
-            event.preventDefault ? event.preventDefault() : (event.returnValue = false);
-
-            $object.index = $object.$items.index(this);
-
-            if (!$object.$body.hasClass('rwd-on')) {
-                $object.build($object.index);
-                $object.$body.addClass('rwd-on');
-            }
-
         });
 
         $object.$body.on('click', function () {
@@ -313,8 +318,8 @@
             case 'arrows_5':
                 $left = ($container.width() + $object.$item.eq(index).find('.rwd-object').width()) / 2 - 5;
                 $top = ($container.height() - $object.$item.eq(index).find('.rwd-object').height()) / 2 - 23.5;
-                $prev = ($container.width() - $object.$item.eq(index).find('.rwd-object').width()) / 2 - 30;
-                $next = ($container.width() + $object.$item.eq(index).find('.rwd-object').width()) / 2 - 16;
+                $prev = ($container.width() - $object.$item.eq(index).find('.rwd-object').width()) / 2 - 28;
+                $next = ($container.width() + $object.$item.eq(index).find('.rwd-object').width()) / 2 - 20;
                 break;
             case 'arrows_6':
                 $left = ($container.width() + $object.$item.eq(index).find('.rwd-object').width()) / 2 - 24;
@@ -323,7 +328,7 @@
                 $next = ($container.width() + $object.$item.eq(index).find('.rwd-object').width()) / 2 - 17;
                 break;
         }
-        
+
         $('.rwd-toolbar').css({
             'top': $top
         });
@@ -576,6 +581,7 @@
 
     Lightbox.prototype.addKeyEvents = function () {
         var $object = this;
+
         if (this.$items.length > 1) {
             $(window).on('keyup.rwd-container', function (e) {
                 if ($object.$items.length > 1) {
@@ -703,6 +709,7 @@
     };
 
     $.fn.lightbox.lightboxModul = {};
+
 
     var Modul = function (element) {
 

@@ -218,6 +218,249 @@ interface Hugeit_Slider_Slider_Interface {
 	 */
 	public function set_open_close_effect( $open_close_effect );
 
+    /**
+     * @return string
+     */
+    public function get_controls();
+
+    /**
+     * @param string $controls
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_controls( $controls );
+
+    /**
+     * @return string
+     */
+    public function get_fullscreen();
+
+    /**
+     * @param string $fullscreen
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_fullscreen( $fullscreen );
+
+    /**
+     * @return string
+     */
+    public function get_vertical();
+
+    /**
+     * @param string $vertical
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_vertical( $vertical );
+
+    /**
+     * @return string
+     */
+    public function get_thumbposition();
+
+    /**
+     * @param string $thumbposition
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_thumbposition( $thumbposition );
+
+    /**
+     * @return string
+     */
+    public function get_thumbcontrols();
+
+    /**
+     * @param string $thumbcontrols
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_thumbcontrols( $thumbcontrols );
+
+    /**
+     * @return string
+     */
+    public function get_dragdrop();
+
+    /**
+     * @param string $dragdrop
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_dragdrop( $dragdrop );
+
+    /**
+     * @return string
+     */
+    public function get_swipe();
+
+    /**
+     * @param string $swipe
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_swipe( $swipe );
+
+    /**
+     * @return string
+     */
+    public function get_thumbdragdrop();
+
+    /**
+     * @param string $thumbdragdrop
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_thumbdragdrop( $thumbdragdrop );
+
+    /**
+     * @return string
+     */
+    public function get_thumbswipe();
+
+    /**
+     * @param string $thumbswipe
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_thumbswipe( $thumbswipe );
+
+    /**
+     * @return string
+     */
+    public function get_titleonoff();
+
+    /**
+     * @param string $titleonoff
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_titleonoff( $titleonoff );
+
+    /**
+     * @return string
+     */
+    public function get_desconoff();
+
+    /**
+     * @param string $desconoff
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_desconoff( $desconoff );
+    /**
+     * @return string
+     */
+    public function get_titlesymbollimit();
+
+    /**
+     * @param string $titlesymbollimit
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_titlesymbollimit( $titlesymbollimit );
+    /**
+     * @return string
+     */
+    public function get_descsymbollimit();
+
+    /**
+     * @param string $descsymbollimit
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_descsymbollimit( $descsymbollimit );
+
+    /**
+     * @return string
+     */
+    public function get_pager();
+
+    /**
+     * @param string $pager
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_pager( $pager );
+
+    /**
+     * @return string
+     */
+    public function get_mode();
+
+    /**
+     * @param string $mode
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_mode( $mode );
+
+    /**
+     * @return string
+     */
+    public function get_vthumbwidth();
+
+    /**
+     * @param string $vthumbwidth
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_vthumbwidth( $vthumbwidth );
+
+    /**
+     * @return string
+     */
+    public function get_hthumbheight();
+
+    /**
+     * @param string $hthumbheight
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_hthumbheight( $hthumbheight );
+
+    /**
+     * @return string
+     */
+    public function get_thumbitem();
+
+    /**
+     * @param string $thumbitem
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_thumbitem( $thumbitem );
+
+    /**
+     * @return string
+     */
+    public function get_thumbmargin();
+
+    /**
+     * @param string $thumbmargin
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_thumbmargin( $thumbmargin );
 	/**
 	 * @return string
 	 */

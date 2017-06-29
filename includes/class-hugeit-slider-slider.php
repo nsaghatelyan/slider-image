@@ -44,7 +44,7 @@ class Hugeit_Slider_Slider implements Hugeit_Slider_Slider_Interface {
 	/**
 	 * Slider view.
 	 *
-	 * @values ['none', 'carousel1']
+	 * @values ['none', 'carousel1', 'thumb_view']
 	 *
 	 * @var string
 	 */
@@ -53,7 +53,7 @@ class Hugeit_Slider_Slider implements Hugeit_Slider_Slider_Interface {
 	/**
 	 * Slider effect.
 	 *
-	 * @values ['none', 'cube_h', 'cube_v', 'fade', 'slice_h', 'slice_v', 'slide_h', 'slide_v', 'scale_out', 'scale_in', 'block_scale', 'kaleidoscope', 'fan', 'blind_h', 'blind_v', 'random', 'carousel1']
+	 * @values ['none', 'cube_h', 'cube_v', 'fade', 'slice_h', 'slice_v', 'slide_h', 'slide_v', 'scale_out', 'scale_in', 'block_scale', 'kaleidoscope', 'fan', 'blind_h', 'blind_v', 'random']
 	 *
 	 * @var string
 	 */
@@ -152,7 +152,142 @@ class Hugeit_Slider_Slider implements Hugeit_Slider_Slider_Interface {
 	 * @var string
 	 */
 	private $arrows_style = 'arrows_1';
-	
+
+    /**
+     * Enable controls. 1 for enable, otherwise 0.
+     *
+     * @var int
+     */
+    private $controls = 1;
+
+    /**
+     * Enable fullscreen. 1 for enable, otherwise 0.
+     *
+     * @var int
+     */
+    private $fullscreen = 1;
+
+    /**
+     * Enable vertical. 1 for enable, otherwise 0.
+     *
+     * @var int
+     */
+    private $vertical = 0;
+
+    /**
+     * Enable thumbposition. 1 for enable, otherwise 0.
+     *
+     * @var int
+     */
+    private $thumbposition = 0;
+
+    /**
+     * Enable thumbcontrols. 1 for enable, otherwise 0.
+     *
+     * @var int
+     */
+    private $thumbcontrols = 1;
+
+    /**
+     * Enable dragdrop. 1 for enable, otherwise 0.
+     *
+     * @var int
+     */
+    private $dragdrop = 1;
+
+    /**
+     * Enable swipe. 1 for enable, otherwise 0.
+     *
+     * @var int
+     */
+    private $swipe = 1;
+
+    /**
+     * Enable thumbdragdrop. 1 for enable, otherwise 0.
+     *
+     * @var int
+     */
+    private $thumbdragdrop = 1;
+
+    /**
+     * Enable thumbswipe. 1 for enable, otherwise 0.
+     *
+     * @var int
+     */
+    private $thumbswipe = 1;
+
+    /**
+     * Enable titleonoff. 1 for enable, otherwise 0.
+     *
+     * @var int
+     */
+    private $titleonoff = 1;
+
+    /**
+     * Enable desconoff. 1 for enable, otherwise 0.
+     *
+     * @var int
+     */
+    private $desconoff = 1;
+
+    /**
+     * Thumb width.
+     *
+     * @var int
+     */
+    private $titlesymbollimit = 20;
+
+    /**
+     * Thumb width.
+     *
+     * @var int
+     */
+    private $descsymbollimit = 70;
+
+    /**
+     * Enable pager. 1 for enable, otherwise 0.
+     *
+     * @var int
+     */
+    private $pager = 1;
+
+    /**
+     * Slider mode.
+     *
+     * @values ['slide', 'fade']
+     *
+     * @var string
+     */
+    private $mode = 'slide';
+
+    /**
+     * Thumb width.
+     *
+     * @var int
+     */
+    private $vthumbwidth = 100;
+
+    /**
+     * Thumb height.
+     *
+     * @var int
+     */
+    private $hthumbheight = 80;
+
+    /**
+     * Thumb count.
+     *
+     * @var int
+     */
+    private $thumbitem = 10;
+
+    /**
+     * Thumb margin.
+     *
+     * @var int
+     */
+    private $thumbmargin = 5;
+
 	/**
 	 * This as an array of this slider slides.
 	 *
@@ -339,7 +474,7 @@ class Hugeit_Slider_Slider implements Hugeit_Slider_Slider_Interface {
 	 */
 	public function set_view( $view ) {
 
-		if ( ! in_array($view, array( 'none', 'carousel1') ) ) {
+		if ( ! in_array($view, array( 'none', 'carousel1', 'thumb_view') ) ) {
 			throw new Exception( 'Invalid value for "view" field.' );
 		}
 
@@ -624,6 +759,473 @@ class Hugeit_Slider_Slider implements Hugeit_Slider_Slider_Interface {
 		return $this;
 	}
 
+    /**
+     * @return int
+     */
+    public function get_controls() {
+        return $this->controls;
+    }
+
+    /**
+     * @param int $controls
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_controls( $controls ) {
+        if ( $controls == 1 || $controls == 0  ) {
+            $this->controls = (int)$controls;
+
+            return $this;
+        }
+
+        throw new Exception( 'Invalid value for "controls" field.' );
+    }
+
+    /**
+     * @return int
+     */
+    public function get_fullscreen() {
+        return $this->fullscreen;
+    }
+
+    /**
+     * @param int $fullscreen
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_fullscreen( $fullscreen ) {
+        if ( $fullscreen == 1 || $fullscreen == 0  ) {
+            $this->fullscreen = (int)$fullscreen;
+
+            return $this;
+        }
+
+        throw new Exception( 'Invalid value for "fullscreen" field.' );
+    }
+
+    /**
+     * @return int
+     */
+    public function get_vertical() {
+        return $this->vertical;
+    }
+
+    /**
+     * @param int $vertical
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_vertical( $vertical ) {
+        if ( $vertical == 1 || $vertical == 0  ) {
+            $this->vertical = (int)$vertical;
+
+            return $this;
+        }
+
+        throw new Exception( 'Invalid value for "vertical" field.' );
+    }
+
+    /**
+     * @return int
+     */
+    public function get_thumbposition() {
+        return $this->thumbposition;
+    }
+
+    /**
+     * @param int $thumbposition
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_thumbposition( $thumbposition ) {
+        if ( $thumbposition == 1 || $thumbposition == 0  ) {
+            $this->thumbposition = (int)$thumbposition;
+
+            return $this;
+        }
+
+        throw new Exception( 'Invalid value for "thumbposition" field.' );
+    }
+
+    /**
+     * @return int
+     */
+    public function get_thumbcontrols() {
+        return $this->thumbcontrols;
+    }
+
+    /**
+     * @param int $thumbcontrols
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_thumbcontrols( $thumbcontrols ) {
+        if ( $thumbcontrols == 1 || $thumbcontrols == 0  ) {
+            $this->thumbcontrols = (int)$thumbcontrols;
+
+            return $this;
+        }
+
+        throw new Exception( 'Invalid value for "thumbcontrols" field.' );
+    }
+
+    /**
+     * @return int
+     */
+    public function get_dragdrop() {
+        return $this->dragdrop;
+    }
+
+    /**
+     * @param int $dragdrop
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_dragdrop( $dragdrop ) {
+        if ( $dragdrop == 1 || $dragdrop == 0  ) {
+            $this->dragdrop = (int)$dragdrop;
+
+            return $this;
+        }
+
+        throw new Exception( 'Invalid value for "dragdrop" field.' );
+    }
+
+    /**
+     * @return int
+     */
+    public function get_swipe() {
+        return $this->swipe;
+    }
+
+    /**
+     * @param int $swipe
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_swipe( $swipe ) {
+        if ( $swipe == 1 || $swipe == 0  ) {
+            $this->swipe = (int)$swipe;
+
+            return $this;
+        }
+
+        throw new Exception( 'Invalid value for "swipe" field.' );
+    }
+
+    /**
+     * @return int
+     */
+    public function get_thumbdragdrop() {
+        return $this->thumbdragdrop;
+    }
+
+    /**
+     * @param int $thumbdragdrop
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_thumbdragdrop( $thumbdragdrop ) {
+        if ( $thumbdragdrop == 1 || $thumbdragdrop == 0  ) {
+            $this->thumbdragdrop = (int)$thumbdragdrop;
+
+            return $this;
+        }
+
+        throw new Exception( 'Invalid value for "thumbdragdrop" field.' );
+    }
+
+    /**
+     * @return int
+     */
+    public function get_thumbswipe() {
+        return $this->thumbswipe;
+    }
+
+    /**
+     * @param int $thumbswipe
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_thumbswipe( $thumbswipe ) {
+        if ( $thumbswipe == 1 || $thumbswipe == 0  ) {
+            $this->thumbswipe = (int)$thumbswipe;
+
+            return $this;
+        }
+
+        throw new Exception( 'Invalid value for "thumbswipe" field.' );
+    }
+
+    /**
+     * @return int
+     */
+    public function get_titleonoff() {
+        return $this->titleonoff;
+    }
+
+    /**
+     * @param int $titleonoff
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_titleonoff( $titleonoff ) {
+        if ( $titleonoff == 1 || $titleonoff == 0  ) {
+            $this->titleonoff = (int)$titleonoff;
+
+            return $this;
+        }
+
+        throw new Exception( 'Invalid value for "titleonoff" field.' );
+    }
+
+    /**
+     * @return int
+     */
+    public function get_desconoff() {
+        return $this->desconoff;
+    }
+
+    /**
+     * @param int $desconoff
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_desconoff( $desconoff ) {
+        if ( $desconoff == 1 || $desconoff == 0  ) {
+            $this->desconoff = (int)$desconoff;
+
+            return $this;
+        }
+
+        throw new Exception( 'Invalid value for "desconoff" field.' );
+    }
+
+    /**
+     * @return int
+     */
+    public function get_titlesymbollimit() {
+        return $this->titlesymbollimit;
+    }
+
+    /**
+     * @param int $titlesymbollimit
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_titlesymbollimit( $titlesymbollimit ) {
+
+        if (is_numeric($titlesymbollimit)) {
+            $titlesymbollimit = absint($titlesymbollimit);
+
+            if ($titlesymbollimit > 0 && $titlesymbollimit < 999) {
+                $this->titlesymbollimit = $titlesymbollimit;
+
+                return $this;
+            }
+        }
+
+        throw new Exception('Invalid value for "titlesymbollimit" field.');
+    }
+
+    /**
+     * @return int
+     */
+    public function get_descsymbollimit() {
+        return $this->descsymbollimit;
+    }
+
+    /**
+     * @param int $descsymbollimit
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_descsymbollimit( $descsymbollimit ) {
+
+        if (is_numeric($descsymbollimit)) {
+            $descsymbollimit = absint($descsymbollimit);
+
+            if ($descsymbollimit > 0 && $descsymbollimit < 999) {
+                $this->descsymbollimit = $descsymbollimit;
+
+                return $this;
+            }
+        }
+
+        throw new Exception('Invalid value for "descsymbollimit" field.');
+    }
+
+    /**
+     * @return int
+     */
+    public function get_pager() {
+        return $this->pager;
+    }
+
+    /**
+     * @param int $pager
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_pager( $pager ) {
+        if ( $pager == 1 || $pager == 0  ) {
+            $this->pager = (int)$pager;
+
+            return $this;
+        }
+
+        throw new Exception( 'Invalid value for "pager" field.' );
+    }
+
+    /**
+     * @return string
+     */
+    public function get_mode() {
+        return $this->mode;
+    }
+
+    /**
+     * @param string $mode
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_mode( $mode ) {
+
+        if ( ! in_array($mode, array( 'slide', 'fade') ) ) {
+            throw new Exception( 'Invalid value for "mode" field.' );
+        }
+
+        $this->mode = $mode;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function get_vthumbwidth() {
+        return $this->vthumbwidth;
+    }
+
+    /**
+     * @param int $vthumbwidth
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_vthumbwidth( $vthumbwidth ) {
+
+        if (is_numeric($vthumbwidth)) {
+            $vthumbwidth = absint($vthumbwidth);
+
+            if ($vthumbwidth > 0 && $vthumbwidth < 999) {
+                $this->vthumbwidth = $vthumbwidth;
+
+                return $this;
+            }
+        }
+
+        throw new Exception('Invalid value for "vthumbwidth" field.');
+    }
+
+    /**
+     * @return int
+     */
+    public function get_hthumbheight() {
+        return $this->hthumbheight;
+    }
+
+    /**
+     * @param int $hthumbheight
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_hthumbheight( $hthumbheight ) {
+
+        if (is_numeric($hthumbheight)) {
+            $hthumbheight = absint($hthumbheight);
+
+            if ($hthumbheight > 0 && $hthumbheight < 999) {
+                $this->hthumbheight = $hthumbheight;
+
+                return $this;
+            }
+        }
+
+        throw new Exception('Invalid value for "hthumbheight" field.');
+    }
+
+    /**
+     * @return int
+     */
+    public function get_thumbitem() {
+        return $this->thumbitem;
+    }
+
+    /**
+     * @param int $thumbitem
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_thumbitem( $thumbitem ) {
+
+        if (is_numeric($thumbitem)) {
+            $thumbitem = absint($thumbitem);
+
+            if ($thumbitem > 0 && $thumbitem < 999) {
+                $this->thumbitem = $thumbitem;
+
+                return $this;
+            }
+        }
+
+        throw new Exception('Invalid value for "thumbitem" field.');
+    }
+
+    /**
+     * @return int
+     */
+    public function get_thumbmargin() {
+        return $this->thumbmargin;
+    }
+
+    /**
+     * @param int $thumbmargin
+     *
+     * @return Hugeit_Slider_Slider
+     * @throws Exception
+     */
+    public function set_thumbmargin( $thumbmargin ) {
+
+        if (is_numeric($thumbmargin)) {
+            $thumbmargin = absint($thumbmargin);
+
+            if ($thumbmargin > 0 && $thumbmargin < 999) {
+                $this->thumbmargin = $thumbmargin;
+
+                return $this;
+            }
+        }
+
+        throw new Exception('Invalid value for "thumbmargin" field.');
+    }
 	/**
 	 * @return string
 	 */
@@ -743,7 +1345,26 @@ class Hugeit_Slider_Slider implements Hugeit_Slider_Slider_Interface {
 			'lightbox' => $this->lightbox,
 			'slide_effect' => $this->slide_effect,
 			'open_close_effect' => $this->open_close_effect,
-			'arrows_style' => $this->arrows_style
+			'arrows_style' => $this->arrows_style,
+            'controls' => $this->controls,
+            'fullscreen' => $this->fullscreen,
+            'vertical' => $this->vertical,
+            'thumbposition' => $this->thumbposition,
+            'thumbcontrols' => $this->thumbcontrols,
+            'dragdrop' => $this->dragdrop,
+            'swipe' => $this->swipe,
+            'thumbdragdrop' => $this->thumbdragdrop,
+            'thumbswipe' => $this->thumbswipe,
+            'titleonoff' => $this->titleonoff,
+            'desconoff' => $this->desconoff,
+            'titlesymbollimit' => $this->titlesymbollimit,
+            'descsymbollimit' => $this->descsymbollimit,
+            'pager' => $this->pager,
+            'mode' => $this->mode,
+            'vthumbwidth' => $this->vthumbwidth,
+            'hthumbheight' => $this->hthumbheight,
+            'thumbitem' => $this->thumbitem,
+            'thumbmargin' => $this->thumbmargin
 		);
 
 		if (NULL !== $desired_id) {

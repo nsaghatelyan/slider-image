@@ -1,6 +1,7 @@
 jQuery(document).ready(function() {
-	jQuery(".close_free_banner").on("click",function(){
-		jQuery(".free_version_banner").css("display","none");
+	jQuery(".close_banner").on("click",function(){
+        jQuery(".free_version_banner").css("display", "none");
+        jQuery(".wrap").css("border", "0px");
 		hugeitSliderSetCookie( 'hugeitSliderShowBanner', 'no', {expires:86400} );
 	});
 });

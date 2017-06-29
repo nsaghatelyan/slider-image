@@ -1,3 +1,7 @@
+a.probuttonlink {
+    color: white;
+}
+
 #view-image_frame, #view-style-block {
     position: relative;
     float: right;
@@ -173,7 +177,7 @@
 }
 
 #slider-unique-options-list li input[type='text'], #slider-unique-options-list li select {
-    width: 150px;
+    width: 120px;
 }
 
 #slider-shortcode-box ul li:first-child {

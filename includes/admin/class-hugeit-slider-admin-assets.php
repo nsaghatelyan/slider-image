@@ -50,6 +50,7 @@ class Hugeit_Slider_Admin_Assets {
 
 		wp_enqueue_style('hugeit_slider_free_banner', HUGEIT_SLIDER_STYLESHEETS_URL . '/free-banner.css');
 		wp_enqueue_style('hugeit_slider_admin_style', HUGEIT_SLIDER_STYLESHEETS_URL . '/admin.style.css');
+		wp_enqueue_style('hugeit_slider_admin_font_style', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 		wp_enqueue_style('hugeit_slider_simple_slider', HUGEIT_SLIDER_STYLESHEETS_URL . '/simple-slider.css');
 		wp_enqueue_style('hugeit_slider_shortcode_popup_style', HUGEIT_SLIDER_STYLESHEETS_URL . '/shortcode-popup.css');
 	}
