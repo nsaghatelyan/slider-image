@@ -18,6 +18,7 @@ class Hugeit_Slider_Admin_Assets {
 			$this->enqueue_scripts();
 			$this->enqueue_styles($hook);
 			$this->localize_script();
+            wp_enqueue_style('hugeit_slider_tracking', HUGEIT_SLIDER_STYLESHEETS_URL . '/admin.tracking.css');
 		}
 		
 		if ('post.php' === $hook || 'post-new.php' === $hook) {
@@ -26,9 +27,8 @@ class Hugeit_Slider_Admin_Assets {
 
 		if('plugins.php' === $hook){
 		    $this->enqueue_tracking();
+            wp_enqueue_style('hugeit_slider_tracking', HUGEIT_SLIDER_STYLESHEETS_URL . '/admin.tracking.css');
         }
-
-        wp_enqueue_style('hugeit_slider_tracking', HUGEIT_SLIDER_STYLESHEETS_URL . '/admin.tracking.css');
 	}
 
 	private function enqueue_scripts() {
