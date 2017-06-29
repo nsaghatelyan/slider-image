@@ -23,6 +23,21 @@ final class Hugeit_Slider {
 	 */
 	private $version = '4.0.4';
 
+    /**
+     * @var int
+     */
+	private $project_id = 1;
+
+    /**
+     * @var string
+     */
+	private $project_plan = 'free';
+
+    /**
+     * @var string
+     */
+	private $slug = 'slider-image';
+
 	/**
 	 * Hugeit_Slider slider's table name.
 	 *
@@ -57,12 +72,20 @@ final class Hugeit_Slider {
 	 */
 	public $admin;
 
+    /**
+     * @var Hugeit_Slider_Tracking
+     */
+	public $tracking;
+
 	/**
 	 * Hugeit_Slider constructor.
 	 */
 	private function __construct() {
 		$this->slide_table_name  = $GLOBALS['wpdb']->prefix . 'hugeit_slider_slide';
 		$this->slider_table_name = $GLOBALS['wpdb']->prefix . 'hugeit_slider_slider';
+
+        require_once "includes/tracking/class-hugeit-slider-tracking.php";
+        $this->tracking = new Hugeit_Slider_Tracking();
 
 		$this->define_constants();
 		$this->includes();
@@ -81,6 +104,8 @@ final class Hugeit_Slider {
 		add_action( 'init', array( 'Hugeit_Slider_Install', 'init' ) );
 		add_action( 'before_hugeit_slider_init', array( $this, 'before_init' ), 1, 0 );
 		add_action( 'widgets_init', array($this, 'register_widgets'));
+		add_action('init',array($this,'schedule_tracking'),0);
+		add_filter('cron_schedules',array($this,'custom_cron_job_recurrence'));
 	}
 
 	public function before_init() {
@@ -92,9 +117,12 @@ final class Hugeit_Slider {
 	public function init() {
 		do_action('before_hugeit_slider_init');
 
+        new Hugeit_Slider_Deactivation_Feedback();
+
 		$this->template_loader = new Hugeit_Slider_Template_Loader();
 
 		Hugeit_Slider_Install::init();
+
 
 		if ( $this->is_request( 'admin' ) ) {
 			$this->admin = new Hugeit_Slider_Admin();
@@ -183,6 +211,27 @@ final class Hugeit_Slider {
 		require_once "includes/class-hugeit-slider-widget.php";
 		require_once "includes/class-hugeit-slider-shortcode.php";
 		require_once "includes/class-hugeit-slider-frontend-scripts.php";
+
+		require_once "includes/tracking/class-hugeit-slider-deactivation-feedback.php";
+
+
+	}
+
+    public function schedule_tracking()
+    {
+        if ( ! wp_next_scheduled( 'hugeit_slider_opt_in_cron' ) ) {
+            $this->tracking->track_data();
+            wp_schedule_event( current_time( 'timestamp' ), 'hugeit-slider-weekly', 'hugeit_slider_opt_in_cron' );
+        }
+	}
+
+    public function custom_cron_job_recurrence($schedules)
+    {
+        $schedules['hugeit-slider-weekly'] = array(
+            'display' => __( 'Once per week', 'hugeit-slider' ),
+            'interval' => 604800
+        );
+        return $schedules;
 	}
 
 	/**
@@ -221,6 +270,27 @@ final class Hugeit_Slider {
 	 */
 	public function get_version() {
 		return $this->version;
+	}
+
+    /**
+     * @return int
+     */
+    public function get_project_id()
+    {
+        return $this->project_id;
+	}
+
+    /**
+     * @return string
+     */
+    public function get_project_plan()
+    {
+        return $this->project_plan;
+	}
+
+    public function get_slug()
+    {
+        return $this->slug;
 	}
 
 	/**
