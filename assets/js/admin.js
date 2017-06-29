@@ -1,3 +1,30 @@
+jQuery(window).load(function() {
+    if(jQuery('#slider-unique-options-list select[name*="view"]').val() === 'thumb_view'){
+        jQuery('.thumb_view_display').css('display', 'block');
+    }
+
+    if(jQuery('#vertical').attr('checked') === 'checked'){
+        jQuery('#hthumbheight').parent().css('display', 'none');
+    } else {
+        jQuery('#vthumbwidth').parent().css('display', 'none');
+    }
+
+
+    if(jQuery('#vertical').attr('checked') === 'checked'){
+        jQuery('#thumbposition option').eq(0).text('Right');
+        jQuery('#thumbposition option').eq(1).text('Left');
+        jQuery('#titlesymbollimit').parent().css('display', 'none');
+        jQuery('#descsymbollimit').parent().css('display', 'none');
+    } else {
+        jQuery('#height').parent().css('display', 'none');
+    }
+
+    if(jQuery('#slider-unique-options-list select[name*="mode"]').val() === 'fade'){
+        jQuery('#vertical').parent().css('display', 'none');
+        jQuery('#height').parent().css('display', 'block');
+    }
+});
+
 jQuery(document).ready(function() {
 	jQuery('#view-image_frame ul li[data-id="' + jQuery('#arrows_style option[selected="selected"]').val() + '"]').addClass('active');
 
@@ -6,24 +33,69 @@ jQuery(document).ready(function() {
 		jQuery('#view-image_frame ul li').removeClass('active');
 		jQuery('#view-image_frame ul li[data-id="' + $strt + '"]').addClass('active');
 	});
-	
-	jQuery('#slider-unique-options-list select[name*="view"]').on('change', function(){
-		if(jQuery(this).val() === 'carousel1'){
-			jQuery('#slider-unique-options-list li').eq(0).css('display', 'none');
-			jQuery('#slider-unique-options-list li').eq(1).css('display', 'none');
-			jQuery('#slider-unique-options-list li').eq(2).css('display', 'block');
-			jQuery('#slider-unique-options-list li').eq(4).css('display', 'none');
-			jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'none');
-			jQuery('#video_autoplay').parent('li').css('display', 'none');
-		} else {
-			jQuery('#slider-unique-options-list li').eq(0).css('display', 'block');
-			jQuery('#slider-unique-options-list li').eq(1).css('display', 'block');
-			jQuery('#slider-unique-options-list li').eq(2).css('display', 'none');
-			jQuery('#slider-unique-options-list li').eq(4).css('display', 'block');
-			jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'block');
-			jQuery('#video_autoplay').parent('li').css('display', 'block');
-		}
-	});
+
+    jQuery('#slider-unique-options-list select[name*="view"]').on('change', function(){
+        switch(jQuery(this).val()){
+            case 'none':
+                jQuery('.standart_view_display').css('display', 'block');
+                jQuery('.standart_view_display_').css('display', 'block');
+                jQuery('.carousel_view_display').css('display', 'none');
+                jQuery('.thumb_view_display').css('display', 'none');
+                jQuery('#navigate_by').parent().css('display', 'block');
+                jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'block');
+                break;
+            case 'carousel1':
+                jQuery('.standart_view_display').css('display', 'none');
+                jQuery('.standart_view_display_').css('display', 'none');
+                jQuery('.carousel_view_display').css('display', 'block');
+                jQuery('.thumb_view_display').css('display', 'none');
+                jQuery('#navigate_by').parent().css('display', 'block');
+                jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'none');
+                break;
+            case 'thumb_view':
+                jQuery('.standart_view_display').css('display', 'block');
+                jQuery('.standart_view_display_').css('display', 'none');
+                jQuery('.carousel_view_display').css('display', 'none');
+                jQuery('.thumb_view_display').css('display', 'block');
+                jQuery('#navigate_by').parent().css('display', 'none');
+                jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'block');
+                break;
+        }
+    });
+
+    jQuery('#slider-unique-options-list select[name*="mode"]').on('change', function(){
+        if(jQuery(this).val() === 'fade'){
+            jQuery('#vertical').parent().css('display', 'none');
+            jQuery('#height').parent().css('display', 'block');
+        } else {
+            jQuery('#vertical').parent().css('display', 'block');
+            if(jQuery('#vertical').attr('checked') === 'checked'){
+                jQuery('#height').parent().css('display', 'block');
+            } else {
+                jQuery('#height').parent().css('display', 'none');
+            }
+        }
+    });
+
+    jQuery('#vertical').change(function() {
+        if(jQuery(this).attr('checked') === 'checked'){
+            jQuery('#thumbposition option').eq(0).text('Right');
+            jQuery('#thumbposition option').eq(1).text('Left');
+            jQuery('#height').parent().css('display', 'block');
+            jQuery('#titlesymbollimit').parent().css('display', 'none');
+            jQuery('#descsymbollimit').parent().css('display', 'none');
+            jQuery('#vthumbwidth').parent().css('display', 'block');
+            jQuery('#hthumbheight').parent().css('display', 'none');
+        } else {
+            jQuery('#thumbposition option').eq(0).text('Bottom');
+            jQuery('#thumbposition option').eq(1).text('Top');
+            jQuery('#height').parent().css('display', 'none');
+            jQuery('#titlesymbollimit').parent().css('display', 'block');
+            jQuery('#descsymbollimit').parent().css('display', 'block');
+            jQuery('#vthumbwidth').parent().css('display', 'none');
+            jQuery('#hthumbheight').parent().css('display', 'block');
+        }
+    });
 
 	jQuery('#slider-unique-options-list input[name*="lightbox"]').on('change', function(){
 		if(jQuery('#slider-unique-options-list select[name*="slide_effect"]').parent('li').css('display') === 'none'){
@@ -181,7 +253,11 @@ jQuery(document).ready(function() {
 			lightbox: jQuery('#slider-options').find('#lightbox').prop('checked') ? 1 : 0,
 			slide_effect: jQuery('#slider-options').find('#slide_effect').val(),
 			open_close_effect: jQuery('#slider-options').find('#open_close_effect').val(),
-			arrows_style: jQuery('#slider-options').find('#arrows_style').val()
+			arrows_style: jQuery('#slider-options').find('#arrows_style').val(),
+            vertical: jQuery('#slider-options').find('#vertical').prop('checked') ? 1 : 0,
+            fullscreen: jQuery('#slider-options').find('#fullscreen').prop('checked') ? 1 : 0,
+            swipe: jQuery('#slider-options').find('#swipe').prop('checked') ? 1 : 0,
+            mode: jQuery('#slider-options').find('#mode').val()
 		};
 
 		jQuery.each(jQuery('#slides-list > li'), function(i, li) {

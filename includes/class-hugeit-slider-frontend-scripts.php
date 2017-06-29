@@ -89,7 +89,26 @@ class Hugeit_Slider_Frontend_Scripts {
 				'effect' => $slider->get_effect(),
 				'slide_effect' => $slider->get_slide_effect(),
 				'open_close_effect' => $slider->get_open_close_effect(),
-				'arrows_style' => $slider->get_arrows_style()
+				'arrows_style' => $slider->get_arrows_style(),
+                'controls' => $slider->get_controls(),
+                'fullscreen' => $slider->get_fullscreen(),
+                'vertical' => $slider->get_vertical(),
+                'thumbposition' => $slider->get_thumbposition(),
+                'thumbcontrols' => $slider->get_thumbcontrols(),
+                'dragdrop' => $slider->get_dragdrop(),
+                'swipe' => $slider->get_swipe(),
+                'thumbdragdrop' => $slider->get_thumbdragdrop(),
+                'thumbswipe' => $slider->get_thumbswipe(),
+                'titleonoff' => $slider->get_titleonoff(),
+                'desconoff' => $slider->get_desconoff(),
+                'titlesymbollimit' => $slider->get_titlesymbollimit(),
+                'descsymbollimit' => $slider->get_descsymbollimit(),
+                'pager' => $slider->get_pager(),
+                'mode' => $slider->get_mode(),
+                'vthumbwidth' => $slider->get_vthumbwidth(),
+                'hthumbheight' => $slider->get_hthumbheight(),
+                'thumbitem' => $slider->get_thumbitem(),
+                'thumbmargin' => $slider->get_thumbmargin()
 			));
 		}
 	}

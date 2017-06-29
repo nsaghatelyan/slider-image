@@ -99,49 +99,164 @@
 				<div id="postbox-container-1" class="postbox-container">
 					<div id="side-sortables" class="meta-box-sortables ui-sortable">
 						<div id="slider-options" class="postbox">
+                            <div id="major-publishing-actions">
+                                <div id="publishing-action">
+                                    <span class="spinner" id="hugeit_slider_save_slider_spinner"></span>
+                                    <input type="submit" value="<?php _e('Save Slider', 'hugeit-slider'); ?>" id="save-buttom" class="button button-primary button-large" data-nonce="<?php echo $save_slider_nonce; ?>">
+                                </div>
+                                <div class="clear"></div>
+                            </div>
 							<h3 class="handle"><span><?php _e('Current Slider Options', 'hugeit-slider'); ?></span></h3>
 							<ul id="slider-unique-options-list">
-								<li style="<?php if($slider->get_view() == 'carousel1'){ echo 'display: none;';}?>">
-									<label for="width"><?php _e('Width', 'hugeit-slider'); ?></label>
-									<input type="text" name="width" id="width" value="<?php echo $slider->get_width(); ?>" class="text_area" />
-								</li>
-								<li style="<?php if($slider->get_view() == 'carousel1'){ echo 'display: none;';}?>">
-									<label for="height"><?php _e('Height', 'hugeit-slider'); ?></label>
-									<input type="text" name="height" id="height" value="<?php echo $slider->get_height(); ?>" class="text_area" />
-								</li>
-								<li style="<?php if($slider->get_view() !== 'carousel1'){ echo 'display: none;';}?>">
-									<label for="height"><?php _e('Items count', 'hugeit-slider'); ?></label>
-									<input type="number" step="2" min="3" max="7" name="itemscount" id="itemscount" value="<?php echo $slider->get_itemscount(); ?>" class="text_area" />
-								</li>
-								<li>
-									<label for="view"><?php _e('Views', 'hugeit-slider'); ?></label>
-									<select name="view" id="view">
-										<option <?php if ($slider->get_view() == 'none') $slider->get_width() ?>  value="none"><?php _e('None', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_view() == 'carousel1') echo 'selected'; ?>  value="carousel1"><?php _e('Carousel 1', 'hugeit-slider'); ?></option>
-									</select>
-								</li>
-								<li>
-									<label for="effect"><?php _e('Effects', 'hugeit-slider'); ?></label>
-									<select name="effect" id="effect">
-										<option <?php if ($slider->get_effect() == 'none') $slider->get_width() ?>  value="none"><?php _e('None', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'cube_h') echo 'selected'; ?>   value="cube_h"><?php _e('Cube Horizontal', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'cube_v') echo 'selected'; ?>  value="cube_v"><?php _e('Cube Vertical', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'fade') echo 'selected'; ?>  value="fade"><?php _e('Fade', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'slice_h') echo 'selected'; ?>  value="slice_h"><?php _e('Slice Horizontal', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'slice_v') echo 'selected'; ?>  value="slice_v"><?php _e('Slice Vertical', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'slide_h') echo 'selected'; ?>  value="slide_h"><?php _e('Slide Horizontal', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'slide_v') echo 'selected'; ?>  value="slide_v"><?php _e('Slide Vertical', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'scale_out') echo 'selected'; ?>  value="scale_out"><?php _e('Scale Out', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'scale_in') echo 'selected'; ?>  value="scale_in"><?php _e('Scale In', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'block_scale') echo 'selected'; ?>  value="block_scale"><?php _e('Block Scale', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'kaleidoscope') echo 'selected'; ?>  value="kaleidoscope"><?php _e('Kaleidoscope', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'fan') echo 'selected'; ?>  value="fan"><?php _e('Fan', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'blind_h') echo 'selected'; ?>  value="blind_h"><?php _e('Blind Horizontal', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'blind_v') echo 'selected'; ?>  value="blind_v"><?php _e('Blind Vertical', 'hugeit-slider'); ?></option>
-										<option <?php if ($slider->get_effect() == 'random') echo 'selected'; ?>  value="random"><?php _e('Random', 'hugeit-slider'); ?></option>
-									</select>
-								</li>
-
+                                <li style="<?php if($slider->get_view() == 'carousel1'){ echo 'display: none;';}?>" class="standart_view_display">
+                                    <label for="width"><?php _e('Width', 'hugeit-slider'); ?></label>
+                                    <input type="text" name="width" id="width" value="<?php echo $slider->get_width(); ?>" class="text_area" />
+                                </li>
+                                <li style="<?php if($slider->get_view() == 'carousel1'){ echo 'display: none;';}?>" class="standart_view_display ">
+                                    <label for="height"><?php _e('Height', 'hugeit-slider'); ?></label>
+                                    <input type="text" name="height" id="height" value="<?php echo $slider->get_height(); ?>" class="text_area" />
+                                </li>
+                                <li style="<?php if($slider->get_view() !== 'carousel1'){ echo 'display: none;';}?>" class="carousel_view_display">
+                                    <label for="height"><?php _e('Items count', 'hugeit-slider'); ?></label>
+                                    <input type="number" step="2" min="3" max="7" name="itemscount" id="itemscount" value="<?php echo $slider->get_itemscount(); ?>" class="text_area" />
+                                </li>
+                                <li>
+                                    <label for="view"><?php _e('Views', 'hugeit-slider'); ?></label>
+                                    <select name="view" id="view">
+                                        <option <?php if ($slider->get_view() == 'none')  echo 'selected'; ?>  value="none"><?php _e('Standart', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_view() == 'carousel1') echo 'selected'; ?>  value="carousel1"><?php _e('Carousel 1', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_view() == 'thumb_view') echo 'selected'; ?>  value="thumb_view"><?php _e('Thumbnail View', 'hugeit-slider'); ?></option>
+                                    </select>
+                                </li>
+                                <li style="<?php if($slider->get_view() !== 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="mode"><?php _e('Effects', 'hugeit-slider'); ?></label>
+                                    <select name="mode" id="mode">
+                                        <option <?php if ($slider->get_mode() == 'slide') echo 'selected'; ?>  value="slide"><?php _e('Slide', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_mode() == 'fade') echo 'selected'; ?>  value="fade"><?php _e('Fade', 'hugeit-slider'); ?></option>
+                                    </select>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="vertical"><?php _e('Vertical', 'hugeit-slider'); ?></label>
+                                    <input type="checkbox" name="vertical"  value="1" id="vertical" <?php if($slider->get_vertical()  == '1') echo 'checked="checked"'; ?> />
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="fullscreen"><?php _e('Fullscreen', 'hugeit-slider'); ?></label>
+                                    <input type="checkbox" name="fullscreen"  value="1" id="fullscreen" <?php if($slider->get_fullscreen()  == '1') echo 'checked="checked"'; ?> />
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="swipe"><?php _e('Swipe', 'hugeit-slider'); ?></label>
+                                    <input type="checkbox" name="swipe"  value="1" id="swipe" <?php if($slider->get_swipe()  == '1') echo 'checked="checked"'; ?> />
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="controls"><?php _e('Controls', 'hugeit-slider'); ?></label>
+                                    <input type="checkbox" name="controls"  value="1" id="controls" disabled />
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="pager"><?php _e('Thumbnails', 'hugeit-slider'); ?></label>
+                                    <input type="checkbox" name="pager"  value="1" id="pager" disabled />
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="vthumbwidth"><?php _e('Thumbs Width', 'hugeit-slider'); ?></label>
+                                    <input type="text" name="vthumbwidth" id="vthumbwidth" value="100" class="text_area" disabled />
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="hthumbheight"><?php _e('Thumbs Height', 'hugeit-slider'); ?></label>
+                                    <input type="text" name="hthumbheight" id="hthumbheight" value="80" class="text_area" disabled />
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="thumbitem"><?php _e('Thumbs Count', 'hugeit-slider'); ?></label>
+                                    <input type="text" name="thumbitem" id="thumbitem" value="5" class="text_area" disabled />
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="thumbmargin"><?php _e('Thumbs Margin', 'hugeit-slider'); ?></label>
+                                    <input type="text" name="thumbmargin" id="thumbmargin" value="5" class="text_area" disabled />
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="thumbcontrols"><?php _e('Thumb Controls', 'hugeit-slider'); ?></label>
+                                    <input type="checkbox" name="thumbcontrols"  value="1" id="thumbcontrols" disabled />
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="dragdrop"><?php _e('Drag & Drop', 'hugeit-slider'); ?></label>
+                                    <input type="checkbox" name="dragdrop"  value="1" id="dragdrop" disabled />
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="thumbdragdrop"><?php _e('Thumb Drag & Drop', 'hugeit-slider'); ?></label>
+                                    <input type="checkbox" name="thumbdragdrop"  value="1" id="thumbdragdrop" disabled />
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="thumbswipe"><?php _e('Thumb Swipe', 'hugeit-slider'); ?></label>
+                                    <input type="checkbox" name="thumbswipe"  value="1" id="thumbswipe" disabled />
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="titleonoff"><?php _e('Title On/Off', 'hugeit-slider'); ?></label>
+                                    <input type="checkbox" name="titleonoff"  value="1" id="titleonoff" disabled />
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="desconoff"><?php _e('Description On/Off', 'hugeit-slider'); ?></label>
+                                    <input type="checkbox" name="desconoff"  value="1" id="desconoff" disabled />
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="titlesymbollimit"><?php _e('Title Symbol Limit', 'hugeit-slider'); ?></label>
+                                    <input type="text" name="titlesymbollimit" id="titlesymbollimit" value="20" class="text_area" disabled />
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="descsymbollimit"><?php _e('Description Symbol Limit', 'hugeit-slider'); ?></label>
+                                    <input type="text" name="descsymbollimit" id="descsymbollimit" value="96" class="text_area" disabled />
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="thumbposition"><?php _e('Thumb Position', 'hugeit-slider'); ?></label>
+                                    <select name="thumbposition" id="thumbposition" disabled>
+                                        <option <?php if ($slider->get_thumbposition() == '0') echo 'selected'; ?>  value="0">
+                                            <?php _e('Bottom', 'hugeit-slider'); ?>
+                                        </option>
+                                        <option <?php if ($slider->get_thumbposition() == '1') echo 'selected'; ?>  value="1">
+                                            <?php _e('Top', 'hugeit-slider'); ?>
+                                        </option>
+                                    </select>
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() != 'thumb_view'){ echo 'display: none;';}?>" class="thumb_view_display">
+                                    <label for="thumbbgc"><?php _e('Thumb Background Color', 'hugeit-slider'); ?></label>
+                                    <select id="thumbbgc" disabled>
+                                        <option selected >
+                                            <?php _e('Light', 'hugeit-slider'); ?>
+                                        </option>
+                                    </select>
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
+                                </li>
+                                <li style="<?php if($slider->get_view() == 'carousel1' || $slider->get_view() == 'thumb_view'){ echo 'display: none;';}?>" class="standart_view_display_">
+                                    <label for="effect"><?php _e('Effects', 'hugeit-slider'); ?></label>
+                                    <select name="effect" id="effect">
+                                        <option <?php if ($slider->get_effect() == 'none') $slider->get_width() ?>  value="none"><?php _e('None', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'cube_h') echo 'selected'; ?>   value="cube_h"><?php _e('Cube Horizontal', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'cube_v') echo 'selected'; ?>  value="cube_v"><?php _e('Cube Vertical', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'fade') echo 'selected'; ?>  value="fade"><?php _e('Fade', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'slice_h') echo 'selected'; ?>  value="slice_h"><?php _e('Slice Horizontal', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'slice_v') echo 'selected'; ?>  value="slice_v"><?php _e('Slice Vertical', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'slide_h') echo 'selected'; ?>  value="slide_h"><?php _e('Slide Horizontal', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'slide_v') echo 'selected'; ?>  value="slide_v"><?php _e('Slide Vertical', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'scale_out') echo 'selected'; ?>  value="scale_out"><?php _e('Scale Out', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'scale_in') echo 'selected'; ?>  value="scale_in"><?php _e('Scale In', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'block_scale') echo 'selected'; ?>  value="block_scale"><?php _e('Block Scale', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'kaleidoscope') echo 'selected'; ?>  value="kaleidoscope"><?php _e('Kaleidoscope', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'fan') echo 'selected'; ?>  value="fan"><?php _e('Fan', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'blind_h') echo 'selected'; ?>  value="blind_h"><?php _e('Blind Horizontal', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'blind_v') echo 'selected'; ?>  value="blind_v"><?php _e('Blind Vertical', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_effect() == 'random') echo 'selected'; ?>  value="random"><?php _e('Random', 'hugeit-slider'); ?></option>
+                                    </select>
+                                </li>
 								<li>
 									<label for="pause_time"><?php _e('Pause Time', 'hugeit-slider'); ?></label>
 									<input type="text" name="pause_time" id="pause_time" value="<?php echo $slider->get_pause_time(); ?>" class="text_area" />
@@ -165,7 +280,7 @@
 										<option <?php if($slider->get_show_loading_icon() == '0') echo 'selected'; ?> value="0"><?php _e('Off', 'hugeit-slider'); ?></option>
 									</select>
 								</li>
-								<li>
+								<li style="<?php if($slider->get_view() == 'thumb_view'){ echo 'display: none;';}?>">
 									<label for="navigate_by"><?php _e('Navigate By', 'hugeit-slider'); ?></label>
 									<select id="navigate_by" name="navigate_by">
 										<option <?php if($slider->get_navigate_by() == 'dot') echo 'selected'; ?> value="dot"><?php _e('Dots', 'hugeit-slider'); ?></option>
@@ -180,7 +295,7 @@
 								<li style="<?php if($slider->get_view() === 'carousel1'){ echo 'display: none;';}?>" >
 									<label for="video_autoplay">Video Autoplay</label>
 									<input type="checkbox" name="video_autoplay"  value="1" id="video_autoplay" disabled="disabled" />
-                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank">( <span style="color: red;font-size: 14px;"> PRO </span> )</a>
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span style="color: red;font-size: 14px;"> PRO </span></a>
 								</li>
 								<!--###########RANDOM UPDATE##############-->
 								<li>
@@ -242,13 +357,6 @@
 									</div>
 								</li>
 							</ul>
-							<div id="major-publishing-actions">
-								<div id="publishing-action">
-                                    <span class="spinner" id="hugeit_slider_save_slider_spinner"></span>
-									<input type="submit" value="<?php _e('Save Slider', 'hugeit-slider'); ?>" id="save-buttom" class="button button-primary button-large" data-nonce="<?php echo $save_slider_nonce; ?>">
-								</div>
-								<div class="clear"></div>
-							</div>
 						</div>
 					</div>
 					<div id="slider-shortcode-box" class="postbox shortcode ms-toggle">

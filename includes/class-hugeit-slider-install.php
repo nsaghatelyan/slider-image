@@ -35,6 +35,13 @@ class Hugeit_Slider_Install {
 		if(!self::isset_table_column($wpdb->prefix . "hugeit_slider_slider","lightbox")){
 			$wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slider` ADD `lightbox` int(1) UNSIGNED DEFAULT 0, ADD `slide_effect` enum('effect_1','effect_2','effect_3','effect_4','effect_5','effect_6','effect_7','effect_8','effect_9','effect_10') NOT NULL DEFAULT 'effect_1', ADD `open_close_effect` enum('none','unfold','unfold_r','blowup','blowup_r','roadrunner','roadrunner_r','runner','runner_r','rotate','rotate_r') NOT NULL DEFAULT 'none', ADD `arrows_style` enum('arrows_1','arrows_2','arrows_3','arrows_4','arrows_5','arrows_6') NOT NULL DEFAULT 'arrows_1' AFTER `random`");
 		}
+
+
+
+        if(!self::isset_table_column($wpdb->prefix . "hugeit_slider_slider","thumbmargin")){
+            $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slider` CHANGE `view` `view` ENUM('none','carousel1','thumb_view') NOT NULL DEFAULT 'none'");
+            $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slider` ADD `controls` int(1) UNSIGNED DEFAULT 1, ADD `fullscreen` int(1) UNSIGNED DEFAULT 1, ADD `vertical` int(1) UNSIGNED DEFAULT 1, ADD `thumbposition` int(1) UNSIGNED DEFAULT 0, ADD `thumbcontrols` int(1) UNSIGNED DEFAULT 0, ADD `dragdrop` int(1) UNSIGNED DEFAULT 0, ADD `swipe` int(1) UNSIGNED DEFAULT 1, ADD `thumbdragdrop` int(1) UNSIGNED DEFAULT 0, ADD `thumbswipe` int(1) UNSIGNED DEFAULT 0, ADD `titleonoff` int(1) UNSIGNED DEFAULT 1, ADD `desconoff` int(1) UNSIGNED DEFAULT 1,  ADD `titlesymbollimit` int(3) UNSIGNED DEFAULT '20',  ADD `descsymbollimit` int(3) UNSIGNED DEFAULT '70', ADD `pager` int(1) UNSIGNED DEFAULT 1, ADD `mode` enum('slide','fade') NOT NULL DEFAULT 'slide', ADD `vthumbwidth` int(3) UNSIGNED NOT NULL DEFAULT '100', ADD `hthumbheight` int(3) UNSIGNED NOT NULL DEFAULT '80', ADD `thumbitem` int(3) UNSIGNED NOT NULL DEFAULT '10', ADD `thumbmargin` int(2) UNSIGNED NOT NULL DEFAULT '5' AFTER `view`");
+        }
 	}
 	
 	/**
@@ -120,7 +127,26 @@ class Hugeit_Slider_Install {
 				open_close_effect enum('none','unfold','unfold_r','blowup','blowup_r','roadrunner','roadrunner_r','runner','runner_r','rotate','rotate_r') NOT NULL DEFAULT 'none',
 				arrows_style enum('arrows_1','arrows_2','arrows_3','arrows_4','arrows_5','arrows_6') NOT NULL DEFAULT 'arrows_1',
 				itemscount int(2) UNSIGNED NOT NULL DEFAULT '5',
-				view enum('none','carousel1') NOT NULL DEFAULT 'none',
+				view enum('none','carousel1', 'thumb_view') NOT NULL DEFAULT 'none',		  
+                controls int(1) UNSIGNED DEFAULT 1,
+                fullscreen int(1) UNSIGNED DEFAULT 1,
+                vertical int(1) UNSIGNED DEFAULT 1, 
+                thumbposition int(1) UNSIGNED DEFAULT 0,
+                thumbcontrols int(1) UNSIGNED DEFAULT 0,
+                dragdrop int(1) UNSIGNED DEFAULT 0, 
+                swipe int(1) UNSIGNED DEFAULT 1, 
+                thumbdragdrop int(1) UNSIGNED DEFAULT 0, 
+                thumbswipe int(1) UNSIGNED DEFAULT 0, 
+                titleonoff int(1) UNSIGNED DEFAULT 1, 
+                desconoff int(1) UNSIGNED DEFAULT 1, 
+                titlesymbollimit int(3) UNSIGNED NOT NULL DEFAULT '20',
+                descsymbollimit int(3) UNSIGNED NOT NULL DEFAULT '70', 
+                pager int(1) UNSIGNED DEFAULT 1,
+                mode enum('slide','fade') NOT NULL DEFAULT 'slide',
+                vthumbwidth int(3) UNSIGNED NOT NULL DEFAULT '100',
+                hthumbheight int(3) UNSIGNED NOT NULL DEFAULT '80',
+                thumbitem int(3) UNSIGNED NOT NULL DEFAULT '10',
+                thumbmargin int(2) UNSIGNED NOT NULL DEFAULT '5'
 				PRIMARY KEY (id)
 			) {$collate}"
 		);
@@ -418,7 +444,26 @@ class Hugeit_Slider_Install {
 			->set_lightbox(false)
 			->set_slide_effect('effect_1')
 			->set_open_close_effect('none')
-			->set_arrows_style('arrows_1');
+			->set_arrows_style('arrows_1')
+            ->set_controls(true)
+            ->set_fullscreen(true)
+            ->set_vertical(true)
+            ->set_thumbposition(true)
+            ->set_thumbcontrols(true)
+            ->set_dragdrop(true)
+            ->set_swipe(true)
+            ->set_thumbdragdrop(true)
+            ->set_thumbswipe(true)
+            ->set_titleonoff(true)
+            ->set_desconoff(true)
+            ->set_titlesymbollimit(20)
+            ->set_descsymbollimit(70)
+            ->set_pager(true)
+            ->set_mode('slide')
+            ->set_vthumbwidth(100)
+            ->set_hthumbheight(80)
+            ->set_thumbitem(10)
+            ->set_thumbmargin(5);
 
 		$slider->add_slide($slide1);
 		$slider->add_slide($slide2);

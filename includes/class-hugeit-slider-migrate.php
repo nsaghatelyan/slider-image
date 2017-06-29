@@ -35,7 +35,8 @@ class Hugeit_Slider_Migrate {
 				'name' => 'view',
 				'replace' => array(
 					'none' => 'none',
-					'carousel1' => 'carousel1'
+					'carousel1' => 'carousel1',
+					'thumb_view' => 'thumb_view'
 				),
 			),
 			'slider_list_effects_s' => array(
