@@ -146,7 +146,7 @@ class Hugeit_Slider_Install {
                 vthumbwidth int(3) UNSIGNED NOT NULL DEFAULT '100',
                 hthumbheight int(3) UNSIGNED NOT NULL DEFAULT '80',
                 thumbitem int(3) UNSIGNED NOT NULL DEFAULT '10',
-                thumbmargin int(2) UNSIGNED NOT NULL DEFAULT '5'
+                thumbmargin int(2) UNSIGNED NOT NULL DEFAULT '5',
 				PRIMARY KEY (id)
 			) {$collate}"
 		);
