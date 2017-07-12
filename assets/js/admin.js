@@ -23,6 +23,10 @@ jQuery(window).load(function() {
         jQuery('#vertical').parent().css('display', 'none');
         jQuery('#height').parent().css('display', 'block');
     }
+	
+    if(jQuery('#slider-unique-options-list select[name*="view"]').val() === 'none'){
+        jQuery('#height').parent().show();
+    }
 });
 
 jQuery(document).ready(function() {
