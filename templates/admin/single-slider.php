@@ -63,11 +63,12 @@
                                         <img src="<?php echo HUGEIT_SLIDER_ADMIN_IMAGES_URL . '/pro-logo.png'; ?>" alt="pro logo" class="hugeit_slider_pro_logo" />
                                     </button>
 								</a>
+                                <a href="#TB_inline?width=800&height=600&inlineId=hugeit-slider-add-video-popup" class="thickbox">
                                 <button style="<?php if($slider->get_view() === 'carousel1'){ echo 'display: none;';}?>" type="button"  id="hugeit_slider_add_video_slide_button" class="butbutton button-primary button-large">
-                                    <a href="#TB_inline?width=800&height=600&inlineId=hugeit-slider-add-video-popup" class="thickbox"><?php _e('Add Video Slide', 'hugeit-slider'); ?>
+                                   <?php _e('Add Video Slide', 'hugeit-slider'); ?>
                                         <img src="<?php echo HUGEIT_SLIDER_ADMIN_IMAGES_URL . '/pro-logo.png'; ?>" alt="pro logo" class="hugeit_slider_pro_logo" />
-                                    </a>
                                 </button>
+                                </a>
                                 <button type="button" id="hugeit_slider_add_image_slide_button" class="button button-primary button-large"><?php _e('Add Image Slide', 'hugeit-slider'); ?></button>
                             </div>
 
@@ -124,7 +125,7 @@
                                     <label for="view"><?php _e('Views', 'hugeit-slider'); ?></label>
                                     <select name="view" id="view">
                                         <option <?php if ($slider->get_view() == 'none')  echo 'selected'; ?>  value="none"><?php _e('Standart', 'hugeit-slider'); ?></option>
-                                        <option <?php if ($slider->get_view() == 'carousel1') echo 'selected'; ?>  value="carousel1"><?php _e('Carousel 1', 'hugeit-slider'); ?></option>
+                                        <option <?php if ($slider->get_view() == 'carousel1') echo 'selected'; ?>  value="carousel1"><?php _e('Carousel', 'hugeit-slider'); ?></option>
                                         <option <?php if ($slider->get_view() == 'thumb_view') echo 'selected'; ?>  value="thumb_view"><?php _e('Thumbnail View', 'hugeit-slider'); ?></option>
                                     </select>
                                 </li>
