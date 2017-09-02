@@ -153,7 +153,7 @@
                                         <option <?php if ($slider->get_view() == 'none') echo 'selected'; ?>
                                                 value="none"><?php _e('Standart', 'hugeit-slider'); ?></option>
                                         <option <?php if ($slider->get_view() == 'carousel1') echo 'selected'; ?>
-                                                value="carousel1"><?php _e('Carousel 1', 'hugeit-slider'); ?></option>
+                                                value="carousel1"><?php _e('Carousel', 'hugeit-slider'); ?></option>
                                         <option <?php if ($slider->get_view() == 'thumb_view') echo 'selected'; ?>
                                                 value="thumb_view"><?php _e('Thumbnail View', 'hugeit-slider'); ?></option>
                                     </select>
