@@ -38,7 +38,8 @@ jQuery(document).ready(function () {
         jQuery('#view-image_frame ul li[data-id="' + $strt + '"]').addClass('active');
     });
 
-    jQuery('#slider-unique-options-list select[name*="view"]').on('change', function () {
+    // jQuery('#slider-unique-options-list select[name*="view"]').on('change', function () {
+    jQuery('.slider_view_radio input[name*="view"]').on('change', function () {
         switch (jQuery(this).val()) {
             case 'none':
                 jQuery('.standart_view_display').css('display', 'block');
@@ -47,6 +48,7 @@ jQuery(document).ready(function () {
                 jQuery('.thumb_view_display').css('display', 'none');
                 jQuery('#navigate_by').parent().css('display', 'block');
                 jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'block');
+                jQuery("#cur_view_name").html("Standart ");
                 break;
             case 'carousel1':
                 jQuery('.standart_view_display').css('display', 'none');
@@ -55,6 +57,7 @@ jQuery(document).ready(function () {
                 jQuery('.thumb_view_display').css('display', 'none');
                 jQuery('#navigate_by').parent().css('display', 'block');
                 jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'none');
+                jQuery("#cur_view_name").html("Carousel ");
                 break;
             case 'thumb_view':
                 jQuery('.standart_view_display').css('display', 'block');
@@ -63,6 +66,7 @@ jQuery(document).ready(function () {
                 jQuery('.thumb_view_display').css('display', 'block');
                 jQuery('#navigate_by').parent().css('display', 'none');
                 jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'block');
+                jQuery("#cur_view_name").html("Thumbnail ");
                 break;
         }
     });
@@ -101,15 +105,15 @@ jQuery(document).ready(function () {
         }
     });
 
-    jQuery('#slider-unique-options-list input[name*="lightbox"]').on('change', function () {
-        if (jQuery('#slider-unique-options-list select[name*="slide_effect"]').parent('li').css('display') === 'none') {
-            jQuery('#slider-unique-options-list select[name*="slide_effect"]').parent('li').css('display', 'block');
-            jQuery('#slider-unique-options-list select[name*="open_close_effect"]').parent('li').css('display', 'block');
-            jQuery('#slider-unique-options-list select[name*="arrows_style"]').parent('li').css('display', 'block');
+    jQuery('#slider-custom-options-list input[name*="lightbox"]').on('change', function () {
+        if (jQuery('#slider-custom-options-list select[name*="slide_effect"]').parent('li').css('display') === 'none') {
+            jQuery('#slider-custom-options-list select[name*="slide_effect"]').parent('li').css('display', 'block');
+            jQuery('#slider-custom-options-list select[name*="open_close_effect"]').parent('li').css('display', 'block');
+            jQuery('#slider-custom-options-list select[name*="arrows_style"]').parent('li').css('display', 'block');
         } else {
-            jQuery('#slider-unique-options-list select[name*="slide_effect"]').parent('li').css('display', 'none');
-            jQuery('#slider-unique-options-list select[name*="open_close_effect"]').parent('li').css('display', 'none');
-            jQuery('#slider-unique-options-list select[name*="arrows_style"]').parent('li').css('display', 'none');
+            jQuery('#slider-custom-options-list select[name*="slide_effect"]').parent('li').css('display', 'none');
+            jQuery('#slider-custom-options-list select[name*="open_close_effect"]').parent('li').css('display', 'none');
+            jQuery('#slider-custom-options-list select[name*="arrows_style"]').parent('li').css('display', 'none');
         }
     });
 
@@ -245,24 +249,25 @@ jQuery(document).ready(function () {
             width: jQuery('#slider-options').find('#width').val(),
             height: jQuery('#slider-options').find('#height').val(),
             itemscount: jQuery('#slider-options').find('#itemscount').val(),
-            view: jQuery('#slider-options').find('#view').val(),
+            view: jQuery('#slider-options').find('input[name=view]:checked').val(),
             effect: jQuery('#slider-options').find('#effect').val(),
             pause_time: jQuery('#slider-options').find('#pause_time').val(),
             change_speed: jQuery('#slider-options').find('#change_speed').val(),
             position: jQuery('#slider-options').find('#position').val(),
             show_loading_icon: jQuery('#slider-options').find('#show_loading_icon').val(),
-            navigate_by: jQuery('#slider-options').find('#navigate_by').val(),
+            navigate_by: jQuery('#slider-custom-options-box').find('#navigate_by').val(),
             pause_on_hover: jQuery('#slider-options').find('#pause_on_hover').prop('checked') ? 1 : 0,
-            random: jQuery('#slider-options').find('#random').prop('checked') ? 1 : 0,
-            lightbox: jQuery('#slider-options').find('#lightbox').prop('checked') ? 1 : 0,
-            slide_effect: jQuery('#slider-options').find('#slide_effect').val(),
-            open_close_effect: jQuery('#slider-options').find('#open_close_effect').val(),
-            arrows_style: jQuery('#slider-options').find('#arrows_style').val(),
-            vertical: jQuery('#slider-options').find('#vertical').prop('checked') ? 1 : 0,
-            fullscreen: jQuery('#slider-options').find('#fullscreen').prop('checked') ? 1 : 0,
-            swipe: jQuery('#slider-options').find('#swipe').prop('checked') ? 1 : 0,
+            random: jQuery('#slider-custom-options-box').find('#random').prop('checked') ? 1 : 0,
+            lightbox: jQuery('#slider-custom-options-box').find('#lightbox').prop('checked') ? 1 : 0,
+            slide_effect: jQuery('#slider-custom-options-box').find('#slide_effect').val(),
+            open_close_effect: jQuery('#slider-custom-options-box').find('#open_close_effect').val(),
+            arrows_style: jQuery('#slider-custom-options-box').find('#arrows_style').val(),
+            vertical: jQuery('#slider-custom-options-box').find('#vertical').prop('checked') ? 1 : 0,
+            fullscreen: jQuery('#slider-custom-options-box').find('#fullscreen').prop('checked') ? 1 : 0,
+            swipe: jQuery('#slider-custom-options-box').find('#swipe').prop('checked') ? 1 : 0,
             mode: jQuery('#slider-options').find('#mode').val()
         };
+
 
         jQuery.each(jQuery('#slides-list > li'), function (i, li) {
             var $li = jQuery(li),

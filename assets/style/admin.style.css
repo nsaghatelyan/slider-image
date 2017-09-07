@@ -7,7 +7,7 @@ a.probuttonlink {
     float: right;
     width: 35px;
     height: 28px;
-    padding: 0 0 0 20px;
+    /*padding: 0 0 0 20px;*/
     background: url(../images/admin/view.style.png) left center no-repeat;
 }
 
@@ -176,7 +176,14 @@ a.probuttonlink {
     padding: 0 0 0 10px;
 }
 
-#slider-unique-options-list li input[type='text'], #slider-unique-options-list li select {
+#slider-custom-options-list li label {
+    display: inline-block;
+    width: 100px;
+    padding: 0px;
+}
+
+#slider-unique-options-list li input[type='text'], #slider-unique-options-list li select,
+#slider-custom-options-list li input[type='text'], #slider-custom-options-list li select {
     width: 120px;
 }
 
@@ -1597,4 +1604,93 @@ div.image-block {
     width: 35px;
     opacity: 0.5;
     margin-left: 5px;
+}
+
+/* right panel new style */
+
+.probuttonlink span {
+    color: #dc3227;
+    font-size: 14px;
+    border: 1px solid #dc3227;
+    padding: 0px 5px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+#slider-unique-options-list li,
+#slider-custom-options-list li {
+    margin-bottom: 11px !important;
+}
+
+.slider_save_button {
+    background-color: #e14d43 !important;
+    border: 1px solid #ba281e !important;
+    color: #ffffff !important;
+}
+
+#slider_save_section {
+    padding: 10px 10px 0;
+}
+
+.slider_view_radio {
+    background-color: #e7f2fe;
+    margin: 5px 10px;
+    border: 1px solid #cadcf2;
+    padding: 11px 9px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.slider_view_radio input[type="radio"] {
+    /* hide the inputs */
+    opacity: 0;
+    position: absolute;
+}
+
+/* style your lables/button */
+.slider_view_radio input[type="radio"] + label {
+    /* keep pointer so that you get the little hand showing when you are on a button */
+    cursor: pointer;
+    /* the following are the styles */
+    padding: 4px 12px;
+    color: #80a1c4;
+}
+
+.slider_view_radio input[type="radio"]:checked + label {
+    /* style for the checked/selected state */
+    background: #4ca2ff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.32);
+    border-radius: 3px;
+    color: white;
+}
+
+#slider-unique-options-list li,
+#slider-custom-options-list li {
+    position: relative;
+}
+
+#slider-unique-options-list li span.unit,
+#slider-custom-options-list li span.unit {
+    position: absolute;
+    top: 6px;
+    right: 50px;
+    color: #777777;
+}
+
+#slider-custom-options-list li span.unit {
+    right: 40px;
+}
+
+.postbox h3 a {
+    color: #333;
+    padding: 8px 88px 8px 0px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    outline: none;
+    box-shadow: none;
+}
+
+.postbox .inside {
+    padding: 0 10px 12px !important;
 }
