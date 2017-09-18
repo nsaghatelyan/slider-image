@@ -22,6 +22,7 @@
     } ?> huge-it-slider" data-autoplay="<?php echo $slider->get_video_autoplay(); ?>">
         <?php
         foreach ($slides as $key => $slide) {
+            if($slide !== false):
             $slide_type = $slides[$key]->get_type();
             $i = 0;
             switch ($slide_type) {
@@ -151,6 +152,7 @@
                     }
                     break;
             }
+            endif;
         }
         ?>
     </ul>

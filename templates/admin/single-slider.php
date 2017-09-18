@@ -95,7 +95,8 @@
                              * @var Hugeit_Slider_Slide_Image $slide
                              */
                             foreach ($slides as $order => $slide) :
-                                switch ($slide->get_type()) :
+                                if($slide !== false):
+                                switch ($slide->get_type()):
                                     case 'image' : ?>
                                         <li data-type="<?php echo 'image'; ?>" class="slider-cell"
                                             data-slide-id="<?php echo $slide->get_id(); ?>"
@@ -105,7 +106,9 @@
                                         <?php
                                         break;
                                 endswitch;
-                            endforeach; ?>
+                                endif;
+                                endforeach;
+                            ?>
                         </ul>
                     </div>
 
@@ -162,7 +165,7 @@
                                 <li style="<?php if ($slider->get_view() == 'carousel1') {
                                     echo 'display: none;';
                                 } ?>" class="standart_view_display ">
-                                    
+
                                     <label for="height"><?php _e('Height', 'hugeit-slider'); ?>
                                         <div class="tooltip"><span class="slider_help_icon">?</span>
                                             <span class="tooltiptext"><?php _e('Set image height in px', 'hugeit-slider'); ?></span>
@@ -302,8 +305,6 @@
                                     <input type="checkbox" name="pause_on_hover" value="1"
                                            id="pause_on_hover" <?php if ($slider->get_pause_on_hover() == '1') echo 'checked="checked"'; ?> />
                                 </li>
-
-                                <!--###########RANDOM UPDATE##############-->
 
 
                             </ul>
