@@ -55,7 +55,7 @@ class Hugeit_Slider_Install
             $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slide` ADD `seo_alt` varchar(512) DEFAULT NULL AFTER `seo_title`");
         }
         if (!self::isset_table_column($wpdb->prefix . "hugeit_slider_slide", "crop")) {
-            $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slide` ADD `crop` enum('top_left','top_center','top_right','center_left','center_center','center_right','bottom_left','bottom_center','bottom_right') NOT NULL DEFAULT 'center_center' AFTER `seo_alt`");
+            $wpdb->query("ALTER TABLE `" . $wpdb->prefix . "hugeit_slider_slide` ADD `crop` enum('top','center','bottom') NOT NULL DEFAULT 'center' AFTER `seo_alt`");
         }
     }
 
@@ -178,7 +178,7 @@ class Hugeit_Slider_Install
 				`description` varchar(2048) DEFAULT NULL,
 				`seo_title` varchar(512) DEFAULT NULL,
 				`seo_alt` varchar(512) DEFAULT NULL,
-				`crop` enum('top_left','top_center','top_right','center_left','center_center','center_right','bottom_left','bottom_center','bottom_right') NOT NULL DEFAULT 'center_center',
+				`crop` enum('top','center','bottom') NOT NULL DEFAULT 'center',
 				`url` varchar(2048) DEFAULT NULL,
 				`attachment_id` bigint(20) unsigned DEFAULT NULL,
 				`in_new_tab` int(1) unsigned NOT NULL DEFAULT '1',
