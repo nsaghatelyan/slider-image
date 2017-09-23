@@ -95,19 +95,19 @@
                              * @var Hugeit_Slider_Slide_Image $slide
                              */
                             foreach ($slides as $order => $slide) :
-                                if($slide !== false):
-                                switch ($slide->get_type()):
-                                    case 'image' : ?>
-                                        <li data-type="<?php echo 'image'; ?>" class="slider-cell"
-                                            data-slide-id="<?php echo $slide->get_id(); ?>"
-                                            data-order="<?php echo $order; ?>">
-                                            <?php echo Hugeit_Slider_Html_Loader::get_slide_html($slide); ?>
-                                        </li>
-                                        <?php
-                                        break;
-                                endswitch;
+                                if ($slide !== false):
+                                    switch ($slide->get_type()):
+                                        case 'image' : ?>
+                                            <li data-type="<?php echo 'image'; ?>" class="slider-cell"
+                                                data-slide-id="<?php echo $slide->get_id(); ?>"
+                                                data-order="<?php echo $order; ?>">
+                                                <?php echo Hugeit_Slider_Html_Loader::get_slide_html($slide); ?>
+                                            </li>
+                                            <?php
+                                            break;
+                                    endswitch;
                                 endif;
-                                endforeach;
+                            endforeach;
                             ?>
                         </ul>
                     </div>
@@ -336,7 +336,7 @@
                                 } ?>" class="thumb_view_display">
                                     <label for="fullscreen"><?php _e('Fullscreen', 'hugeit-slider'); ?>
                                         <div class="tooltip"><span class="slider_help_icon">?</span>
-                                            <span class="tooltiptext"><?php _e('', 'hugeit-slider'); ?></span>
+                                            <span class="tooltiptext"><?php _e('Enable/disable fullscreen option', 'hugeit-slider'); ?></span>
                                         </div>
                                     </label>
                                     <input type="checkbox" name="fullscreen" value="1"
@@ -347,7 +347,7 @@
                                 } ?>" class="thumb_view_display">
                                     <label for="swipe"><?php _e('Swipe', 'hugeit-slider'); ?>
                                         <div class="tooltip"><span class="slider_help_icon">?</span>
-                                            <span class="tooltiptext"><?php _e('Enable/disable fullscreen option', 'hugeit-slider'); ?></span>
+                                            <span class="tooltiptext"><?php _e('Enable/disable swipe option', 'hugeit-slider'); ?></span>
                                         </div>
                                     </label>
                                     <input type="checkbox" name="swipe" value="1"
@@ -540,17 +540,21 @@
                                 <li style="<?php if ($slider->get_view() != 'thumb_view') {
                                     echo 'display: none;';
                                 } ?>" class="thumb_view_display">
-                                    <label for="titlesymbollimit"><?php _e('Title Symbol Limit', 'hugeit-slider'); ?></label>
+                                    <label for="titlesymbollimit"
+                                           class="slider_disabled_label"><?php _e('Title Symbol Limit', 'hugeit-slider'); ?></label>
                                     <input type="text" name="titlesymbollimit" id="titlesymbollimit" value="20"
                                            class="text_area" disabled/>
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span> Pro </span></a>
                                 </li>
                                 <li style="<?php if ($slider->get_view() != 'thumb_view') {
                                     echo 'display: none;';
                                 } ?>" class="thumb_view_display">
-                                    <label for="descsymbollimit"><?php _e('Description Symbol Limit', 'hugeit-slider'); ?>
+                                    <label for="descsymbollimit"
+                                           class="slider_disabled_label"><?php _e('Description Symbol Limit', 'hugeit-slider'); ?>
                                     </label>
                                     <input type="text" name="descsymbollimit" id="descsymbollimit" value="96"
                                            class="text_area" disabled/>
+                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span> Pro </span></a>
                                 </li>
                                 <li style="<?php if ($slider->get_view() == 'thumb_view') {
                                     echo 'display: none;';

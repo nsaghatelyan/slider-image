@@ -195,7 +195,6 @@ class Hugeit_Slider_Install
 				`video_show_info` int(1) unsigned DEFAULT NULL,
 				`video_control_color` int(8) unsigned DEFAULT NULL,
 				`draft` int(1) unsigned DEFAULT NULL,
-				
 				PRIMARY KEY (`id`)
 			) {$collate}"
         );
