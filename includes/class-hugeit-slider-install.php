@@ -203,7 +203,7 @@ class Hugeit_Slider_Install
     private static function set_default_options()
     {
         if (Hugeit_Slider_Options::get_crop_image() === false) {
-            Hugeit_Slider_Options::set_crop_image('stretch', __('Slider crop image', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_crop_image('fill', __('Slider crop image', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_title_color() === false) {
