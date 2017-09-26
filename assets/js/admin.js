@@ -16,7 +16,9 @@ jQuery(window).load(function () {
         jQuery('#titlesymbollimit').parent().css('display', 'none');
         jQuery('#descsymbollimit').parent().css('display', 'none');
     } else {
-        jQuery('#height').parent().css('display', 'none');
+        if (jQuery('#slider-unique-options-list select[name*="view"]').val() === 'thumb_view') {
+            jQuery('#height').parent().css('display', 'none');
+        }
     }
 
     if (jQuery('#slider-unique-options-list select[name*="mode"]').val() === 'fade') {
@@ -28,6 +30,20 @@ jQuery(window).load(function () {
         jQuery('#height').parent().show();
     }
 });
+
+
+function setTab(att_id) {
+    var link = jQuery(".tabs-menu-" + att_id + " a");
+    link.click(function (event) {
+        event.preventDefault();
+
+        jQuery(this).parent().addClass("current");
+        jQuery(this).parent().siblings().removeClass("current");
+        var tab = jQuery(this).attr("href");
+        jQuery(this).parent().parent().parent().find(".tab-content").not(tab).css("display", "none");
+        jQuery(tab).fadeIn();
+    });
+};
 
 jQuery(document).ready(function () {
     jQuery('#view-image_frame ul li[data-id="' + jQuery('#arrows_style option[selected="selected"]').val() + '"]').addClass('active');
@@ -55,7 +71,7 @@ jQuery(document).ready(function () {
                 jQuery('.standart_view_display_').css('display', 'none');
                 jQuery('.carousel_view_display').css('display', 'block');
                 jQuery('.thumb_view_display').css('display', 'none');
-                jQuery('#navigate_by').parent().css('display', 'block');
+                jQuery('#navigate_by').parent().css('display', 'none');
                 jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'none');
                 jQuery("#cur_view_name").html("Carousel ");
                 break;

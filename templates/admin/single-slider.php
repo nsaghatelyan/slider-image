@@ -556,7 +556,7 @@
                                            class="text_area" disabled/>
                                     <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span> Pro </span></a>
                                 </li>
-                                <li style="<?php if ($slider->get_view() == 'thumb_view') {
+                                <li style="<?php if (in_array($slider->get_view(), array('thumb_view', 'carousel1'))) {
                                     echo 'display: none;';
                                 } ?>">
                                     <label for="navigate_by"><?php _e('Navigate By', 'hugeit-slider'); ?>
