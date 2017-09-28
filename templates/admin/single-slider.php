@@ -368,14 +368,6 @@
                                 <li style="<?php if ($slider->get_view() != 'thumb_view') {
                                     echo 'display: none;';
                                 } ?>" class="thumb_view_display">
-                                    <label for="pager"
-                                           class="slider_disabled_label"><?php _e('Thumbnails', 'hugeit-slider'); ?></label>
-                                    <input type="checkbox" name="pager" value="1" id="pager" disabled/>
-                                    <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span> Pro </span></a>
-                                </li>
-                                <li style="<?php if ($slider->get_view() != 'thumb_view') {
-                                    echo 'display: none;';
-                                } ?>" class="thumb_view_display">
                                     <label for="thumbposition"
                                            class="slider_disabled_label"><?php _e('Thumbnail Position', 'hugeit-slider'); ?>
                                         <div class="tooltip"><span class="slider_help_icon">?</span>

@@ -751,8 +751,9 @@ button.button-primary {
 }
 
 #arrows-type {
-    display: table;
+    /*display: table;*/
     margin: 0;
+    margin-top: 20px;
 }
 
 #arrows-type li {
