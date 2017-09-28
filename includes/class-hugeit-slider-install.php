@@ -367,7 +367,7 @@ class Hugeit_Slider_Install
         }
 
         if (Hugeit_Slider_Options::get_share_buttons() === false) {
-            Hugeit_Slider_Options::set_share_buttons(1, __('Share buttons', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons(0, __('Share buttons', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_facebook() === false) {
