@@ -559,8 +559,6 @@
                                     <select id="navigate_by" name="navigate_by">
                                         <option <?php if ($slider->get_navigate_by() == 'dot') echo 'selected'; ?>
                                                 value="dot"><?php _e('Dots', 'hugeit-slider'); ?></option>
-                                        <option <?php if ($slider->get_navigate_by() == 'thumbnail') echo 'selected'; ?>
-                                                value="thumbnail"><?php _e('Thumbnails', 'hugeit-slider'); ?></option>
                                         <option <?php if ($slider->get_navigate_by() == 'none') echo 'selected'; ?>
                                                 value="none"><?php _e('No Navigation', 'hugeit-slider'); ?></option>
                                     </select>

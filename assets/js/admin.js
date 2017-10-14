@@ -63,6 +63,7 @@ jQuery(document).ready(function () {
                 jQuery('.carousel_view_display').css('display', 'none');
                 jQuery('.thumb_view_display').css('display', 'none');
                 jQuery('#navigate_by').parent().css('display', 'block');
+                jQuery('#video_autoplay').parent().css('display', 'block');
                 jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'block');
                 jQuery("#cur_view_name").html("Standart ");
                 break;
@@ -72,6 +73,7 @@ jQuery(document).ready(function () {
                 jQuery('.carousel_view_display').css('display', 'block');
                 jQuery('.thumb_view_display').css('display', 'none');
                 jQuery('#navigate_by').parent().css('display', 'none');
+                jQuery('#video_autoplay').parent().css('display', 'none');
                 jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'none');
                 jQuery("#cur_view_name").html("Carousel ");
                 break;
@@ -81,6 +83,7 @@ jQuery(document).ready(function () {
                 jQuery('.carousel_view_display').css('display', 'none');
                 jQuery('.thumb_view_display').css('display', 'block');
                 jQuery('#navigate_by').parent().css('display', 'none');
+                jQuery('#video_autoplay').parent().css('display', 'none');
                 jQuery('button#hugeit_slider_add_video_slide_button').css('display', 'block');
                 jQuery("#cur_view_name").html("Thumbnail ");
                 break;
