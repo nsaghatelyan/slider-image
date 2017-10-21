@@ -1949,17 +1949,17 @@
             _this.cropImage();
 
             if (_this.settings.controls === 'thumbnail') {
-                jQuery('.huge-it-wrap').height(jQuery('#' + $id).height() + +hugeitSliderObj.thumb_height);
+                jQuery('.' + $id + ' .huge-it-wrap').height(jQuery('#' + $id).height() + +hugeitSliderObj.thumb_height);
             } else {
-                jQuery('.huge-it-wrap').height(jQuery('#' + $id).height());
+                jQuery('.' + $id + ' .huge-it-wrap').height(jQuery('#' + $id).height());
             }
 
         });
 
         if (_this.settings.controls === 'thumbnail') {
-            jQuery('.huge-it-wrap').height(jQuery('#' + $id).height() + +hugeitSliderObj.thumb_height);
+            jQuery('.' + $id + ' .huge-it-wrap').height(jQuery('#' + $id).height() + +hugeitSliderObj.thumb_height);
         } else {
-            jQuery('.huge-it-wrap').height(jQuery('#' + $id).height());
+            jQuery('.' + $id + ' .huge-it-wrap').height(jQuery('#' + $id).height());
         }
     };
 
