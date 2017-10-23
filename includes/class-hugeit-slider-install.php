@@ -371,27 +371,27 @@ class Hugeit_Slider_Install
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_facebook() === false) {
-            Hugeit_Slider_Options::set_share_buttons_facebook(1, __('Facebook', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons_facebook(0, __('Facebook', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_twitter() === false) {
-            Hugeit_Slider_Options::set_share_buttons_twitter(1, __('Twitter', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons_twitter(0, __('Twitter', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_gp() === false) {
-            Hugeit_Slider_Options::set_share_buttons_gp(1, __('Google Plus', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons_gp(0, __('Google Plus', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_pinterest() === false) {
-            Hugeit_Slider_Options::set_share_buttons_pinterest(1, __('Pinterest', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons_pinterest(0, __('Pinterest', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_linkedin() === false) {
-            Hugeit_Slider_Options::set_share_buttons_linkedin(1, __('Linkedin', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons_linkedin(0, __('Linkedin', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_tumblr() === false) {
-            Hugeit_Slider_Options::set_share_buttons_tumblr(1, __('Tumblr', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_share_buttons_tumblr(0, __('Tumblr', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_share_buttons_style() === false) {

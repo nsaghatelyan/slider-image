@@ -460,7 +460,9 @@
                 elSize = settings.sliderHeight;
                 $slide.css('height', elSize + 'px');
             } else {
-                elSize = $el.outerWidth();
+                // elSize = $el.outerWidth();
+                elSize = settings.sliderHeight;
+                $slide.css('height', elSize + 'px');
             }
             $children.addClass('rwd-slide');
             if (settings.mode === 'slide') {

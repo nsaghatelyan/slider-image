@@ -17,7 +17,7 @@ jQuery(window).load(function () {
         jQuery('#descsymbollimit').parent().css('display', 'none');
     } else {
         if (jQuery('#slider-unique-options-list select[name*="view"]').val() === 'thumb_view') {
-            jQuery('#height').parent().css('display', 'none');
+           // jQuery('#height').parent().css('display', 'none');
         }
     }
 
@@ -99,7 +99,7 @@ jQuery(document).ready(function () {
             if (jQuery('#vertical').attr('checked') === 'checked') {
                 jQuery('#height').parent().css('display', 'block');
             } else {
-                jQuery('#height').parent().css('display', 'none');
+               // jQuery('#height').parent().css('display', 'none');
             }
         }
     });
