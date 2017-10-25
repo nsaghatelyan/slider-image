@@ -220,7 +220,7 @@
                         break;
                     case 'thumbnail':
                         $pager = true;
-                        $thumb = true;
+                        $thumb = false;
                         break;
                     case 'none':
                         $pager = false;
