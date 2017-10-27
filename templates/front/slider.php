@@ -9,9 +9,9 @@
 ?>
 
 <div class="slider-parent"></div>
-<div class="slider_<?php echo $slider_id; ?>" <?php if ($slider->get_view() !== 'thumb_view') {
+<div class="slider_<?php echo $slider_id; ?> <?php if ($slider->get_view() !== 'thumb_view') {
     echo 'thumb_view';
-} ?>>
+} ?>" style="visibility: hidden;">
     <?php
     if ($show_loading_icon) {
         echo '<div class="slider-loader-' . $slider_id . '"></div>';
@@ -290,5 +290,9 @@
             arrows: singleSlider_<?php echo $slider_id; ?>.arrows_style,
             openCloseType: singleSlider_<?php echo $slider_id; ?>.open_close_effect
         });
+    });
+
+    jQuery(document).ready(function ($) {
+        $(".slider_<?php echo $slider_id; ?>").css("visibility","visible");
     });
 </script>
