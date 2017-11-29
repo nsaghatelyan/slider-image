@@ -561,18 +561,6 @@
                                            class="text_area" disabled/>
                                     <a class="probuttonlink" href="https://huge-it.com/slider/" target="_blank"><span> Pro </span></a>
                                 </li>
-                                <li style="<?php if ($slider->get_view() === 'carousel1') {
-                                    echo 'display: none;';
-                                } ?>" class="standart_view_display">
-                                    <label for="video_autoplay"
-                                           class="slider_disabled_label"><?php _e('Video Autoplay', 'hugeit-slider'); ?>
-                                        <div class="tooltip"><span class="slider_help_icon">?</span>
-                                            <span class="tooltiptext"><?php _e('Enable/disable video autoplay option', 'hugeit-slider'); ?></span>
-                                        </div>
-                                    </label>
-                                    <input type="checkbox" name="video_autoplay" value="1" disabled
-                                           id="video_autoplay" <?php if ($slider->get_video_autoplay() == '1') echo 'checked="checked"'; ?> />
-                                </li>
                                 <li style="<?php if (in_array($slider->get_view(), array('thumb_view', 'carousel1'))) {
                                     echo 'display: none;';
                                 } ?>">
