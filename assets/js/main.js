@@ -2408,7 +2408,7 @@
                     forward = (slideNum > this.currentPlace);
                 }
 
-                
+
                 switch (this.settings.controls) {
                     case 'dot':
                         this.$dotWrapLinks.eq(this.currentPlace).removeClass('active');
