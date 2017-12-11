@@ -1,5 +1,7 @@
 a.probuttonlink {
     color: white;
+    position: absolute;
+    right: 0;
 }
 
 #view-image_frame, #view-style-block {
