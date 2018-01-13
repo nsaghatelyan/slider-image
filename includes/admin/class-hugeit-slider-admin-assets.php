@@ -101,7 +101,7 @@ class Hugeit_Slider_Admin_Assets
             'removeSlideConfirm' => __('Are you sure you want to remove this slide ?', 'hugeit-slider'),
             'removeSliderConfirm' => __('Are you sure you want to remove this slider ?', 'hugeit-slider'),
             'sliderSuccessfullySaved' => __('Slider Updated', 'hugeit-slider'),
-            'sliderSaveFail' => __('OOPS something went wrong.'),
+            'sliderSaveFail' => __('OOPS something went wrong.', 'hugeit-slider'),
             'itemDeleted' => __('Item Deleted', 'hugeit-slider'),
         );
     }
