@@ -96,7 +96,7 @@
                 <option value="bottom" <?php if ($crop == "bottom") echo "selected"; ?>><?php _e('Bottom', 'hugeit-slider'); ?></option>
             </select>
             <p style="display:none;"
-               class="available_msg"><?php _e("This option available for Standart view", "hugeit-slider") ?></p>
+               class="available_msg"><?php _e("This option available for Standard view", "hugeit-slider") ?></p>
 
         </div>
     </div>

@@ -283,11 +283,11 @@ class Hugeit_Slider_Install
         }
 
         if (Hugeit_Slider_Options::get_slider_background_color() === false) {
-            Hugeit_Slider_Options::set_slider_background_color('ffffff', __('Slider slider background color', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_slider_background_color('ffffff', __('Slider background color', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_slider_background_color_transparency() === false) {
-            Hugeit_Slider_Options::set_slider_background_color_transparency(100, __('Slider slider background color transparency', 'hugeit-slider'));
+            Hugeit_Slider_Options::set_slider_background_color_transparency(100, __('Slider background color transparency', 'hugeit-slider'));
         }
 
         if (Hugeit_Slider_Options::get_active_dot_color() === false) {

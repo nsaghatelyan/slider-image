@@ -46,7 +46,7 @@ class Hugeit_Slider_Shortcode
 
         $container_id = 'hugeit_slider_media_popup';
 
-        $title = __('Select Huge IT Slider to insert into post', 'hugeit-slider');
+        $title = __('Select Huge-IT Slider to insert into post', 'hugeit-slider');
 
         $button_text = __('Add Slider', 'hugeit-slider');
 

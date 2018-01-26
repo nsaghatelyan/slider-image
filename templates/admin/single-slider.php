@@ -134,7 +134,7 @@
                                 <span>
 <input id="Radio1" name="view" type="radio"
        value="none" <?php if ($slider->get_view() == 'none') echo 'checked="checked"'; ?> >
-<label for="Radio1"><?php _e('Standart', 'hugeit-slider'); ?></label>
+<label for="Radio1"><?php _e('Standard', 'hugeit-slider'); ?></label>
 </span>
 
                                     <span>

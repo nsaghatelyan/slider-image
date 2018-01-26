@@ -18,8 +18,8 @@ if (!current_user_can('delete_pages')) {
     <?php echo Hugeit_Slider_Template_Loader::render(HUGEIT_SLIDER_ADMIN_TEMPLATES_PATH . DIRECTORY_SEPARATOR . 'free-banner.php'); ?>
     <div id="sliders-list-page">
         <h2>
-            <?php _e('Huge Sliders', 'hugeit-slider'); ?><a class="add-new-h2"
-                                                            href="<?php echo $add_slider_nonce; ?>"><?php _e('Add New Slider', 'hugeit-slider'); ?></a>
+            <?php _e('Huge-IT Sliders', 'hugeit-slider'); ?><a class="add-new-h2"
+                                                               href="<?php echo $add_slider_nonce; ?>"><?php _e('Add New Slider', 'hugeit-slider'); ?></a>
         </h2>
         <form id="sliders" method="post" action="<?php echo 'admin.php?page=hugeit_slider'; ?>">
             <div class="alignleft actions">
